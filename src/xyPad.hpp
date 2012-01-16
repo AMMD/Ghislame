@@ -45,7 +45,7 @@ public:
     }*/
 
     void moveCursor(Fl_Box* c, int x, int y) {
-	float scale_x, scale_y;
+      	float scale_x, scale_y;
 	float coef_x, coef_y;
 	int l = c->w();
 	int h = c->h();
