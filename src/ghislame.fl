@@ -68,6 +68,9 @@ Function {rvbGen(double valeur, double saturation, int teinte)} {open return_typ
 decl {\#include "xyPad.hpp"} {public global
 } 
 
+decl {\#include "light_xyPad.hpp"} {selected public global
+} 
+
 decl {using namespace std;} {} 
 
 decl {\#define SLIDER_INT 1} {} 
@@ -1010,6 +1013,7 @@ Function {} {open
           Fl_Group groupeVST1 {
             label {Par 64 Orl} open
             xywh {0 52 311 288} box BORDER_FRAME color 38 labelsize 10 labelcolor 133 align 34
+            class light_xyPad
           } {
             Fl_Box PadVst1 {
               label pad1
@@ -2337,7 +2341,7 @@ on}
             }
             Fl_Value_Slider fader3Ctrl1 {
               label Hold
-              callback {f_cb((Fl_Widget *)o, SLIDER_INT);} selected
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT);}
               xywh {1627 656 70 325} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labelcolor 133 align 146 textcolor 133
             }
             Fl_Button button10Ctrl1 {

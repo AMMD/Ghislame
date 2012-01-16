@@ -5,6 +5,7 @@
 #include <FL/Fl.H>
 double * rvbGen(double valeur, double saturation, int teinte);
 #include "xyPad.hpp"
+#include "light_xyPad.hpp"
 #include <FL/Fl_Double_Window.H>
 extern Fl_Double_Window *mainWindow;
 #include <FL/Fl_Tabs.H>
@@ -188,7 +189,7 @@ extern Fl_Button *bottombutton7;
 extern Fl_Button *bottombutton8;
 extern Fl_Tile *LAOTile;
 extern Fl_Group *groupepage2;
-extern Fl_Group *groupeVST1;
+extern light_xyPad *groupeVST1;
 extern xyPad *PadVst1;
 extern Fl_Slider *fader1vst1;
 #include <FL/Fl_Box.H>
