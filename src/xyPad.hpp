@@ -1,6 +1,7 @@
 /**/
 
-#include <stdio.h>
+//#include <stdio.h>
+#include <iostream>
 #include <string.h>
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
@@ -8,6 +9,7 @@
 #include <FL/Fl_Slider.H>
 #include <FL/fl_draw.H>
 #include <malloc.h>
+#include <typeinfo>
 
 // SENDER CLASS
 class xyPad : public Fl_Box {
@@ -83,7 +85,7 @@ public:
 	t = teinte;
 	s = saturation;
 	v = valeur;
-	fprintf(stderr, "teinte : %d / saturation : %f / valeur : %f\n", t, s, v);
+	//	fprintf(stderr, "teinte : %d / saturation : %f / valeur : %f\n", t, s, v);
 
     } 
 
@@ -153,6 +155,9 @@ public:
 	char* l = label;
 	int newx, newy;
 	Fl_Box* cursor;
+
+	// On identifie le type de parent
+	std::cout << "Type : " << typeid(((Fl_Box *)this)->parent()).name() << "\n" << std::endl;
 
 	// On identifie le curseur
 	cursor = (Fl_Box *)this->parent()->child(2);
