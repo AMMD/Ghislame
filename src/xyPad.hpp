@@ -157,7 +157,9 @@ public:
 	Fl_Box* cursor;
 
 	// On identifie le type de parent
-	std::cout << "Type : " << typeid(((Fl_Box *)this)->parent()).name() << "\n" << std::endl;
+	//	std::cout << "Type : " << typeid(((Fl_Box *)this)->parent()).name() << "\n" << std::endl;
+	std::cout << "Type : " << typeid(this->parent()).name() << "\n" << std::endl;
+
 
 	// On identifie le curseur
 	cursor = (Fl_Box *)this->parent()->child(2);

@@ -87,7 +87,7 @@ Function {} {open
 } {
   Fl_Window mainWindow {
     label Ghislame open
-    xywh {0 1 1920 1075} type Double color 33 selection_color 37 labelcolor 22 resizable modal noborder size_range {1920 1056 1920 1056} visible
+    xywh {0 25 1440 875} type Double color 33 selection_color 37 labelcolor 22 resizable modal noborder size_range {1920 1056 1920 1056} visible
   } {
     Fl_Tabs tabGen {
       label tabGen open
@@ -1009,6 +1009,7 @@ Function {} {open
         Fl_Group groupepage2 {
           label groupepage2 open
           xywh {0 51 1926 1009} box FLAT_BOX color 33 labelcolor 33 align 16
+          class light_xyPad
         } {
           Fl_Group groupeVST1 {
             label {Par 64 Orl} open
