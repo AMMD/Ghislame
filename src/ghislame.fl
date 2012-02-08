@@ -10,61 +10,6 @@ decl {\#include <stdlib.h>} {}
 
 decl {\#include <string.h>} {} 
 
-Function {rvbGen(double valeur, double saturation, int teinte)} {open return_type {double *}
-} {
-  code {double *rvb;
-        double le, me, ne;
-        rvb = (double *)malloc(3*sizeof(double));
-        double f; int ti;
-
-        fprintf(stderr, "teinte : %d / saturation : %f / valeur : %f\\n", teinte, saturation, valeur);
-
-        ti=(teinte/60)%6;
-        f=teinte/60.0-ti;
-
-        le = valeur*(1-saturation);
-        me = valeur*(1-f*saturation);
-        ne = valeur*(1-(1-f)*saturation);
-
-        fprintf(stderr, "f: %f, le: %f, me: %f, ne: %f\\n\\n", f, le, me, ne);
-
-        switch(ti){
-                case 0:
-                        rvb[0] = valeur;
-                        rvb[1] = ne;
-                        rvb[2] = le;
-                        break;
-                case 1:
-                        rvb[0] = me;
-                        rvb[1] = valeur;
-                        rvb[2] = le;
-                        break;
-                case 2:
-                        rvb[0] = le;
-                        rvb[1] = valeur;
-                        rvb[2] = ne;
-                        break;
-                case 3:
-                        rvb[0] = le;
-                        rvb[1] = me;
-                        rvb[2] = valeur;
-                        break;
-                case 4:
-                        rvb[0] = ne;
-                        rvb[1] = le;
-                        rvb[2] = valeur;
-                        break;
-                case 5:
-                        rvb[0] = valeur;
-                        rvb[1] = le;
-                        rvb[2] = me;
-                        break;
-        }
-        fprintf(stderr, "r: %f / v: %f / b: %f\\n\\n", rvb[0], rvb[1], rvb[2]);
-
-        return rvb;} {}
-} 
-
 decl {\#include "xyPad.hpp"} {public global
 } 
 
@@ -2980,11 +2925,19 @@ t = (int)(((Fl_Slider *)widget)->value()*359);
 
 // mise à jour couleur du pad
 double *revebe; revebe = (double *)malloc(3*sizeof(double));
-revebe = rvbGen(1, 1, t);
-fl_color((uchar)(revebe[0]*255), (uchar)(revebe[1]*255), (uchar)(revebe[2]*255));
-xy->color(fl_color());	
-xy->redraw();
-cur->redraw();
+Fl_Widget* papa = widget->parent();
+if( dynamic_cast<light_xyPad *>(papa) ) {
+	light_xyPad* father = (light_xyPad *)papa;
 
-// fprintf(stderr,"depuis le callback: padlabel : %s, r: %f, v: %f, b: %f\\n", xy->label(), revebe[0], revebe[1], revebe[2]);} {}
+	father->t_set(t);
+	father->rvbGen();
+	revebe = father->rgb_();	
+	fl_color((uchar)(revebe[0]*255), (uchar)(revebe[1]*255), (uchar)(revebe[2]*255));
+	xy->color(fl_color());	
+	xy->redraw();
+	cur->redraw();
+}
+
+// fprintf(stderr,"depuis le callback: padlabel : %s, r: %f, v: %f, b: %f\\n", xy->label(), revebe[0], revebe[1], revebe[2]);} {selected
+  }
 } 

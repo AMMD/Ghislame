@@ -3,7 +3,6 @@
 #ifndef ghislame_h
 #define ghislame_h
 #include <FL/Fl.H>
-double * rvbGen(double valeur, double saturation, int teinte);
 #include "xyPad.hpp"
 #include <FL/Fl_Double_Window.H>
 extern Fl_Double_Window *mainWindow;
