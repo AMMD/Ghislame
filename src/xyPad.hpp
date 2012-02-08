@@ -9,20 +9,31 @@
 #include <FL/Fl_Slider.H>
 #include <FL/fl_draw.H>
 #include <malloc.h>
+#include "OSCoutputs.hpp"
+#include <lo/lo.h>
 //#include <typeinfo>
 
 // SENDER CLASS
 class light_xyPad : public Fl_Group {
 private:
-	double v, s; int t;
-	double *rgb;
+  double v, s; int t;
+  double *rgb;
+  const char *host, *udp_port;
+  lo_address osco;
 public:
   // light_xyPad Ctor
   light_xyPad(int x,int y,int w,int h, char* l) : Fl_Group(x,y,w,h,l) {
     box(FL_FLAT_BOX); color(9); //label("Drag from here");
     rgb = (double *)malloc(3*sizeof(double));
+
+    host = "SC-bassControl";
+    udp_port = "7700";
+
+    osco = lo_address_new( host, udp_port );
   }
-  
+
+  lo_address osco_(){ return osco; };
+
   double v_() {
     return v;
   }
@@ -58,58 +69,102 @@ public:
     rgb = revebe;
   }
 
-  void *rvbGen(){
+  double *rvbGen(){
     double valeur = v;
     double saturation = s;
     int teinte = t;
-    double *rvb;
-    double le, me, ne;
-    rvb = (double *)malloc(3*sizeof(double));
-    double f; int ti;
     
+
+    for(int i = 0; i<2; i++) {
+      double *rvb;
+      double le, me, ne;
+      rvb = (double *)malloc(3*sizeof(double));
+      double f; int ti;
+
+      ti=(teinte/60)%6;
+      f=teinte/60.0-ti;
+      
+      if(i){
+	valeur = 1;
+	saturation = 1;
+      }
+
+
+      le = valeur*(1-saturation);
+      me = valeur*(1-f*saturation);
+      ne = valeur*(1-(1-f)*saturation);
+      
+      switch(ti){
+      case 0:
+	rvb[0] = valeur;
+	rvb[1] = ne;
+	rvb[2] = le;
+	break;
+      case 1:
+	rvb[0] = me;
+	rvb[1] = valeur;
+	rvb[2] = le;
+	break;
+      case 2:
+	rvb[0] = le;
+	rvb[1] = valeur;
+	rvb[2] = ne;
+      break;
+      case 3:
+	rvb[0] = le;
+	rvb[1] = me;
+	rvb[2] = valeur;
+	break;
+      case 4:
+	rvb[0] = ne;
+	rvb[1] = le;
+	rvb[2] = valeur;
+	break;
+      case 5:
+	rvb[0] = valeur;
+	rvb[1] = le;
+	rvb[2] = me;
+	break;
+      }
     
-    ti=(teinte/60)%6;
-    f=teinte/60.0-ti;
-    
-    le = valeur*(1-saturation);
-    me = valeur*(1-f*saturation);
-    ne = valeur*(1-(1-f)*saturation);
-    
-    switch(ti){
-    case 0:
-      rvb[0] = valeur;
-      rvb[1] = ne;
-      rvb[2] = le;
-      break;
-    case 1:
-      rvb[0] = me;
-      rvb[1] = valeur;
-      rvb[2] = le;
-      break;
-    case 2:
-      rvb[0] = le;
-      rvb[1] = valeur;
-      rvb[2] = ne;
-      break;
-    case 3:
-      rvb[0] = le;
-      rvb[1] = me;
-      rvb[2] = valeur;
-      break;
-    case 4:
-      rvb[0] = ne;
-      rvb[1] = le;
-      rvb[2] = valeur;
-      break;
-    case 5:
-      rvb[0] = valeur;
-      rvb[1] = le;
-      rvb[2] = me;
-      break;
+      if(!i)
+	rgb = rvb;	
+      else
+	return rvb;
+
+      free(rvb);
     }
+  };
+
+
+  void sendOSCrgb(){
+    char path[1024], tmpath[1024], rpath[1024], gpath[1024], bpath[1024];
+
+    strcpy(path,"/");
+    strcpy(tmpath,"/");
+    strcat(path, this->label());
     
-    rgb = rvb;
-  }
+    Fl_Widget* wid=(Fl_Widget *)this;
+    while(wid->parent()){
+      strcat(tmpath, wid->parent()->label());
+      strcat(tmpath,path);
+      strcpy(path,tmpath);
+      strcpy(tmpath,"/");
+      wid = wid->parent();
+    }
+
+
+
+    strcpy(rpath,path); strcat(rpath, "/red");
+    lo_send(osco, rpath, "f", rgb[0]);
+
+    strcpy(gpath,path); strcat(gpath,"/green");
+    lo_send(osco, gpath, "f", rgb[1]);
+
+    strcpy(bpath,path); strcat(bpath,"/blue");
+    lo_send(osco, bpath, "f", rgb[2]);
+  };
+
 };
 
 // SENDER CLASS
@@ -189,6 +244,8 @@ public:
 
 			  father->rvbGen();
 			  //			  std::cout << "RVB: " << father->rgb_()[0] << " " << father->rgb_()[1] << " " << father->rgb_()[2] << std::endl;
+
+			  father->sendOSCrgb();
 			} else {
 			}
 		}
@@ -204,6 +261,9 @@ public:
 
 			  father->rvbGen();			  
 			  //			  std::cout << "RVB: " << father->rgb_()[0] << " " << father->rgb_()[1] << " " << father->rgb_()[2] << std::endl;
+
+			  father->sendOSCrgb();
+
 			} else {
 			}
 		}
@@ -224,6 +284,9 @@ public:
 
 			  father->rvbGen();			  
 			  //			  std::cout << "RVB: " << father->rgb_()[0] << " " << father->rgb_()[1] << " " << father->rgb_()[2] << std::endl;
+
+			  father->sendOSCrgb();
+
 			} else {
 			}
 		}
@@ -239,6 +302,9 @@ public:
 
 			  father->rvbGen();			  
 			  //			  std::cout << "RVB: " << father->rgb_()[0] << " " << father->rgb_()[1] << " " << father->rgb_()[2] << std::endl;
+
+			  father->sendOSCrgb();
+
 			} else {
 			}
 

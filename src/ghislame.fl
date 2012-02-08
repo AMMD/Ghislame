@@ -11,9 +11,6 @@ decl {\#include <string.h>} {}
 decl {\#include "xyPad.hpp"} {public global
 } 
 
-decl {\#include "OSCoutputs.hpp"} {public global
-} 
-
 decl {using namespace std;} {} 
 
 Function {} {open
@@ -2921,13 +2918,15 @@ if( dynamic_cast<light_xyPad *>(papa) ) {
 	light_xyPad* father = (light_xyPad *)papa;
 
 	father->t_set(t);
-	father->rvbGen();
-	revebe = father->rgb_();	
+	revebe = father->rvbGen();
+	//revebe = father->svrgb_();
+	father->sendOSCrgb();	
 	fl_color((uchar)(revebe[0]*255), (uchar)(revebe[1]*255), (uchar)(revebe[2]*255));
 	xy->color(fl_color());	
 	xy->redraw();
 	cur->redraw();
 }
 
-// fprintf(stderr,"depuis le callback: padlabel : %s, r: %f, v: %f, b: %f\\n", xy->label(), revebe[0], revebe[1], revebe[2]);} {}
+// fprintf(stderr,"depuis le callback: padlabel : %s, r: %f, v: %f, b: %f\\n", xy->label(), revebe[0], revebe[1], revebe[2]);} {selected
+  }
 } 

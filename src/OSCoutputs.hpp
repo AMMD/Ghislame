@@ -7,6 +7,7 @@
 #include <FL/Fl_Slider.H>
 #include <FL/Fl_Roller.H>
 
+
 #define SLIDER_INT 1
 #define BUTTON_INT 2
 #define DIAL_INT 3
@@ -59,4 +60,6 @@ public:
       break;
     }
   };
+
+
 };

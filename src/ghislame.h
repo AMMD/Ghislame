@@ -4,7 +4,6 @@
 #define ghislame_h
 #include <FL/Fl.H>
 #include "xyPad.hpp"
-#include "OSCoutputs.hpp"
 #include <FL/Fl_Double_Window.H>
 extern Fl_Double_Window *mainWindow;
 #include <FL/Fl_Tabs.H>
