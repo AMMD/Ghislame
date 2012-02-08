@@ -12,6 +12,26 @@
 #include <typeinfo>
 
 // SENDER CLASS
+class light_xyPad : public Fl_Group {
+private:
+	int xpos, ypos, width, height;
+	char* label;
+	double v, s; int t;
+	double *rgb;
+public:
+    // light_xyPad Ctor
+    light_xyPad(int x,int y,int w,int h, char* l) : Fl_Group(x,y,w,h,l) {
+        box(FL_FLAT_BOX); color(9); //label("Drag from here");
+	xpos = x;
+	ypos = y;
+	width = w;
+	height = h;
+	label = l;
+	rgb = (double *)malloc(3*sizeof(double));
+    }
+};
+
+// SENDER CLASS
 class xyPad : public Fl_Box {
 private:
 	int xpos, ypos, width, height;
@@ -158,7 +178,11 @@ public:
 
 	// On identifie le type de parent
 	//	std::cout << "Type : " << typeid(((Fl_Box *)this)->parent()).name() << "\n" << std::endl;
-	std::cout << "Type : " << typeid(this->parent()).name() << "\n" << std::endl;
+	Fl_Widget* truc = this->parent();
+	if( dynamic_cast< light_xyPad* >(truc) ){
+	  std::cout << "Type : light_xyPad" << std::endl;
+	}
+	//	std::cout << "Type : " << typeid(this->parent()).name() << "\n" << std::endl;
 
 
 	// On identifie le curseur

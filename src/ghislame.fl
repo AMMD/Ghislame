@@ -68,9 +68,6 @@ Function {rvbGen(double valeur, double saturation, int teinte)} {open return_typ
 decl {\#include "xyPad.hpp"} {public global
 } 
 
-decl {\#include "light_xyPad.hpp"} {selected public global
-} 
-
 decl {using namespace std;} {} 
 
 decl {\#define SLIDER_INT 1} {} 
@@ -1009,7 +1006,6 @@ Function {} {open
         Fl_Group groupepage2 {
           label groupepage2 open
           xywh {0 51 1926 1009} box FLAT_BOX color 33 labelcolor 33 align 16
-          class light_xyPad
         } {
           Fl_Group groupeVST1 {
             label {Par 64 Orl} open
