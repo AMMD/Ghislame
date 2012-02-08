@@ -2,8 +2,6 @@
 version 1.0110 
 header_name {.h} 
 code_name {.cxx}
-decl {\#include <lo/lo.h>} {} 
-
 decl {\#include <stdio.h>} {} 
 
 decl {\#include <stdlib.h>} {} 
@@ -13,17 +11,10 @@ decl {\#include <string.h>} {}
 decl {\#include "xyPad.hpp"} {public global
 } 
 
+decl {\#include "OSCoutputs.hpp"} {public global
+} 
+
 decl {using namespace std;} {} 
-
-decl {\#define SLIDER_INT 1} {} 
-
-decl {\#define BUTTON_INT 2} {} 
-
-decl {\#define DIAL_INT 3} {} 
-
-decl {\#define ROLLER_INT 4} {} 
-
-decl {lo_address t = lo_address_new("dukiste", "7700");} {} 
 
 Function {} {open
 } {
@@ -33,7 +24,7 @@ Function {} {open
   } {
     Fl_Tabs tabGen {
       label tabGen open
-      xywh {0 0 1920 1075} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
+      xywh {0 0 1926 1075} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
     } {
       Fl_Tile VAOTile {
         label {  LiVES } open
@@ -946,7 +937,7 @@ Function {} {open
       }
       Fl_Tile LAOTile {
         label { QLC } open
-        xywh {0 50 1920 1024} color 33 selection_color 133 labelsize 40 labelcolor 65
+        xywh {0 50 1926 1024} color 33 selection_color 133 labelsize 40 labelcolor 65
       } {
         Fl_Group groupepage2 {
           label groupepage2 open
@@ -2880,10 +2871,10 @@ Function {f_cb(Fl_Widget* o, int wType)} {open
 
 o->redraw();
 
-char path[1024], tmpath[1024];
+//char path[1024], tmpath[1024];
 
 
-
+/*
 strcpy(path,"/");
 strcpy(tmpath,"/");
 strcat(path, widget->label());
@@ -2912,7 +2903,7 @@ switch(wType){
 	case ROLLER_INT:
 		lo_send(t, path, "f", ((Fl_Roller *)widget)->value());
 	break;
-}} {}
+}*/} {}
 } 
 
 Function {fTeinte_cb(Fl_Widget* o)} {open
@@ -2938,6 +2929,5 @@ if( dynamic_cast<light_xyPad *>(papa) ) {
 	cur->redraw();
 }
 
-// fprintf(stderr,"depuis le callback: padlabel : %s, r: %f, v: %f, b: %f\\n", xy->label(), revebe[0], revebe[1], revebe[2]);} {selected
-  }
+// fprintf(stderr,"depuis le callback: padlabel : %s, r: %f, v: %f, b: %f\\n", xy->label(), revebe[0], revebe[1], revebe[2]);} {}
 } 
