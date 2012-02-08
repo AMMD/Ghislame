@@ -9,7 +9,7 @@
 #include <FL/Fl_Slider.H>
 #include <FL/fl_draw.H>
 #include <malloc.h>
-#include <typeinfo>
+//#include <typeinfo>
 
 // SENDER CLASS
 class light_xyPad : public Fl_Group {
