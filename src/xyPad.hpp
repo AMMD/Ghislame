@@ -142,27 +142,30 @@ public:
 
     strcpy(path,"/");
     strcpy(tmpath,"/");
-    strcat(path, this->label());
+    //    strcat(path, this->label());
     
     Fl_Widget* wid=(Fl_Widget *)this;
     while(wid->parent()){
-      strcat(tmpath, wid->parent()->label());
-      strcat(tmpath,path);
-      strcpy(path,tmpath);
-      strcpy(tmpath,"/");
+      if(wid->parent()->label()){
+	strcat(tmpath, wid->parent()->label());
+	strcat(tmpath,path);
+	strcpy(path,tmpath);
+	strcpy(tmpath,"/");
+      }
       wid = wid->parent();
     }
 
 
+    strcat(path, "light_xyPad");
+    lo_send(osco, path, "sfff", this->label(), rgb[0], rgb[1], rgb[2]);
+    // strcpy(rpath,path); strcat(rpath, "/red");
+    // lo_send(osco, rpath, "f", rgb[0]);
 
-    strcpy(rpath,path); strcat(rpath, "/red");
-    lo_send(osco, rpath, "f", rgb[0]);
+    // strcpy(gpath,path); strcat(gpath,"/green");
+    // lo_send(osco, gpath, "f", rgb[1]);
 
-    strcpy(gpath,path); strcat(gpath,"/green");
-    lo_send(osco, gpath, "f", rgb[1]);
-
-    strcpy(bpath,path); strcat(bpath,"/blue");
-    lo_send(osco, bpath, "f", rgb[2]);
+    // strcpy(bpath,path); strcat(bpath,"/blue");
+    // lo_send(osco, bpath, "f", rgb[2]);
   };
 
 };

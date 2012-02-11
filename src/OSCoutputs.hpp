@@ -5,6 +5,7 @@
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Dial.H>
 #include <FL/Fl_Slider.H>
+#include <FL/Fl_Value_Slider.H>
 #include <FL/Fl_Roller.H>
 
 
@@ -22,45 +23,48 @@ public:
   OSCoutput(const char* h, const char* p){
     udp_port = p;
     t = lo_address_new(h,p);
-    std::cout << "Création d'une adresse OSC d'envoi" << std::endl;
-    std::cout << "Host: " << h << std::endl;
-    std::cout << "Port: " << p << std::endl;
+    //    std::cout << "Création d'une adresse OSC d'envoi" << std::endl;
+    //    std::cout << "Host: " << h << std::endl;
+    //    std::cout << "Port: " << p << std::endl;
   };
   ~OSCoutput(){};
 
   void sendOSC(Fl_Widget* widget, int wType){
     char path[1024], tmpath[1024];
     
-    std::cout << "Envoi OSC, udp_port: " << udp_port << " / wType: " << wType << std::endl;
+    //    std::cout << "Envoi OSC, udp_port: " << udp_port << " / wType: " << wType << std::endl;
     
     strcpy(path,"/");
     strcpy(tmpath,"/");
-    strcat(path, widget->label());
+    //    strcat(path, widget->label());
     
     Fl_Widget* wid=(Fl_Widget *)widget;
     while(wid->parent()){
-      strcat(tmpath, wid->parent()->label());
-      strcat(tmpath,path);
-      strcpy(path,tmpath);
-      strcpy(tmpath,"/");
+      if(wid->parent()->label()){
+	strcat(tmpath, wid->parent()->label());
+	strcat(tmpath,path);
+	strcpy(path,tmpath);
+	strcpy(tmpath,"/");
+      }
       wid = wid->parent();
     }
-    
-    
-    
+
     switch(wType){
     case SLIDER_INT:
-      std::cout << path << " ,f " << ((Fl_Slider *)widget)->value() << std::endl;
-      lo_send(t, path, "f", ((Fl_Slider *)widget)->value());
+      strcat(path, "slider");
+      lo_send(t, path, "sf", widget->label(), ((Fl_Slider *)widget)->value());
       break;
     case BUTTON_INT:
-      lo_send(t, path, "i", ((Fl_Button *)widget)->value());
+      strcat(path, "button");
+      lo_send(t, path, "si", widget->label(), ((Fl_Button *)widget)->value());
       break;
     case DIAL_INT:
-      lo_send(t, path, "f", ((Fl_Dial *)widget)->value());
+      strcat(path, "dial");
+      lo_send(t, path, "sf", widget->label(), ((Fl_Dial *)widget)->value());
 	break;
     case ROLLER_INT:
-      lo_send(t, path, "f", ((Fl_Roller *)widget)->value());
+      strcat(path, "roller");
+      lo_send(t, path, "sf", widget->label(), ((Fl_Roller *)widget)->value());
       break;
     }
   };
