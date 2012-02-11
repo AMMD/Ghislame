@@ -45,7 +45,7 @@ Function {} {open
     } {
       Fl_Tile MainGroupsTile {
         label MainGroups open
-        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65
+        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
       } {
         Fl_Group MainGroupsGroup {open
           xywh {5 71 1910 970} labeltype NO_LABEL align 0 resizable
@@ -77,7 +77,7 @@ Function {} {open
           }
           Fl_Dial mg_bassespan {
             label bassespan
-            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
             xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {mg_bassespan->configOSC("SCSon","56416");}
             class OSCDial
@@ -279,7 +279,7 @@ Function {} {open
       }
       Fl_Tile OrganicDrumsTile {
         label OrganicDrums open
-        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65
+        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
       } {
         Fl_Group OrganicDrumsGroup {open
           xywh {5 71 1910 970} labeltype NO_LABEL align 0 resizable
@@ -311,7 +311,7 @@ Function {} {open
           }
           Fl_Dial od_kick2pan {
             label kick2pan
-            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
             xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {od_kick2pan->configOSC("SCSon","56416");}
             class OSCDial
@@ -513,7 +513,7 @@ Function {} {open
       }
       Fl_Tile BassesTile {
         label Basses open
-        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65
+        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
       } {
         Fl_Group BassesGroup {open
           xywh {5 71 1910 970} labeltype NO_LABEL align 0 resizable
@@ -545,7 +545,7 @@ Function {} {open
           }
           Fl_Dial b_grotteriepan {
             label grotteriepan
-            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
             xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {b_grotteriepan->configOSC("SCSon","56416");}
             class OSCDial
@@ -622,7 +622,7 @@ Function {} {open
       }
       Fl_Tile SaxophonesTile {
         label Saxophones open
-        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65
+        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
       } {
         Fl_Group SaxophonesGroup {open
           xywh {5 71 1910 970} labeltype NO_LABEL align 0 resizable
@@ -654,7 +654,7 @@ Function {} {open
           }
           Fl_Dial s_saxfxpan {
             label saxfxpan
-            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
             xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {s_saxfxpan->configOSC("SCSon","56416");}
             class OSCDial
@@ -677,11 +677,11 @@ Function {} {open
             code0 {s_saxfxmute->configOSC("SCSon","56416");}
             class OSCButton
           }
-	}
+        }
       }
       Fl_Tile VocalsTile {
         label Vocals open
-        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65
+        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
       } {
         Fl_Group VocalsGroup {open
           xywh {5 71 1910 970} labeltype NO_LABEL align 0 resizable
@@ -713,7 +713,7 @@ Function {} {open
           }
           Fl_Dial v_souvpan {
             label souvpan
-            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
             xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {v_souvpan->configOSC("SCSon","56416");}
             class OSCDial
@@ -739,58 +739,58 @@ Function {} {open
           Fl_Dial v_yulapan {
             label yulapan
             callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-            xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            xywh {268 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {v_yulapan->configOSC("SCSon","56416");}
             class OSCDial
           }
           Fl_Value_Input {} {
             label valuein1ter
-            xywh {37 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            xywh {300 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
           }
           Fl_Value_Slider v_yulafader {
             label yulafader
             callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-            xywh {17 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            xywh {280 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
             code0 {v_yulafader->configOSC("SCSon","56416");}
             class OSCValueSlider
           }
           Fl_Button v_yulamute {
             label yulamute
             callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-            xywh {17 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            xywh {280 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
             code0 {v_yulamute->configOSC("SCSon","56416");}
             class OSCButton
           }
           Fl_Dial v_voixfxpan {
             label voixfxpan
-            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
-            xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+            xywh {397 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {v_voixfxpan->configOSC("SCSon","56416");}
             class OSCDial
           }
           Fl_Value_Input {} {
             label valuein1ter
-            xywh {171 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            xywh {429 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
           }
           Fl_Value_Slider v_voixfxfader {
             label voixfxfader
             callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-            xywh {151 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            xywh {409 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
             code0 {v_voixfxfader->configOSC("SCSon","56416");}
             class OSCValueSlider
           }
           Fl_Button v_voixfxmute {
             label voixfxmute
             callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-            xywh {151 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            xywh {409 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
             code0 {v_voixfxmute->configOSC("SCSon","56416");}
             class OSCButton
           }
-	}
+        }
       }
       Fl_Tile MxSynthsTile {
         label MxSynths open
-        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65
+        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
       } {
         Fl_Group MxSynthsGroup {open
           xywh {5 71 1910 970} labeltype NO_LABEL align 0 resizable
@@ -822,7 +822,7 @@ Function {} {open
           }
           Fl_Dial ms_mxleadpan {
             label mxleadpan
-            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
             xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {ms_mxleadpan->configOSC("SCSon","56416");}
             class OSCDial
@@ -848,54 +848,54 @@ Function {} {open
           Fl_Dial ms_mxctleadpan {
             label mxctleadpan
             callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-            xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            xywh {285 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {ms_mxctleadpan->configOSC("SCSon","56416");}
             class OSCDial
           }
           Fl_Value_Input {} {
             label valuein1ter
-            xywh {37 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            xywh {317 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
           }
           Fl_Value_Slider md_mxctleadfader {
             label mxctleadfader
             callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-            xywh {17 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            xywh {297 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
             code0 {md_mxctleadfader->configOSC("SCSon","56416");}
             class OSCValueSlider
           }
           Fl_Button md_mxctleadmute {
             label mxctleadmute
             callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-            xywh {17 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            xywh {297 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
             code0 {md_mxctleadmute->configOSC("SCSon","56416");}
             class OSCButton
           }
           Fl_Dial ms_mxsamplespan {
             label mxsamplespan
-            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
-            xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+            xywh {422 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {ms_mxsamplespan->configOSC("SCSon","56416");}
             class OSCDial
           }
           Fl_Value_Input {} {
             label valuein1ter
-            xywh {171 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            xywh {454 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
           }
           Fl_Value_Slider ms_mxsamplesfader {
             label mxsamplesfader
             callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-            xywh {151 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            xywh {434 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
             code0 {ms_mxsamplesfader->configOSC("SCSon","56416");}
             class OSCValueSlider
           }
           Fl_Button ms_mxsamplesmute {
             label mxsamplesmute
             callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-            xywh {151 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            xywh {434 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
             code0 {ms_mxsamplesmute->configOSC("SCSon","56416");}
             class OSCButton
           }
-	}
+        }
       }
       Fl_Tile MxDrumsTile {
         label MxDrums open
@@ -931,7 +931,7 @@ Function {} {open
           }
           Fl_Dial md_mxsnarespan {
             label mxsnarespan
-            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
             xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {md_mxsnarespan->configOSC("SCSon","56416");}
             class OSCDial
@@ -957,54 +957,54 @@ Function {} {open
           Fl_Dial md_mxcymbspan {
             label mxcymbspan
             callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-            xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            xywh {276 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {md_mxcymbspan->configOSC("SCSon","56416");}
             class OSCDial
           }
           Fl_Value_Input {} {
             label valuein1ter
-            xywh {37 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            xywh {308 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
           }
           Fl_Value_Slider md_mxcymbsfader {
             label mxcymbsfader
             callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-            xywh {17 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            xywh {288 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
             code0 {md_mxcymbsfader->configOSC("SCSon","56416");}
             class OSCValueSlider
           }
           Fl_Button md_mxcymbsmute {
             label mxcymbsmute
             callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-            xywh {17 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            xywh {288 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
             code0 {md_mxcymbsmute->configOSC("SCSon","56416");}
             class OSCButton
           }
           Fl_Dial md_mxcontpan {
             label mxcontpan
             callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
-            xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            xywh {414 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
             code0 {md_mxcontpan->configOSC("SCSon","56416");}
             class OSCDial
           }
           Fl_Value_Input {} {
-            label valuein1ter
-            xywh {171 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            label valuein1ter selected
+            xywh {446 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
           }
           Fl_Value_Slider md_mxcontfader {
             label mxcontfader
-            callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-            xywh {151 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");} selected
+            xywh {426 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
             code0 {md_mxcontfader->configOSC("SCSon","56416");}
             class OSCValueSlider
           }
           Fl_Button md_mxcontmute {
             label mxcontmute
-            callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-            xywh {151 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")} selected
+            xywh {426 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
             code0 {md_mxcontmute->configOSC("SCSon","56416");}
             class OSCButton
           }
-	}
+        }
       }
     }
   }
