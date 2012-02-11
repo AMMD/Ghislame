@@ -3182,8 +3182,9 @@ on}
           }
           Fl_Value_Slider fader301 {
             label Fader1
-            callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+            callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");} selected
             xywh {17 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            code0 {fader301->configOSC("SC-bassControl","1234");}
             class OSCValueSlider
           }
           Fl_Button button301 {
@@ -3423,8 +3424,7 @@ switch(wType){
 	case ROLLER_INT:
 		lo_send(t, path, "f", ((Fl_Roller *)widget)->value());
 	break;
-}*/} {selected
-  }
+}*/} {}
 } 
 
 Function {fTeinte_cb(Fl_Widget* o)} {open
