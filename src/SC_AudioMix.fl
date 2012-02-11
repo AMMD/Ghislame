@@ -621,7 +621,7 @@ Function {} {open
         }
       }
       Fl_Tile SaxophonesTile {
-        label Saxohphones open
+        label Saxophones open
         xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65
       } {
         Fl_Group SaxophonesGroup {open
@@ -679,6 +679,117 @@ Function {} {open
           }
 	}
       }
+      Fl_Tile VocalsTile {
+        label Vocals open
+        xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65
+      } {
+        Fl_Group VocalsGroup {open
+          xywh {5 71 1910 970} labeltype NO_LABEL align 0 resizable
+        } {
+          Fl_Dial v_orlpan {
+            label orlpan
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+            xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            code0 {v_orlpan->configOSC("SCSon","56416");}
+            class OSCDial
+          }
+          Fl_Value_Input {} {
+            label valuein1ter
+            xywh {37 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+          }
+          Fl_Value_Slider v_orlfader {
+            label orlfader
+            callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+            xywh {17 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            code0 {v_orlfader->configOSC("SCSon","56416");}
+            class OSCValueSlider
+          }
+          Fl_Button v_orlmute {
+            label orlmute
+            callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+            xywh {17 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            code0 {v_orlmute->configOSC("SCSon","56416");}
+            class OSCButton
+          }
+          Fl_Dial v_souvpan {
+            label souvpan
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+            xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            code0 {v_souvpan->configOSC("SCSon","56416");}
+            class OSCDial
+          }
+          Fl_Value_Input {} {
+            label valuein1ter
+            xywh {171 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+          }
+          Fl_Value_Slider v_souvfader {
+            label souvfader
+            callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+            xywh {151 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            code0 {v_souvfader->configOSC("SCSon","56416");}
+            class OSCValueSlider
+          }
+          Fl_Button v_souvmute {
+            label souvmute
+            callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+            xywh {151 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            code0 {v_souvmute->configOSC("SCSon","56416");}
+            class OSCButton
+          }
+          Fl_Dial v_yulapan {
+            label yulapan
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+            xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            code0 {v_yulapan->configOSC("SCSon","56416");}
+            class OSCDial
+          }
+          Fl_Value_Input {} {
+            label valuein1ter
+            xywh {37 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+          }
+          Fl_Value_Slider v_yulafader {
+            label yulafader
+            callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+            xywh {17 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            code0 {v_yulafader->configOSC("SCSon","56416");}
+            class OSCValueSlider
+          }
+          Fl_Button v_yulamute {
+            label yulamute
+            callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+            xywh {17 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            code0 {v_yulamute->configOSC("SCSon","56416");}
+            class OSCButton
+          }
+          Fl_Dial v_voixfxpan {
+            label voixfxpan
+            callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+            xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+            code0 {v_voixfxpan->configOSC("SCSon","56416");}
+            class OSCDial
+          }
+          Fl_Value_Input {} {
+            label valuein1ter
+            xywh {171 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+          }
+          Fl_Value_Slider v_voixfxfader {
+            label voixfxfader
+            callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+            xywh {151 214 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+            code0 {v_voixfxfader->configOSC("SCSon","56416");}
+            class OSCValueSlider
+          }
+          Fl_Button v_voixfxmute {
+            label souvmute
+            callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+            xywh {151 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+            code0 {v_voixfxmute->configOSC("SCSon","56416");}
+            class OSCButton
+          }
+
+	}
+      }
+
 
     }
   }
