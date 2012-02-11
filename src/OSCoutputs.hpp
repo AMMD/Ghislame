@@ -22,13 +22,16 @@ public:
   OSCoutput(const char* h, const char* p){
     udp_port = p;
     t = lo_address_new(h,p);
+    std::cout << "Création d'une adresse OSC d'envoi" << std::endl;
+    std::cout << "Host: " << h << std::endl;
+    std::cout << "Port: " << p << std::endl;
   };
   ~OSCoutput(){};
 
   void sendOSC(Fl_Widget* widget, int wType){
     char path[1024], tmpath[1024];
     
-    
+    std::cout << "Envoi OSC, udp_port: " << udp_port << " / wType: " << wType << std::endl;
     
     strcpy(path,"/");
     strcpy(tmpath,"/");
@@ -47,6 +50,7 @@ public:
     
     switch(wType){
     case SLIDER_INT:
+      std::cout << path << " ,f " << ((Fl_Slider *)widget)->value() << std::endl;
       lo_send(t, path, "f", ((Fl_Slider *)widget)->value());
       break;
     case BUTTON_INT:
