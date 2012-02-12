@@ -56,7 +56,7 @@ Function {} {open
             Fl_Dial mg_drumspan {
               label drumspan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {mg_drumspan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -85,7 +85,7 @@ Function {} {open
             Fl_Dial mg_bassespan {
               label bassespan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {mg_bassespan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -114,7 +114,7 @@ Function {} {open
             Fl_Dial mg_guitarespan {
               label guitarespan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {274 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {274 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {mg_guitarespan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -143,7 +143,7 @@ Function {} {open
             Fl_Dial mg_vocalspan {
               label vocalspan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {407 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {407 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {mg_vocalspan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -172,7 +172,7 @@ Function {} {open
             Fl_Dial mg_saxophonespan {
               label saxophonespan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {544 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {544 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {mg_saxophonespan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -201,7 +201,7 @@ Function {} {open
             Fl_Dial mg_mxsynthspan {
               label mxsynthspan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {674 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {674 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {mg_mxsynthspan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -230,7 +230,7 @@ Function {} {open
             Fl_Dial mg_mxdrumspan {
               label mxdrumspan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {803 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {803 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {mg_mxdrumspan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -259,7 +259,7 @@ Function {} {open
             Fl_Dial mg_nycomppan {
               label nycomppan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {940 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {940 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {mg_nycomppan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -288,7 +288,7 @@ Function {} {open
             Fl_Dial mg_fxpan {
               label fxpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {1070 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {1070 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {mg_fxpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -326,7 +326,7 @@ Function {} {open
             Fl_Dial od_kick1pan {
               label kick1pan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {od_kick1pan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -355,7 +355,7 @@ Function {} {open
             Fl_Dial od_kick2pan {
               label kick2pan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {od_kick2pan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -384,7 +384,7 @@ Function {} {open
             Fl_Dial od_snaretpan {
               label snaretpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {274 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {274 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {od_snaretpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -413,7 +413,7 @@ Function {} {open
             Fl_Dial od_snarebpan {
               label snarebpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {407 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {407 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {od_snarebpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -442,7 +442,7 @@ Function {} {open
             Fl_Dial od_t1pan {
               label t1pan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {544 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {544 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {od_t1pan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -471,7 +471,7 @@ Function {} {open
             Fl_Dial od_t2pan {
               label t2pan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {674 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {674 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {od_t2pan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -500,7 +500,7 @@ Function {} {open
             Fl_Dial od_t3pan {
               label t3pan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {803 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {803 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {od_t3pan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -529,7 +529,7 @@ Function {} {open
             Fl_Dial od_t4pan {
               label t4pan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {940 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {940 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {od_t4pan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -558,7 +558,7 @@ Function {} {open
             Fl_Dial od_ohpan {
               label ohpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {1070 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {1070 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {od_ohpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -596,7 +596,7 @@ Function {} {open
             Fl_Dial b_basspan {
               label basspan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {b_basspan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -625,7 +625,7 @@ Function {} {open
             Fl_Dial b_grotteriepan {
               label grotteriepan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {b_grotteriepan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -654,7 +654,7 @@ Function {} {open
             Fl_Dial b_mxbasspan {
               label mxbasspan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {274 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {274 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {b_mxbasspan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -683,7 +683,7 @@ Function {} {open
             Fl_Dial b_bassfxpan {
               label bassfxpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {407 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {407 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {b_bassfxpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -721,7 +721,7 @@ Function {} {open
             Fl_Dial s_saxpan {
               label saxpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {s_saxpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -750,7 +750,7 @@ Function {} {open
             Fl_Dial s_saxfxpan {
               label saxfxpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {s_saxfxpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -788,7 +788,7 @@ Function {} {open
             Fl_Dial v_orlpan {
               label orlpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {v_orlpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -817,7 +817,7 @@ Function {} {open
             Fl_Dial v_souvpan {
               label souvpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {v_souvpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -846,7 +846,7 @@ Function {} {open
             Fl_Dial v_yulapan {
               label yulapan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {268 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {268 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {v_yulapan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -875,7 +875,7 @@ Function {} {open
             Fl_Dial v_voixfxpan {
               label voixfxpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {397 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {397 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {v_voixfxpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -913,7 +913,7 @@ Function {} {open
             Fl_Dial ms_mxchordspan {
               label chordspan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {ms_mxchordspan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -942,7 +942,7 @@ Function {} {open
             Fl_Dial ms_mxleadpan {
               label mxleadpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {ms_mxleadpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -971,7 +971,7 @@ Function {} {open
             Fl_Dial ms_mxctleadpan {
               label mxctleadpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {285 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {285 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {ms_mxctleadpan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -1000,7 +1000,7 @@ Function {} {open
             Fl_Dial ms_mxsamplespan {
               label mxsamplespan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {422 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {422 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {ms_mxsamplespan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -1037,7 +1037,7 @@ Function {} {open
           } {
             Fl_Dial md_mxkickspan {
               label mxkickspan
-              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")} selected
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
               xywh {5 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {md_mxkickspan->configOSC("SCSon","56416");}
               class OSCDial
@@ -1068,10 +1068,10 @@ Function {} {open
           Fl_Group {} {open
             xywh {139 71 95 627}
           } {
-            Fl_Dial md_mxsnarespan { value 0.5
+            Fl_Dial md_mxsnarespan {
               label mxsnarespan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {139 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {md_mxsnarespan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -1093,6 +1093,10 @@ Function {} {open
               code0 {md_mxsnaresmute->configOSC("SCSon","56416");}
               class OSCButton
             }
+            Fl_Box {} {
+              label {MX SNARES} selected
+              xywh {151 700 70 50} labelcolor 93 align 17
+            }
           }
           Fl_Group {} {open
             xywh {276 71 95 627}
@@ -1100,7 +1104,7 @@ Function {} {open
             Fl_Dial md_mxcymbspan {
               label mxcymbspan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {276 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {276 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {md_mxcymbspan->configOSC("SCSon","56416");}
               class OSCDial
             }
@@ -1129,7 +1133,7 @@ Function {} {open
             Fl_Dial md_mxcontpan {
               label mxcontpan
               callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
-              xywh {414 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              xywh {414 71 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0 value 0.5
               code0 {md_mxcontpan->configOSC("SCSon","56416");}
               class OSCDial
             }
