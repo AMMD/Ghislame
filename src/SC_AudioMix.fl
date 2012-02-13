@@ -38,7 +38,7 @@ Function {} {open
 } {
   Fl_Window mainWindow {
     label SC_AudioMix open
-    xywh {0 25 1920 1080} type Double color 33 selection_color 37 labelcolor 22 resizable modal noborder size_range {1920 1056 1920 1056} visible
+    xywh {0 0 1600 900} type Double color 33 selection_color 37 labelcolor 22 resizable modal noborder size_range {1920 1056 1920 1056} visible
   } {
     Fl_Tabs tabGen {open
       xywh {0 0 1926 1075} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
@@ -160,7 +160,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label Vocals selected
+              label Vocals
               xywh {576 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 7 align 2 textcolor 23
             }
             Fl_Value_Slider mg_vocalsfader {
@@ -226,7 +226,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Mx Synths} selected
+              label {Mx Synths}
               xywh {706 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 7 align 2 textcolor 23
             }
             Fl_Value_Slider mg_mxsynthsfader {
@@ -259,7 +259,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Mx Drums} selected
+              label {Mx Drums}
               xywh {835 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 7 align 2 textcolor 23
             }
             Fl_Value_Slider mg_mxdrumsfader {
@@ -292,7 +292,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label NYComp selected
+              label NYComp
               xywh {972 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 7 align 2 textcolor 23
             }
             Fl_Value_Slider mg_nycompfader {
@@ -325,7 +325,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label FXs selected
+              label FXs
               xywh {1102 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 7 align 2 textcolor 23
             }
             Fl_Value_Slider mg_fxfader {
@@ -1325,7 +1325,7 @@ Function {} {open
               xywh {426 700 70 50} labelcolor 93 align 17
             }
           }
-	}
+        }
       }
       Fl_Tile MonYulaTile {
         label MonYula open
@@ -1378,7 +1378,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Kick1}
+              label Kick1
               xywh {171 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 133 align 2 textcolor 133
             }
             Fl_Value_Slider my_kick1fader {
@@ -1411,7 +1411,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Droiture}
+              label Droiture
               xywh {308 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 133 align 2 textcolor 133
             }
             Fl_Value_Slider my_droiturefader {
@@ -1429,7 +1429,7 @@ Function {} {open
               class OSCButton
             }
             Fl_Box {} {
-              label {Droiture}
+              label Droiture
               xywh {288 700 70 50} labelcolor 93 align 17
             }
           }
@@ -1486,7 +1486,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Bass}
+              label Bass
               xywh {171 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 133 align 2 textcolor 133
             }
             Fl_Value_Slider mo_bassfader {
@@ -1504,7 +1504,7 @@ Function {} {open
               class OSCButton
             }
             Fl_Box {} {
-              label {Bass}
+              label Bass
               xywh {151 700 70 50} labelcolor 93 align 17
             }
           }
@@ -1519,7 +1519,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Voix}
+              label Voix
               xywh {308 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 133 align 2 textcolor 133
             }
             Fl_Value_Slider mo_voixfader {
@@ -1537,10 +1537,10 @@ Function {} {open
               class OSCButton
             }
             Fl_Box {} {
-              label {Voix}
+              label Voix
               xywh {288 700 70 50} labelcolor 93 align 17
             }
-	  }
+          }
           Fl_Group {} {open
             xywh {276 71 95 679}
           } {
@@ -1552,7 +1552,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Guitares}
+              label Guitares
               xywh {308 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 133 align 2 textcolor 133
             }
             Fl_Value_Slider mo_guitaresfader {
@@ -1570,10 +1570,10 @@ Function {} {open
               class OSCButton
             }
             Fl_Box {} {
-              label {Guitares}
+              label Guitares
               xywh {288 700 70 50} labelcolor 93 align 17
             }
-	  }
+          }
           Fl_Group {} {open
             xywh {276 71 95 679}
           } {
@@ -1585,7 +1585,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Droiture}
+              label Droiture
               xywh {308 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 133 align 2 textcolor 133
             }
             Fl_Value_Slider mo_droiturefader {
@@ -1603,7 +1603,7 @@ Function {} {open
               class OSCButton
             }
             Fl_Box {} {
-              label {Droiture}
+              label Droiture
               xywh {288 700 70 50} labelcolor 93 align 17
             }
           }
@@ -1660,7 +1660,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Saxophones}
+              label Saxophones
               xywh {171 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 133 align 2 textcolor 133
             }
             Fl_Value_Slider mj_saxophonesfader {
@@ -1678,7 +1678,7 @@ Function {} {open
               class OSCButton
             }
             Fl_Box {} {
-              label {Saxophones}
+              label Saxophones
               xywh {151 700 70 50} labelcolor 93 align 17
             }
           }
@@ -1693,7 +1693,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Voix}
+              label Voix
               xywh {308 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 133 align 2 textcolor 133
             }
             Fl_Value_Slider mj_voixfader {
@@ -1711,7 +1711,7 @@ Function {} {open
               class OSCButton
             }
             Fl_Box {} {
-              label {Droiture}
+              label Droiture
               xywh {288 700 70 50} labelcolor 93 align 17
             }
           }
@@ -1726,7 +1726,7 @@ Function {} {open
               class OSCDial
             }
             Fl_Value_Input {} {
-              label {Droiture}
+              label Droiture
               xywh {308 165 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 133 align 2 textcolor 133
             }
             Fl_Value_Slider mj_droiturefader {
@@ -1744,7 +1744,7 @@ Function {} {open
               class OSCButton
             }
             Fl_Box {} {
-              label {Droiture}
+              label Droiture
               xywh {288 700 70 50} labelcolor 93 align 17
             }
           }
@@ -1759,14 +1759,10 @@ Function {f_cb(Fl_Widget* o, int wType, const char* h, const char* p)} {open
   code {Fl_Widget* widget=(Fl_Widget *)o;
 
 o->redraw();
-if(!h)
-	h="";
-if(!p)
-	p="7700";
 
 switch(wType){
 case SLIDER_INT:
-	(((OSCSlider *) o)->osco_())->sendOSC(widget, wType);
+	(((OSCValueSlider *) o)->osco_())->sendOSC(widget, wType);
 	break;
 case DIAL_INT:
 	(((OSCDial *) o)->osco_())->sendOSC(widget, wType);
@@ -1814,7 +1810,8 @@ switch(wType){
 	case ROLLER_INT:
 		lo_send(t, path, "f", ((Fl_Roller *)widget)->value());
 	break;
-}*/} {}
+}*/} {selected
+  }
 } 
 
 Function {fTeinte_cb(Fl_Widget* o)} {open
