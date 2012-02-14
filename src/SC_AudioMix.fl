@@ -37,9 +37,13 @@ decl {using namespace std;} {}
 Function {} {open
 } {
   Fl_Window mainWindow {
-    label SC_AudioMix open
-    xywh {0 0 1600 900} type Double color 33 selection_color 37 labelcolor 22 resizable modal noborder size_range {1920 1056 1920 1056} visible
+    label SC_AudioMix open selected
+    xywh {44 434 1600 900} type Double color 33 selection_color 37 labelcolor 22 resizable modal noborder size_range {1600 900 1600 900} visible
   } {
+   Fl_Scroll {} {open
+      xywh {0 0 1600 900} type BOTH_ALWAYS color 0 labelsize 30
+    } {
+
     Fl_Tabs tabGen {open
       xywh {0 0 1926 1075} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
     } {
@@ -1568,7 +1572,7 @@ Function {} {open
                 xywh {1123 709 90 26} labelcolor 7
               }
               Fl_Box cursorBand4 {
-                label cursor selected
+                label cursor
                 xywh {1128 660 10 10} box DIAMOND_UP_BOX color 33 labeltype NO_LABEL
               }
             }
@@ -2122,7 +2126,8 @@ Function {} {open
         }
       }
     }
-  }
+    }
+   }
 } 
 
 Function {f_cb(Fl_Widget* o, int wType, const char* h, const char* p)} {open
