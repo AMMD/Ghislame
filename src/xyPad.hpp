@@ -176,16 +176,46 @@ private:
 	int xpos, ypos, width, height;
 	char* label;
 	int oldxpos, oldypos;
+	double vx, vy;
+  OSCoutput *osco;
+  const char *host, *port;
+
 public:
     // xyPad Ctor
     xyPad(int x,int y,int w,int h, char* l) : Fl_Box(x,y,w,h,l) {
         box(FL_FLAT_BOX); color(9); //label("Drag from here");
+	oldxpos = 0;
+	oldypos = 0;
+	vx = 0;
+	vy = 0;
 	xpos = x;
 	ypos = y;
 	width = w;
 	height = h;
 	label = l;
+	host = "SC-bassControl";
+	port = "7700";
+	osco = new OSCoutput( host, port );
     }
+
+	double vx_(){ return vx; };
+	double vy_(){ return vy; };
+
+	void v_compute(){
+		vx = oldxpos / width;
+		vy = oldypos / height;
+	};
+
+    OSCoutput *osco_(){ return osco; };
+
+  void configOSC(const char* h, const char* p){
+    host = h;
+    port = p;
+    delete osco;
+    osco = new OSCoutput(host, port);
+  };
+
+
 
     void moveCursor(Fl_Box* c, int x, int y) {
       	float scale_x, scale_y;
@@ -210,6 +240,31 @@ public:
 	c->show();
     }
 
+  void sendOSC(){
+    char path[1024], tmpath[1024];
+    
+   //     std::cout << "Envoi OSC, udp_port: " << udp_port << " / wType: " << wType << std::endl;
+    
+    strcpy(path,"/");
+    strcpy(tmpath,"/");
+    //    strcat(path, widget->label());
+    
+    Fl_Widget* wid=(Fl_Widget *)this;
+    while(wid->parent()){
+      if(wid->parent()->label()){
+	strcat(tmpath, wid->parent()->label());
+	strcat(tmpath,path);
+	strcpy(path,tmpath);
+	strcpy(tmpath,"/");
+      }
+      wid = wid->parent();
+    }
+
+    strcat(path, "xyPad");
+    lo_send(osco->t_(), path, "sff", wid->label(), vx, vy);
+  };
+
+
     // xyPad event handler
     int handle(int event) {
         int ret = Fl_Box::handle(event);
@@ -232,12 +287,14 @@ public:
         switch ( event ) {
             case FL_PUSH:
 		// changement de repère
-		newx = Fl::event_x()-x;
-		newy = y+h-Fl::event_y();
+		newx = Fl::event_x()-xpos;
+		newy = ypos+h-Fl::event_y();
+
 		int u;
 		if(newx != oldxpos) {
-			moveCursor(cursor, Fl::event_x(),y+h-oldypos);
+			moveCursor(cursor, Fl::event_x(),ypos+h-oldypos);
 			oldxpos = newx;
+			v_compute();
 
 			// Identification de la classe du parent
 			if( dynamic_cast< light_xyPad* >(papa) ){
@@ -250,11 +307,13 @@ public:
 
 			  father->sendOSCrgb();
 			} else {
+			  this->sendOSC();
 			}
 		}
 		if(newy != oldypos) {
 			moveCursor(cursor, oldxpos+x, Fl::event_y());
 			oldypos = newy;
+			v_compute();
 
 			// Identification de la classe du parent
 			if( dynamic_cast< light_xyPad* >(papa) ){
@@ -268,6 +327,8 @@ public:
 			  father->sendOSCrgb();
 
 			} else {
+			  this->sendOSC();
+
 			}
 		}
 		ret=1;
@@ -279,6 +340,8 @@ public:
 		if(newx != oldxpos && newx >= 0 && newx < w){
 			moveCursor(cursor, Fl::event_x(), y+h-oldypos);
 			oldxpos = newx;
+			v_compute();
+
 			// Identification de la classe du parent
 			if( dynamic_cast< light_xyPad* >(papa) ){
 			  light_xyPad* father = (light_xyPad*)papa;
@@ -291,11 +354,14 @@ public:
 			  father->sendOSCrgb();
 
 			} else {
+			  this->sendOSC();
+
 			}
 		}
 		if(newy != oldypos && newy >= 0 && newy < h){
 			moveCursor(cursor, oldxpos+x, Fl::event_y());
 			oldypos = newy;
+			v_compute();
 
 			// Identification de la classe du parent
 			if( dynamic_cast< light_xyPad* >(papa) ){
@@ -309,6 +375,8 @@ public:
 			  father->sendOSCrgb();
 
 			} else {
+			  this->sendOSC();
+
 			}
 
 		}

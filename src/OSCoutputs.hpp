@@ -7,13 +7,13 @@
 #include <FL/Fl_Slider.H>
 #include <FL/Fl_Value_Slider.H>
 #include <FL/Fl_Roller.H>
-
+#include <FL/Fl_Group.H>
 
 #define SLIDER_INT 1
 #define BUTTON_INT 2
 #define DIAL_INT 3
 #define ROLLER_INT 4
-
+#define XY_PAD 5
 
 class OSCoutput{
 private:
@@ -28,6 +28,8 @@ public:
     //    std::cout << "Port: " << p << std::endl;
   };
   ~OSCoutput(){};
+
+  lo_address t_() { return t; };
 
   void sendOSC(Fl_Widget* widget, int wType){
     char path[1024], tmpath[1024];
