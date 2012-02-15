@@ -34,7 +34,7 @@ public:
   void sendOSC(Fl_Widget* widget, int wType){
     char path[1024], tmpath[1024];
     
-        std::cout << "Envoi OSC, udp_port: " << udp_port << " / wType: " << wType << std::endl;
+        //std::cout << "Envoi OSC, udp_port: " << udp_port << " / wType: " << wType << std::endl;
     
     strcpy(path,"/");
     strcpy(tmpath,"/");

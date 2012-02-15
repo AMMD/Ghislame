@@ -202,8 +202,8 @@ public:
 	double vy_(){ return vy; };
 
 	void v_compute(){
-		vx = oldxpos / width;
-		vy = oldypos / height;
+		vx = 1.0 * oldxpos / width;
+		vy = 1.0 * oldypos / height;
 	};
 
     OSCoutput *osco_(){ return osco; };
@@ -261,7 +261,7 @@ public:
     }
 
     strcat(path, "xyPad");
-    lo_send(osco->t_(), path, "sff", wid->label(), vx, vy);
+    lo_send(osco->t_(), path, "sff", label, vx, vy);
   };
 
 
