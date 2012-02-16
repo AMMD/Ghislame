@@ -24,22 +24,49 @@ public:
     host = "SC-bassControl";
     port = "7700";
     osco = new OSCoutput( host, port );
-
-/*    Fl_Widget *wid = this;
-    while(wid->parent()){
-	wid = wid->parent();	
-    }
-    lo_server_thread bserver = ((OSCWindow *)w)->oscs_()->server_();
-    lo_server_thread_stop(bserver);
-    lo_server_thread_add_method(bserver, "/test/machin", "si", button_handler_wrapper, this);
-    lo_server_thread_start(bserver);*/
+    add_method();
   }
+
   ~OSCButton(){};
+
+
+  void add_method(){
+    char inpath[1024], tmpath[1024];
+    
+        //std::cout << "Envoi OSC, udp_port: " << udp_port << " / wType: " << wType << std::endl;
+    
+    strcpy(inpath,"/");
+    strcpy(tmpath,"/");
+    
+    Fl_Widget* wid=(Fl_Widget *)this;
+    while(wid->parent()){
+      if(wid->parent()->label()){
+	strcat(tmpath, wid->parent()->label());
+	strcat(tmpath,inpath);
+	strcpy(inpath,tmpath);
+	strcpy(tmpath,"/");
+      }
+      wid = wid->parent();
+    }
+    strcat(inpath, ((Fl_Widget *)this)->label());
+    lo_server_thread_add_method(((OSCWindow *)wid)->st, inpath, "i", button_handler_wrapper, this);
+  };
 
   OSCoutput *osco_(){ return osco; };
 
+  void draw(){
+	Fl_Button::draw();
+  }
+
+  void redraw(){
+	Fl_Button::redraw();
+  }
+
   int button_handler(const char *path, const char *types, lo_arg **argv, int argc, void *data){
-	std::cout << "dans le handler du bouton" << std::endl;
+	((Fl_Button *)this)->value(argv[0]->i);
+//	this->damage(1);
+//	this->redraw();
+//	this->parent()->redraw();
   };
 
   void configOSC(const char* h, const char* p){
@@ -51,6 +78,5 @@ public:
 };
 
 static int button_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data){
-	std::cout << ((Fl_Widget*)user_data)->label() << std::endl;
 	((OSCButton *)user_data)->button_handler(path, types, argv, argc, data);
 }
