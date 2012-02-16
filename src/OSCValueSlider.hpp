@@ -31,10 +31,6 @@ public:
 
   OSCoutput *osco_(){ return osco; };
 
-  void draw(){
-	Fl_Value_Slider::draw();
-  }
-
   void configOSC(const char* h, const char* p){
     host = h;
     port = p;
@@ -66,7 +62,8 @@ public:
 
   int vslider_handler(const char *path, const char *types, lo_arg **argv, int argc, void *data){
 	((Fl_Value_Slider *)this)->value(argv[0]->f);
-	Fl::focus();
+	Fl::wait(0);
+//	Fl::focus();
   };
 
 };

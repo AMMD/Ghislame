@@ -54,19 +54,9 @@ public:
 
   OSCoutput *osco_(){ return osco; };
 
-  void draw(){
-	Fl_Button::draw();
-  }
-
-  void redraw(){
-	Fl_Button::redraw();
-  }
-
   int button_handler(const char *path, const char *types, lo_arg **argv, int argc, void *data){
 	((Fl_Button *)this)->value(argv[0]->i);
-//	this->damage(1);
-//	this->redraw();
-//	this->parent()->redraw();
+	Fl::flush();
   };
 
   void configOSC(const char* h, const char* p){

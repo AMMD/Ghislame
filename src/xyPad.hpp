@@ -170,6 +170,10 @@ public:
 
 };
 
+static int xypad_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data);
+
+
+
 // SENDER CLASS
 class xyPad : public Fl_Box {
 private:
@@ -196,7 +200,42 @@ public:
 	host = "SC-bassControl";
 	port = "7700";
 	osco = new OSCoutput( host, port );
+
+	add_method();
     }
+
+  void add_method(){
+    char inpath[1024], tmpath[1024];
+    
+        //std::cout << "Envoi OSC, udp_port: " << udp_port << " / wType: " << wType << std::endl;
+    
+    strcpy(inpath,"/");
+    strcpy(tmpath,"/");
+    
+    Fl_Widget* wid=(Fl_Widget *)this;
+    while(wid->parent()){
+      if(wid->parent()->label()){
+	strcat(tmpath, wid->parent()->label());
+	strcat(tmpath,inpath);
+	strcpy(inpath,tmpath);
+	strcpy(tmpath,"/");
+      }
+      wid = wid->parent();
+    }
+    strcat(inpath, ((Fl_Widget *)this)->label());
+    lo_server_thread_add_method(((OSCWindow *)wid)->st, inpath, "ff", xypad_handler_wrapper, this);
+  };
+
+  int xypad_handler(const char *path, const char *types, lo_arg **argv, int argc, void *data){
+//	((xyPad *)this)->value(argv[0]->i);
+	vx = argv[0]->f;
+	vy = argv[0]->f;
+	oldxpos = (int) (width * vx);
+	oldypos = (int) (height * vy);
+	moveCursor((Fl_Box *)(this->parent()->child(2)), oldxpos, oldypos);
+	this->redraw;
+	Fl::flush();
+  };
 
 	double vx_(){ return vx; };
 	double vy_(){ return vy; };
@@ -386,3 +425,7 @@ public:
         return(ret);
     }
 };
+
+static int xypad_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data){
+	((xyPad *)user_data)->xypad_handler(path, types, argv, argc, data);
+}
