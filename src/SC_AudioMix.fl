@@ -17,7 +17,7 @@ decl {//\#include "OSCserver.hpp"} {public global
 decl {\#include "OSCoutputs.hpp"} {public global
 } 
 
-decl {\#include "OSCWindow.hpp"} {selected public global
+decl {\#include "OSCWindow.hpp"} {public global
 } 
 
 decl {\#include "xyPad.hpp"} {public global
@@ -49,11 +49,11 @@ Function {} {open
   code {//OSCserver *st = new OSCserver();} {}
   Fl_Window mainWindow {
     label SC_AudioMix open
-    xywh {320 176 1600 900} type Double color 33 selection_color 37 labelcolor 22 resizable
-    class OSCWindow modal noborder size_range {1600 900 1600 900} visible
+    xywh {0 0 1920 1080} type Double color 33 selection_color 37 labelcolor 22 resizable
+    class OSCWindow modal noborder size_range {1920 1080 1920 1080} visible
   } {
-    Fl_Scroll {} {open
-      xywh {0 0 1600 900} type BOTH_ALWAYS color 0 labelsize 30
+    Fl_Scroll {} {open selected
+      xywh {0 0 1920 1080} type BOTH_ALWAYS color 0 labelsize 30
     } {
       Fl_Tabs tabGen {open
         xywh {0 0 1926 1075} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
@@ -1519,7 +1519,7 @@ Function {} {open
                 class OSCValueSlider
               }
               Fl_Group {} {open
-                xywh {936 364 156 182}
+                xywh {936 364 156 182} box FLAT_BOX color 1
               } {
                 Fl_Box Band1 {
                   label band1xy
@@ -1537,7 +1537,7 @@ Function {} {open
                 }
               }
               Fl_Group {} {open
-                xywh {1093 364 156 182}
+                xywh {1093 364 156 182} box FLAT_BOX color 136
               } {
                 Fl_Box Band2 {
                   label band2xy
@@ -1555,7 +1555,7 @@ Function {} {open
                 }
               }
               Fl_Group {} {open
-                xywh {936 549 156 186}
+                xywh {936 549 156 186} box FLAT_BOX color 63
               } {
                 Fl_Box Band3 {
                   label band3xy
@@ -1573,7 +1573,7 @@ Function {} {open
                 }
               }
               Fl_Group {} {open
-                xywh {1093 549 156 186}
+                xywh {1093 549 156 186} box FLAT_BOX color 7 labelcolor 32
               } {
                 Fl_Box Band4 {
                   label band4xy
@@ -1583,7 +1583,7 @@ Function {} {open
                 }
                 Fl_Box {} {
                   label {Band 4}
-                  xywh {1123 709 90 26} labelcolor 7
+                  xywh {1123 709 90 26}
                 }
                 Fl_Box cursorBand4 {
                   label cursor

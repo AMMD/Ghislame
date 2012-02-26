@@ -229,6 +229,8 @@ private:
   OSCoutput *osco;
   const char *host, *port;
 
+  Fl_Box * cursor;
+
 public:
     // xyPad Ctor
     xyPad(int x,int y,int w,int h, char* l) : Fl_Box(x,y,w,h,l) {
@@ -246,8 +248,14 @@ public:
 	port = "7700";
 	osco = new OSCoutput( host, port );
 
+	cursor = new Fl_Box(xpos,ypos+height-10,10,10,"cursor");
+	cursor->box(FL_DIAMOND_UP_BOX);
+	cursor->color((Fl_Color)35);
+	cursor->labeltype(FL_NO_LABEL);
+
+
 	add_method();
-    }
+    };
 
   void draw() {
     // cas light_xyPad
@@ -289,9 +297,16 @@ public:
 	vy = argv[1]->f;
 	oldxpos = (int) (width * vx);
 	oldypos = (int) (height * vy);
-	moveCursor((Fl_Group *)this->parent()->child(2)), oldxpos, oldypos);
+	std::cout << "vx : " << vx << " / vy : " << vy << " / oldxpos : " << oldxpos << " / oldypos : " << oldypos << " / width : "<< width << " / height : "<< height << std::endl;
+	moveCursor((Fl_Box *)(this->parent()->child(2)), oldxpos, oldypos);
+	std::cout << "Le curseur a bougé" << std::endl;
+	this->parent()->damage(1);
+	this->parent()->redraw();
+	//	this->parent()->redraw();
+	//	this->redraw();
 	//	this->parent()->child(2)->redraw();
 	Fl::flush();
+	std::cout << "Flush" << std::endl;
   };
 
 	double vx_(){ return vx; };
