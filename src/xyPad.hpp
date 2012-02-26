@@ -12,6 +12,8 @@
 //#include "OSCoutputs.hpp"
 #include <lo/lo.h>
 
+static int light_xypad_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data);
+
 
 // SENDER CLASS
 class light_xyPad : public Fl_Group {
@@ -30,7 +32,50 @@ public:
     udp_port = "7700";
 
     osco = lo_address_new( host, udp_port );
+    add_method();
   }
+
+  void add_method(){
+    char inpath[1024], tmpath[1024];
+    
+        //std::cout << "Envoi OSC, udp_port: " << udp_port << " / wType: " << wType << std::endl;
+    
+    strcpy(inpath,"/");
+    strcpy(tmpath,"/");
+    
+    Fl_Widget* wid=(Fl_Widget *)this;
+    while(wid->parent()){
+      if(wid->parent()->label()){
+	strcat(tmpath, wid->parent()->label());
+	strcat(tmpath,inpath);
+	strcpy(inpath,tmpath);
+	strcpy(tmpath,"/");
+      }
+      wid = wid->parent();
+    }
+    strcat(inpath, ((Fl_Widget *)this)->label());
+    lo_server_thread_add_method(((OSCWindow *)wid)->st, inpath, "iff", lihgt_xypad_handler_wrapper, this);
+  };
+
+  int light_xypad_handler(const char *path, const char *types, lo_arg **argv, int argc, void *data){
+//	((xyPad *)this)->value(argv[0]->i);
+//	vx = argv[0]->f;
+//	vy = argv[0]->f;
+	t = argv[0]->i;
+	this->child(1)->value(t);
+	s = argv[1]->f;
+	v = argv[2]->f;
+
+	
+
+	this->child(0)->oldxpos = (int) (width * s);
+	this->child(0)->oldypos = (int) (height * v);
+	this->child(0)->damage(1);
+	moveCursor((Fl_Box *)(this->child(2)), oldxpos, oldypos);
+	this->redraw();
+	Fl::flush();
+  };
+
 
   lo_address osco_(){ return osco; };
 
@@ -233,7 +278,7 @@ public:
 	oldxpos = (int) (width * vx);
 	oldypos = (int) (height * vy);
 	moveCursor((Fl_Box *)(this->parent()->child(2)), oldxpos, oldypos);
-	this->redraw;
+	this->redraw();
 	Fl::flush();
   };
 
@@ -274,9 +319,11 @@ public:
 		scale_y = ypos;
 
 	// déplacement curseur
-	c->hide();
+//	c->hide();
 	c->position((int)scale_x, (int)scale_y);
-	c->show();
+//	c->show();
+	c->damage(1);
+	c->redraw();
     }
 
   void sendOSC(){
