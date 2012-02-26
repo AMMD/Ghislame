@@ -53,10 +53,10 @@ Function {} {open
     class OSCWindow modal noborder size_range {1920 1080 1920 1080} visible
   } {
     Fl_Scroll {} {open
-      xywh {0 0 1920 1105} type BOTH_ALWAYS color 0 labelsize 30
+      xywh {0 0 1920 1080} type BOTH_ALWAYS color 0 labelsize 30
     } {
       Fl_Tabs tabGen {open
-        xywh {0 0 1920 1105} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
+        xywh {0 0 1920 1080} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
       } {
         Fl_Tile MainGroupsTile {
           label Mix
@@ -2129,7 +2129,7 @@ Function {} {open
           }
         }
         Fl_Tile MXBassTile {
-          label MBs open
+          label MBs
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
         } {
           Fl_Group MXBassGroup {open
@@ -3615,41 +3615,41 @@ y}
           }
         }
         Fl_Tile MXChordsTile {
-          label MCh open
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
+          label MCh
+          xywh {0 50 1920 1055} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
         } {
           Fl_Group MXChordsGroup {open
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
             Fl_Button {} {
               label REFRESH
-              xywh {1818 60 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133
+              xywh {1820 75 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133
             }
             Fl_Button mch_Panic {
               label PANIC
-              xywh {1728 60 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133
+              xywh {1730 75 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133
               class OSCButton
             }
             Fl_Button mch_Reload {
               label RELOAD
-              xywh {1638 60 80 60} box THIN_UP_BOX color 0 labelfont 1 labelcolor 133
+              xywh {1640 75 80 60} box THIN_UP_BOX color 0 labelfont 1 labelcolor 133
               class OSCButton
             }
             Fl_Group {} {open
-              xywh {1038 210 358 720} box BORDER_FRAME color 38
+              xywh {1045 87 358 720} box BORDER_FRAME color 38
             } {
               Fl_Group {} {open
-                xywh {1053 234 320 323} color 7
+                xywh {1060 111 320 323} color 7
               } {
                 Fl_Box mch_vcffreq {
                   label vcffreqxy
-                  xywh {1073 236 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {1080 113 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mch_vcffreq->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label Frequency
-                  xywh {1073 535 300 20} color 37 labelcolor 133
+                  xywh {1080 412 300 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {E
@@ -3658,205 +3658,205 @@ p
 
 F
 M}
-                  xywh {1053 235 20 300} color 37 labelcolor 133
+                  xywh {1060 112 20 300} color 37 labelcolor 133
                 }
               }
               Fl_Group {} {open
-                xywh {1053 606 321 321} color 7
+                xywh {1060 483 321 321} color 7
               } {
                 Fl_Box mch_vcfreso {
                   label vcfresoxy
-                  xywh {1073 607 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {1080 484 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mch_vcfreso->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label Resonance
-                  xywh {1073 905 300 20} color 37 labelcolor 133
+                  xywh {1080 782 300 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {G
 a
 i
 n}
-                  xywh {1053 607 20 300} color 37 labelcolor 133
+                  xywh {1060 484 20 300} color 37 labelcolor 133
                 }
               }
               Fl_Box {} {
                 label VCF
-                xywh {1043 210 41 25} labelfont 1 labelcolor 133
+                xywh {1050 87 41 25} labelfont 1 labelcolor 133
               }
             }
             Fl_Group {} {
-              xywh {23 78 495 474} box BORDER_FRAME color 38
+              xywh {23 53 495 474} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
                 label {VCO 1}
-                xywh {28 78 54 25} labelfont 1 labelcolor 133
+                xywh {28 53 54 25} labelfont 1 labelcolor 133
               }
               Fl_Group {} {open
-                xywh {40 117 406 50}
+                xywh {40 92 406 50}
               } {
                 Fl_Box {} {
                   label Tune
-                  xywh {40 117 39 50} labelcolor 133 align 5
+                  xywh {40 92 39 50} labelcolor 133 align 5
                 }
                 Fl_Value_Slider mch_vco1tune {
                   label vco1tune
                   callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {40 117 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 step 0.001 textcolor 133
+                  xywh {40 92 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 step 0.001 textcolor 133
                   code0 {mch_vco1tune->configOSC("SCSon","56416");}
                   class OSCValueSlider
                 }
               }
               Fl_Group {} {
-                xywh {41 172 404 55}
+                xywh {41 147 404 55}
               } {
                 Fl_Box {} {
                   label Octave
-                  xywh {41 190 56 35} labelcolor 133 align 5
+                  xywh {41 165 56 35} labelcolor 133 align 5
                 }
                 Fl_Group {} {open
-                  xywh {41 190 56 35}
+                  xywh {41 165 56 35}
                 } {
                   Fl_Button mch_vco1oct0 {
                     label vco1oct0
-                    xywh {41 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1oct0->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 1
-                    xywh {41 190 56 35} color 0 labelcolor 133
+                    xywh {41 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {99 190 56 35}
+                  xywh {99 165 56 35}
                 } {
                   Fl_Button mch_vco1oct1 {
                     label vco1oct1
-                    xywh {99 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 42 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {99 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 42 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1oct1->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 2
-                    xywh {99 190 56 35} color 0 labelcolor 133
+                    xywh {99 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {157 190 56 35}
+                  xywh {157 165 56 35}
                 } {
                   Fl_Button mch_vco1oct2 {
                     label vco1oct2
-                    xywh {157 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 43 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {157 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 43 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1oct2->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 3
-                    xywh {157 190 56 35} color 0 labelcolor 133
+                    xywh {157 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {215 190 56 35}
+                  xywh {215 165 56 35}
                 } {
                   Fl_Button mch_vco1oct3 {
                     label vco1oct3
-                    xywh {215 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 45 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {215 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 45 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1oct3->configOSC("SCSon","5500");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 4
-                    xywh {215 190 56 35} color 0 labelcolor 133
+                    xywh {215 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {273 190 56 35}
+                  xywh {273 165 56 35}
                 } {
                   Fl_Button mch_vco1oct4 {
                     label vco1oct4
-                    xywh {273 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 47 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {273 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 47 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1oct4->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 5
-                    xywh {273 190 56 35} color 0 labelcolor 133
+                    xywh {273 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {331 190 56 35}
+                  xywh {331 165 56 35}
                 } {
                   Fl_Button mch_vco1oct5 {
                     label vco1oct5
-                    xywh {331 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {331 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1oct5->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 6
-                    xywh {331 190 56 35} color 0 labelcolor 133
+                    xywh {331 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {389 190 56 35}
+                  xywh {389 165 56 35}
                 } {
                   Fl_Button mch_vco1oct6 {
                     label vco1oct7
-                    xywh {389 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 51 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {389 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 51 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1oct6->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 7
-                    xywh {389 190 56 35} color 0 labelcolor 133
+                    xywh {389 165 56 35} color 0 labelcolor 133
                   }
                 }
               }
               Fl_Group {} {
-                xywh {40 250 406 50}
+                xywh {40 225 406 50}
               } {
                 Fl_Box {} {
                   label Harmonics
-                  xywh {40 250 84 50} labelcolor 133 align 5
+                  xywh {40 225 84 50} labelcolor 133 align 5
                 }
                 Fl_Value_Slider mch_vco1harmonics {
                   label vco1harmonics
                   callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {40 250 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
+                  xywh {40 225 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
                   code0 {mch_vco1harmonics->configOSC("SCSon","56416");}
                   class OSCValueSlider
                 }
               }
               Fl_Group {} {
-                xywh {40 327 406 50}
+                xywh {40 302 406 50}
               } {
                 Fl_Box {} {
                   label SubHarmonics
-                  xywh {40 327 84 50} labelcolor 133 align 5
+                  xywh {40 302 84 50} labelcolor 133 align 5
                 }
                 Fl_Value_Slider mch_vco1subharmonics {
                   label vco1subharmonics
                   callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {40 327 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
+                  xywh {40 302 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
                   code0 {mch_vco1subharmonics->configOSC("SCSon","56416");}
                   class OSCValueSlider
                 }
               }
               Fl_Group {} {open
-                xywh {136 393 151 151} color 7
+                xywh {136 368 151 151} color 7
               } {
                 Fl_Box mch_vco1pw {
                   label vco1pwxy
-                  xywh {157 394 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {157 369 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mch_vco1pw->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label {PW Gain}
-                  xywh {157 523 130 20} color 37 labelcolor 133
+                  xywh {157 498 130 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {P
@@ -3867,21 +3867,21 @@ i
 d
 t
 h}
-                  xywh {137 394 20 130} color 37 labelcolor 133
+                  xywh {137 369 20 130} color 37 labelcolor 133
                 }
               }
               Fl_Group {} {open
-                xywh {295 393 151 151} color 7
+                xywh {295 368 151 151} color 7
               } {
                 Fl_Box mch_vco1fm {
                   label vco1fmxy
-                  xywh {316 394 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {316 369 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mch_vco1fm->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label {Exp FM}
-                  xywh {316 523 130 20} color 37 labelcolor 133
+                  xywh {316 498 130 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {L
@@ -3890,247 +3890,247 @@ n
  
 F
 M}
-                  xywh {296 394 20 130} color 37 labelcolor 133
+                  xywh {296 369 20 130} color 37 labelcolor 133
                 }
               }
               Fl_Group {} {open
-                xywh {41 388 56 156}
+                xywh {41 363 56 156}
               } {
                 Fl_Group {} {open
-                  xywh {41 388 56 35}
+                  xywh {41 363 56 35}
                 } {
                   Fl_Button mch_vco1sinus {
                     label vco1sinus
-                    xywh {41 388 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 363 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1sinus->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8circle}
-                    xywh {41 388 56 35} color 0 labelcolor 133
+                    xywh {41 363 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {41 428 56 35}
+                  xywh {41 403 56 35}
                 } {
                   Fl_Button mch_vco1triangle {
                     label vco1triangle
-                    xywh {41 428 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 403 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1triangle->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8>}
-                    xywh {41 428 56 35} color 0 labelcolor 133
+                    xywh {41 403 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {41 469 56 35}
+                  xywh {41 444 56 35}
                 } {
                   Fl_Button mch_vco1sawtooth {
                     label vco1sawtooth
-                    xywh {41 469 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 444 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1sawtooth->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8>>}
-                    xywh {41 469 56 35} color 0 labelcolor 133
+                    xywh {41 444 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {41 509 56 35}
+                  xywh {41 484 56 35}
                 } {
                   Fl_Button mch_vco1square {
                     label vco1square
-                    xywh {41 509 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 484 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco1square->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8square}
-                    xywh {41 509 56 35} color 0 labelcolor 133
+                    xywh {41 484 56 35} color 0 labelcolor 133
                   }
                 }
               }
               Fl_Value_Slider mch_vco1level {
                 label vco1level
                 callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                xywh {463 100 45 430} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 2 maximum 0 step 0.001 textcolor 133
+                xywh {463 75 45 430} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 2 maximum 0 step 0.001 textcolor 133
                 code0 {mch_vco1level->configOSC("SCSon","56416");}
                 class OSCValueSlider
               }
             }
             Fl_Group {} {
-              xywh {533 78 495 474} box BORDER_FRAME color 38
+              xywh {533 53 495 474} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
                 label {VCO 2}
-                xywh {538 78 54 25} labelfont 1 labelcolor 133
+                xywh {538 53 54 25} labelfont 1 labelcolor 133
               }
               Fl_Group {} {
-                xywh {550 117 406 50}
+                xywh {550 92 406 50}
               } {
                 Fl_Box {} {
                   label Tune
-                  xywh {550 117 39 50} labelcolor 133 align 5
+                  xywh {550 92 39 50} labelcolor 133 align 5
                 }
                 Fl_Value_Slider mch_vco2tune {
                   label vco2tune
                   callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {550 117 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 step 0.001 textcolor 133
+                  xywh {550 92 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 step 0.001 textcolor 133
                   code0 {mch_vco2tune->configOSC("SCSon","56416");}
                   class OSCValueSlider
                 }
               }
               Fl_Group {} {
-                xywh {551 172 404 55}
+                xywh {551 147 404 55}
               } {
                 Fl_Box {} {
                   label Octave
-                  xywh {551 190 56 35} labelcolor 133 align 5
+                  xywh {551 165 56 35} labelcolor 133 align 5
                 }
                 Fl_Group {} {
-                  xywh {551 190 56 35}
+                  xywh {551 165 56 35}
                 } {
                   Fl_Button mch_vco2oct0 {
                     label vco2oct0
-                    xywh {551 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {551 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2oct0->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 1
-                    xywh {551 190 56 35} color 0 labelcolor 133
+                    xywh {551 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {609 190 56 35}
+                  xywh {609 165 56 35}
                 } {
                   Fl_Button mch_vco2oct1 {
                     label vco2oct1
-                    xywh {609 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 42 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {609 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 42 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2oct1->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 2
-                    xywh {609 190 56 35} color 0 labelcolor 133
+                    xywh {609 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {667 190 56 35}
+                  xywh {667 165 56 35}
                 } {
                   Fl_Button mch_vco2oct2 {
                     label vco2oct2
-                    xywh {667 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 43 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {667 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 43 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2oct2->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 3
-                    xywh {667 190 56 35} color 0 labelcolor 133
+                    xywh {667 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {725 190 56 35}
+                  xywh {725 165 56 35}
                 } {
                   Fl_Button mch_vco2oct3 {
                     label vco2oct3
-                    xywh {725 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 45 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {725 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 45 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2oct3->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 4
-                    xywh {725 190 56 35} color 0 labelcolor 133
+                    xywh {725 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {783 190 56 35}
+                  xywh {783 165 56 35}
                 } {
                   Fl_Button mch_vco2oct4 {
                     label vco2oct4
-                    xywh {783 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 47 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {783 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 47 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2oct4->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 5
-                    xywh {783 190 56 35} color 0 labelcolor 133
+                    xywh {783 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {841 190 56 35}
+                  xywh {841 165 56 35}
                 } {
                   Fl_Button mch_vco2oct5 {
                     label vco2oct5
-                    xywh {841 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {841 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2oct5->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 6
-                    xywh {841 190 56 35} color 0 labelcolor 133
+                    xywh {841 165 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {899 190 56 35}
+                  xywh {899 165 56 35}
                 } {
                   Fl_Button mch_vco2oct6 {
                     label vco2oct6
-                    xywh {899 190 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 51 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {899 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 51 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2oct6->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 7
-                    xywh {899 190 56 35} color 0 labelcolor 133
+                    xywh {899 165 56 35} color 0 labelcolor 133
                   }
                 }
               }
               Fl_Group {} {
-                xywh {550 250 406 50}
+                xywh {550 225 406 50}
               } {
                 Fl_Box {} {
                   label Harmonics
-                  xywh {550 250 84 50} labelcolor 133 align 5
+                  xywh {550 225 84 50} labelcolor 133 align 5
                 }
                 Fl_Value_Slider mch_vco2harmonics {
                   label vco2harmonics
                   callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {550 250 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
+                  xywh {550 225 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
                   code0 {mch_vco2harmonics->configOSC("SCSon","56416");}
                   class OSCValueSlider
                 }
               }
               Fl_Group {} {
-                xywh {550 327 406 50}
+                xywh {550 302 406 50}
               } {
                 Fl_Box {} {
                   label SubHarmonics
-                  xywh {550 327 84 50} labelcolor 133 align 5
+                  xywh {550 302 84 50} labelcolor 133 align 5
                 }
                 Fl_Value_Slider mch_vco2subharmonics {
                   label vco2subharmonics
                   callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {550 327 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
+                  xywh {550 302 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
                   code0 {mch_vco2subharmonics->configOSC("SCSon","56416");}
                   class OSCValueSlider
                 }
               }
               Fl_Group {} {open
-                xywh {646 393 151 151} color 7
+                xywh {646 368 151 151} color 7
               } {
                 Fl_Box mch_vco2pw {
                   label vco2pwxy
-                  xywh {667 394 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {667 369 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mch_vco2pw->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label {PW Gain}
-                  xywh {667 523 130 20} color 37 labelcolor 133
+                  xywh {667 498 130 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {P
@@ -4141,21 +4141,21 @@ i
 d
 t
 h}
-                  xywh {647 394 20 130} color 37 labelcolor 133
+                  xywh {647 369 20 130} color 37 labelcolor 133
                 }
               }
               Fl_Group {} {open
-                xywh {805 393 151 151} color 7
+                xywh {805 368 151 151} color 7
               } {
                 Fl_Box mch_vco2fm {
                   label vco2fmxy
-                  xywh {826 394 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {826 369 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mch_vco2fm->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label {Exp FM}
-                  xywh {826 523 130 20} color 37 labelcolor 133
+                  xywh {826 498 130 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {L
@@ -4164,247 +4164,247 @@ n
  
 F
 M}
-                  xywh {806 394 20 130} color 37 labelcolor 133
+                  xywh {806 369 20 130} color 37 labelcolor 133
                 }
               }
               Fl_Group {} {open
-                xywh {551 388 56 156}
+                xywh {551 363 56 156}
               } {
                 Fl_Group {} {open
-                  xywh {551 388 56 35}
+                  xywh {551 363 56 35}
                 } {
                   Fl_Button mch_vco2sinus {
                     label vco2sinus
-                    xywh {551 388 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {551 363 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2sinus->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8circle}
-                    xywh {551 388 56 35} color 0 labelcolor 133
+                    xywh {551 363 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {551 428 56 35}
+                  xywh {551 403 56 35}
                 } {
                   Fl_Button mch_vco2triangle {
                     label vco2triangle
-                    xywh {551 428 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {551 403 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2triangle->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8>}
-                    xywh {551 428 56 35} color 0 labelcolor 133
+                    xywh {551 403 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {551 469 56 35}
+                  xywh {551 444 56 35}
                 } {
                   Fl_Button mch_vco2sawtooth {
                     label vco2sawtooth
-                    xywh {551 469 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {551 444 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2sawtooth->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8>>}
-                    xywh {551 469 56 35} color 0 labelcolor 133
+                    xywh {551 444 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {551 509 56 35}
+                  xywh {551 484 56 35}
                 } {
                   Fl_Button mch_vco2square {
                     label vco2square
-                    xywh {551 509 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {551 484 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco2square->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8square}
-                    xywh {551 509 56 35} color 0 labelcolor 133
+                    xywh {551 484 56 35} color 0 labelcolor 133
                   }
                 }
               }
               Fl_Value_Slider mch_vco2level {
                 label vco2level
                 callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                xywh {973 100 45 430} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 2 maximum 0 step 0.001 textcolor 133
+                xywh {973 75 45 430} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 2 maximum 0 step 0.001 textcolor 133
                 code0 {mch_vco2level->configOSC("SCSon","56416");}
                 class OSCValueSlider
               }
             }
             Fl_Group {} {
-              xywh {23 568 495 474} box BORDER_FRAME color 38
+              xywh {23 540 495 474} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
                 label {VCO 3}
-                xywh {28 568 54 25} labelfont 1 labelcolor 133
+                xywh {28 540 54 25} labelfont 1 labelcolor 133
               }
               Fl_Group {} {
-                xywh {40 607 406 50}
+                xywh {40 579 406 50}
               } {
                 Fl_Box {} {
                   label Tune
-                  xywh {40 607 39 50} labelcolor 133 align 5
+                  xywh {40 579 39 50} labelcolor 133 align 5
                 }
                 Fl_Value_Slider mch_vco3tune {
                   label vco3tune
                   callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {40 607 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 step 0.001 textcolor 133
+                  xywh {40 579 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 step 0.001 textcolor 133
                   code0 {mch_vco3tune->configOSC("SCSon","56416");}
                   class OSCValueSlider
                 }
               }
               Fl_Group {} {
-                xywh {41 662 404 55}
+                xywh {41 634 404 55}
               } {
                 Fl_Box {} {
                   label Octave
-                  xywh {41 680 56 35} labelcolor 133 align 5
+                  xywh {41 652 56 35} labelcolor 133 align 5
                 }
                 Fl_Group {} {open
-                  xywh {41 680 56 35}
+                  xywh {41 652 56 35}
                 } {
                   Fl_Button mch_vco3oct0 {
                     label vco3oct0
-                    xywh {41 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 652 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3oct0->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 1
-                    xywh {41 680 56 35} color 0 labelcolor 133
+                    xywh {41 652 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {99 680 56 35}
+                  xywh {99 652 56 35}
                 } {
                   Fl_Button mch_vco3oct1 {
                     label vco3oct1
-                    xywh {99 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 42 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {99 652 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 42 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3oct1->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 2
-                    xywh {99 680 56 35} color 0 labelcolor 133
+                    xywh {99 652 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {157 680 56 35}
+                  xywh {157 652 56 35}
                 } {
                   Fl_Button mch_vco3oct2 {
                     label vco3oct2
-                    xywh {157 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 43 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {157 652 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 43 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3oct2->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 3
-                    xywh {157 680 56 35} color 0 labelcolor 133
+                    xywh {157 652 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {215 680 56 35}
+                  xywh {215 652 56 35}
                 } {
                   Fl_Button mch_vco3oct3 {
                     label vco3oct3
-                    xywh {215 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 45 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {215 652 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 45 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3oct3->configOSC("SCSon","5500");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 4
-                    xywh {215 680 56 35} color 0 labelcolor 133
+                    xywh {215 652 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {273 680 56 35}
+                  xywh {273 652 56 35}
                 } {
                   Fl_Button mch_vco3oct4 {
                     label vco2oct5
-                    xywh {273 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 47 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {273 652 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 47 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3oct4->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 5
-                    xywh {273 680 56 35} color 0 labelcolor 133
+                    xywh {273 652 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {331 680 56 35}
+                  xywh {331 652 56 35}
                 } {
                   Fl_Button mch_vco3oct5 {
                     label vco3oct5
-                    xywh {331 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {331 652 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3oct5->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 6
-                    xywh {331 680 56 35} color 0 labelcolor 133
+                    xywh {331 652 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {389 680 56 35}
+                  xywh {389 652 56 35}
                 } {
                   Fl_Button mch_vco3oct6 {
                     label vco3oct6
-                    xywh {389 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 51 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {389 652 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 51 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3oct6->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label 7
-                    xywh {389 680 56 35} color 0 labelcolor 133
+                    xywh {389 652 56 35} color 0 labelcolor 133
                   }
                 }
               }
               Fl_Group {} {
-                xywh {40 740 406 50}
+                xywh {40 712 406 50}
               } {
                 Fl_Box {} {
                   label Harmonics
-                  xywh {40 740 84 50} labelcolor 133 align 5
+                  xywh {40 712 84 50} labelcolor 133 align 5
                 }
                 Fl_Value_Slider mch_vco3harmonics {
                   label vco3harmonics
                   callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {40 740 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
+                  xywh {40 712 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
                   code0 {mch_vco3harmonics->configOSC("SCSon","56416");}
                   class OSCValueSlider
                 }
               }
               Fl_Group {} {
-                xywh {40 817 406 50}
+                xywh {40 789 406 50}
               } {
                 Fl_Box {} {
                   label SubHarmonics
-                  xywh {40 817 84 50} labelcolor 133 align 5
+                  xywh {40 789 84 50} labelcolor 133 align 5
                 }
                 Fl_Value_Slider mch_vco3subharmonics {
                   label vco3subharmonics
                   callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {40 817 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
+                  xywh {40 789 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
                   code0 {mch_vco3subharmonics->configOSC("SCSon","56416");}
                   class OSCValueSlider
                 }
               }
               Fl_Group {} {open
-                xywh {136 883 151 151} color 7
+                xywh {136 855 151 151} color 7
               } {
                 Fl_Box mch_vco3pw {
                   label vco3pwxy
-                  xywh {157 884 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {157 856 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mch_vco3pw->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label {PW Gain}
-                  xywh {157 1013 130 20} color 37 labelcolor 133
+                  xywh {157 985 130 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {P
@@ -4415,21 +4415,21 @@ i
 d
 t
 h}
-                  xywh {137 884 20 130} color 37 labelcolor 133
+                  xywh {137 856 20 130} color 37 labelcolor 133
                 }
               }
               Fl_Group {} {open
-                xywh {295 883 151 151} color 7
+                xywh {295 855 151 151} color 7
               } {
                 Fl_Box mch_vco3fm {
                   label vco3fmxy
-                  xywh {316 884 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {316 856 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mch_vco3fm->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label {Exp FM}
-                  xywh {316 1013 130 20} color 37 labelcolor 133
+                  xywh {316 985 130 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {L
@@ -4438,386 +4438,112 @@ n
  
 F
 M}
-                  xywh {296 884 20 130} color 37 labelcolor 133
+                  xywh {296 856 20 130} color 37 labelcolor 133
                 }
               }
               Fl_Group {} {open
-                xywh {41 878 56 156}
+                xywh {41 850 56 156}
               } {
                 Fl_Group {} {open
-                  xywh {41 878 56 35}
+                  xywh {41 850 56 35}
                 } {
                   Fl_Button mch_vco3sinus {
                     label vco3sinus
-                    xywh {41 878 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 850 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3sinus->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8circle}
-                    xywh {41 878 56 35} color 0 labelcolor 133
+                    xywh {41 850 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {41 918 56 35}
+                  xywh {41 890 56 35}
                 } {
                   Fl_Button mch_vco3triangle {
                     label vco3triangle
-                    xywh {41 918 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 890 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3triangle->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8>}
-                    xywh {41 918 56 35} color 0 labelcolor 133
+                    xywh {41 890 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {41 959 56 35}
+                  xywh {41 931 56 35}
                 } {
                   Fl_Button mch_vco3sawtooth {
                     label vco3sawtooth
-                    xywh {41 959 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 931 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3sawtooth->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8>>}
-                    xywh {41 959 56 35} color 0 labelcolor 133
+                    xywh {41 931 56 35} color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {41 999 56 35}
+                  xywh {41 971 56 35}
                 } {
                   Fl_Button mch_vco3square {
                     label vco3square
-                    xywh {41 999 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                    xywh {41 971 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                     code0 {mch_vco3square->configOSC("SCSon","56416");}
                     class OSCButton
                   }
                   Fl_Box {} {
                     label {@8square}
-                    xywh {41 999 56 35} color 0 labelcolor 133
+                    xywh {41 971 56 35} color 0 labelcolor 133
                   }
                 }
               }
               Fl_Value_Slider mch_vco3level {
                 label vco3level
                 callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                xywh {463 590 45 430} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 2 maximum 0 step 0.001 textcolor 133
+                xywh {463 562 45 430} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 2 maximum 0 step 0.001 textcolor 133
                 code0 {mch_vco3level->configOSC("SCSon","56416");}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {
-              xywh {533 568 495 474} box BORDER_FRAME color 38
-            } {
-              Fl_Box {} {
-                label {VCO 4}
-                xywh {538 568 54 25} labelfont 1 labelcolor 133
-              }
-              Fl_Group {} {open
-                xywh {550 607 406 50}
-              } {
-                Fl_Box {} {
-                  label Tune
-                  xywh {550 607 39 50} labelcolor 133 align 5
-                }
-                Fl_Value_Slider mch_vco4tune {
-                  label vco4tune
-                  callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {550 607 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 step 0.001 textcolor 133
-                  code0 {mch_vco4tune->configOSC("SCSon","56416");}
-                  class OSCValueSlider
-                }
-              }
-              Fl_Group {} {
-                xywh {551 662 404 55}
-              } {
-                Fl_Box {} {
-                  label Octave
-                  xywh {551 680 56 35} labelcolor 133 align 5
-                }
-                Fl_Group {} {open
-                  xywh {551 680 56 35}
-                } {
-                  Fl_Button mch_vco4oct0 {
-                    label vco4oct0
-                    xywh {551 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4oct0->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 1
-                    xywh {551 680 56 35} color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {609 680 56 35}
-                } {
-                  Fl_Button mch_vco4oct1 {
-                    label vco4oct1
-                    xywh {609 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 42 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4oct1->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 2
-                    xywh {609 680 56 35} color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {667 680 56 35}
-                } {
-                  Fl_Button mch_vco4oct2 {
-                    label vco4oct2
-                    xywh {667 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 43 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4oct2->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 3
-                    xywh {667 680 56 35} color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {725 680 56 35}
-                } {
-                  Fl_Button mch_vco4oct3 {
-                    label vco4oct3
-                    xywh {725 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 45 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4oct3->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 4
-                    xywh {725 680 56 35} color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {783 680 56 35}
-                } {
-                  Fl_Button mch_vco4oct4 {
-                    label vco4oct4
-                    xywh {783 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 47 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4oct4->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 5
-                    xywh {783 680 56 35} color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {841 680 56 35}
-                } {
-                  Fl_Button mch_vco4oct5 {
-                    label vco4oct5
-                    xywh {841 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4oct5->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 6
-                    xywh {841 680 56 35} color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {899 680 56 35}
-                } {
-                  Fl_Button mch_vco4oct6 {
-                    label vco4oct6
-                    xywh {899 680 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 51 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4oct6->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 7
-                    xywh {899 680 56 35} color 0 labelcolor 133
-                  }
-                }
-              }
-              Fl_Group {} {open
-                xywh {550 740 406 50}
-              } {
-                Fl_Box {} {
-                  label Harmonics
-                  xywh {550 740 84 50} labelcolor 133 align 5
-                }
-                Fl_Value_Slider mch_vco4harmonics {
-                  label vco4harmonics
-                  callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {550 740 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
-                  code0 {mch_vco4harmonics->configOSC("SCSon","56416");}
-                  class OSCValueSlider
-                }
-              }
-              Fl_Group {} {open
-                xywh {550 817 406 50}
-              } {
-                Fl_Box {} {
-                  label SubHarmonics
-                  xywh {550 817 84 50} labelcolor 133 align 5
-                }
-                Fl_Value_Slider mch_vco4subharmonics {
-                  label vco4subharmonics
-                  callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                  xywh {550 817 406 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 16 step 1 value 1 textcolor 133
-                  code0 {mch_vco4subharmonics->configOSC("SCSon","56416");}
-                  class OSCValueSlider
-                }
-              }
-              Fl_Group {} {open
-                xywh {646 884 151 151} color 7
-              } {
-                Fl_Box mch_vco4pw {
-                  label vco4pwxy
-                  xywh {667 885 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                  code0 {mch_vco4pw->configOSC("SCSon", "56416");}
-                  class xyPad
-                }
-                Fl_Box {} {
-                  label {PW Gain}
-                  xywh {667 1014 130 20} color 37 labelcolor 133
-                }
-                Fl_Box {} {
-                  label {P
-W
- 
-W
-i
-d
-t
-h}
-                  xywh {647 885 20 130} color 37 labelcolor 133
-                }
-              }
-              Fl_Group {} {open
-                xywh {805 884 151 151} color 7
-              } {
-                Fl_Box mch_vco4fm {
-                  label vco4fmxy
-                  xywh {826 885 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                  code0 {mch_vco4fm->configOSC("SCSon", "56416");}
-                  class xyPad
-                }
-                Fl_Box {} {
-                  label {Exp FM}
-                  xywh {826 1014 130 20} color 37 labelcolor 133
-                }
-                Fl_Box {} {
-                  label {L
-i
-n
- 
-F
-M}
-                  xywh {806 885 20 130} color 37 labelcolor 133
-                }
-              }
-              Fl_Group {} {open
-                xywh {551 879 56 156}
-              } {
-                Fl_Group {} {open
-                  xywh {551 879 56 35}
-                } {
-                  Fl_Button mch_vco4sinus {
-                    label vco4sinus
-                    xywh {551 879 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4sinus->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label {@8circle}
-                    xywh {551 879 56 35} color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {551 919 56 35}
-                } {
-                  Fl_Button mch_vco4triangle {
-                    label vco4triangle
-                    xywh {551 919 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4triangle->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label {@8>}
-                    xywh {551 919 56 35} color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {551 960 56 35}
-                } {
-                  Fl_Button mch_vco4sawtooth {
-                    label vco4sawtooth
-                    xywh {551 960 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4sawtooth->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label {@8>>}
-                    xywh {551 960 56 35} color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {551 1000 56 35}
-                } {
-                  Fl_Button mch_vco4square {
-                    label vco4square
-                    xywh {551 1000 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mch_vco4square->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label {@8square}
-                    xywh {551 1000 56 35} color 0 labelcolor 133
-                  }
-                }
-              }
-              Fl_Value_Slider mch_vco4level {
-                label vco4level
-                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                xywh {973 590 45 430} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 2 maximum 0 step 0.001 textcolor 133
-                code0 {mch_vco4level->configOSC("SCSon","56416");}
-                class OSCValueSlider
-              }
-            }
             Fl_Group {} {open
-              xywh {1407 160 490 550} box BORDER_FRAME color 38
+              xywh {536 528 490 550} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
                 label Envelop
-                xywh {1413 160 63 25} labelfont 1 labelcolor 133
+                xywh {542 528 63 25} labelfont 1 labelcolor 133
               }
               Fl_Group {} {open
-                xywh {1416 184 311 171}
+                xywh {545 552 311 171}
               } {
                 Fl_Group {} {
                   label 1 open
-                  xywh {1440 184 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
+                  xywh {569 552 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
                 } {
                   Fl_Box {} {
                     label Times
-                    xywh {1441 185 130 15} box FLAT_BOX color 0 labelcolor 93
+                    xywh {570 553 130 15} box FLAT_BOX color 0 labelcolor 93
                   }
                   Fl_Box {} {
                     label Levels
-                    xywh {1596 185 130 15} box FLAT_BOX color 0 labelcolor 133
+                    xywh {725 553 130 15} box FLAT_BOX color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {1420 203 151 151} color 7
+                  xywh {549 571 151 151} color 7
                 } {
-                  Fl_Box mch_env2timesar {
-                    label env2timesar1xy
-                    xywh {1441 204 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mch_env2timesar->configOSC("SCSon", "56416");}
+                  Fl_Box mch_env1timesar {
+                    label env1timesar1xy
+                    xywh {570 572 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env1timesar->configOSC("SCSon", "56416");}
                     class xyPad
                   }
                   Fl_Box {} {
                     label Attack
-                    xywh {1441 333 130 20} color 37 labelcolor 133
+                    xywh {570 701 130 20} color 37 labelcolor 133
                   }
                   Fl_Box {} {
                     label {R
@@ -4827,21 +4553,21 @@ e
 a
 s
 e}
-                    xywh {1421 204 20 130} color 37 labelcolor 133
+                    xywh {550 572 20 130} color 37 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {1575 203 151 151} color 7
+                  xywh {704 571 151 151} color 7
                 } {
-                  Fl_Box mch_env2levelsar1 {
-                    label env2levels1ar
-                    xywh {1596 204 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mch_env2levelsar1->configOSC("SCSon", "56416");}
+                  Fl_Box mch_env1levelsar1 {
+                    label env1levels1ar
+                    xywh {725 572 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env1levelsar1->configOSC("SCSon", "56416");}
                     class xyPad
                   }
                   Fl_Box {} {
                     label Attack
-                    xywh {1596 333 130 20} color 37 labelcolor 133
+                    xywh {725 701 130 20} color 37 labelcolor 133
                   }
                   Fl_Box {} {
                     label {R
@@ -4851,45 +4577,45 @@ e
 a
 s
 e}
-                    xywh {1576 204 20 130} color 37 labelcolor 133
+                    xywh {705 572 20 130} color 37 labelcolor 133
                   }
                 }
               }
-              Fl_Value_Slider mch_env2tscale {
-                label env2tscalexy
+              Fl_Value_Slider mch_env1tscale {
+                label env1tscalexy
                 callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                xywh {1799 345 50 349} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 0.1 maximum 10 step 0.001 textcolor 133
-                code0 {mch_env2tscale->configOSC("SCSon","56416");}
+                xywh {928 713 50 349} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 0.1 maximum 10 step 0.001 textcolor 133
+                code0 {mch_env1tscale->configOSC("SCSon","56416");}
                 class OSCValueSlider
               }
               Fl_Group {} {open
-                xywh {1416 356 311 171}
+                xywh {545 724 311 171}
               } {
                 Fl_Group {} {
                   label 2 open
-                  xywh {1440 356 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
+                  xywh {569 724 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
                 } {
                   Fl_Box {} {
                     label Times
-                    xywh {1441 357 130 15} box FLAT_BOX color 0 labelcolor 93
+                    xywh {570 725 130 15} box FLAT_BOX color 0 labelcolor 93
                   }
                   Fl_Box {} {
                     label Levels
-                    xywh {1596 357 130 15} box FLAT_BOX color 0 labelcolor 133
+                    xywh {725 725 130 15} box FLAT_BOX color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {1420 375 151 151} color 7
+                  xywh {549 743 151 151} color 7
                 } {
-                  Fl_Box mch_env2timesar2 {
-                    label env2timesar2xy
-                    xywh {1441 376 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mch_env2timesar2->configOSC("SCSon", "56416");}
+                  Fl_Box mch_env1timesar2 {
+                    label env1timesar2xy
+                    xywh {570 744 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env1timesar2->configOSC("SCSon", "56416");}
                     class xyPad
                   }
                   Fl_Box {} {
                     label Attack
-                    xywh {1441 505 130 20} color 37 labelcolor 133
+                    xywh {570 873 130 20} color 37 labelcolor 133
                   }
                   Fl_Box {} {
                     label {R
@@ -4899,21 +4625,21 @@ e
 a
 s
 e}
-                    xywh {1421 376 20 130} color 37 labelcolor 133
+                    xywh {550 744 20 130} color 37 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {1575 375 151 151} color 7
+                  xywh {704 743 151 151} color 7
                 } {
-                  Fl_Box mch_env2levelsar2 {
-                    label env2levelsar2xy
-                    xywh {1596 376 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mch_env2levelsar2->configOSC("SCSon", "56416");}
+                  Fl_Box mch_env1levelsar2 {
+                    label env1levelsar2xy
+                    xywh {725 744 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env1levelsar2->configOSC("SCSon", "56416");}
                     class xyPad
                   }
                   Fl_Box {} {
                     label Attack
-                    xywh {1596 505 130 20} color 37 labelcolor 133
+                    xywh {725 873 130 20} color 37 labelcolor 133
                   }
                   Fl_Box {} {
                     label {R
@@ -4923,38 +4649,38 @@ e
 a
 s
 e}
-                    xywh {1576 376 20 130} color 37 labelcolor 133
+                    xywh {705 744 20 130} color 37 labelcolor 133
                   }
                 }
               }
               Fl_Group {} {open
-                xywh {1416 528 311 171}
+                xywh {545 896 311 171}
               } {
                 Fl_Group {} {
                   label 3 open
-                  xywh {1440 528 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
+                  xywh {569 896 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
                 } {
                   Fl_Box {} {
                     label Times
-                    xywh {1441 529 130 15} box FLAT_BOX color 0 labelcolor 93
+                    xywh {570 897 130 15} box FLAT_BOX color 0 labelcolor 93
                   }
                   Fl_Box {} {
                     label Levels
-                    xywh {1596 529 130 15} box FLAT_BOX color 0 labelcolor 133
+                    xywh {725 897 130 15} box FLAT_BOX color 0 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {1420 547 151 151} color 7
+                  xywh {549 915 151 151} color 7
                 } {
-                  Fl_Box mch_env2timesar3 {
-                    label env2timesar3xy
-                    xywh {1441 548 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mch_env2timesar3->configOSC("SCSon", "56416");}
+                  Fl_Box mch_env1timesar3 {
+                    label env1timesar3xy
+                    xywh {570 916 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env1timesar3->configOSC("SCSon", "56416");}
                     class xyPad
                   }
                   Fl_Box {} {
                     label Attack
-                    xywh {1441 677 130 20} color 37 labelcolor 133
+                    xywh {570 1045 130 20} color 37 labelcolor 133
                   }
                   Fl_Box {} {
                     label {R
@@ -4964,21 +4690,21 @@ e
 a
 s
 e}
-                    xywh {1421 548 20 130} color 37 labelcolor 133
+                    xywh {550 916 20 130} color 37 labelcolor 133
                   }
                 }
                 Fl_Group {} {open
-                  xywh {1575 547 151 151} color 7
+                  xywh {704 915 151 151} color 7
                 } {
-                  Fl_Box mch_env2levelsar3 {
-                    label env2levelsar3xy
-                    xywh {1596 548 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mch_env2levelsar3->configOSC("SCSon", "56416");}
+                  Fl_Box mch_env1levelsar3 {
+                    label env1levelsar3xy
+                    xywh {725 916 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env1levelsar3->configOSC("SCSon", "56416");}
                     class xyPad
                   }
                   Fl_Box {} {
                     label Attack
-                    xywh {1596 677 130 20} color 37 labelcolor 133
+                    xywh {725 1045 130 20} color 37 labelcolor 133
                   }
                   Fl_Box {} {
                     label {R
@@ -4988,22 +4714,22 @@ e
 a
 s
 e}
-                    xywh {1576 548 20 130} color 37 labelcolor 133
+                    xywh {705 916 20 130} color 37 labelcolor 133
                   }
                 }
               }
               Fl_Group {} {open
-                xywh {1735 184 151 151} color 7
+                xywh {864 552 151 151} color 7
               } {
-                Fl_Box mch_env2sd {
-                  label env2sdxy
-                  xywh {1756 185 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                  code0 {mch_env2sd->configOSC("SCSon", "56416");}
+                Fl_Box mch_env1sd {
+                  label env1sdxy
+                  xywh {885 553 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  code0 {mch_env1sd->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label Sustain
-                  xywh {1756 314 130 20} color 37 labelcolor 133
+                  xywh {885 682 130 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {D
@@ -5011,100 +4737,279 @@ e
 l
 a
 y}
-                  xywh {1736 185 20 130} color 37 labelcolor 133
+                  xywh {865 553 20 130} color 37 labelcolor 133
                 }
               }
             }
-          }
-          Fl_Group {} {open
-            xywh {1407 722 490 250} box BORDER_FRAME color 38
-          } {
             Fl_Group {} {open
-              xywh {1420 746 151 151} color 7
+              xywh {1421 159 490 550} box BORDER_FRAME color 38
             } {
-              Fl_Box mch_env1ad {
-                label env1adxy
-                xywh {1441 747 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                code0 {mch_env1ad->configOSC("SCSon", "56416");}
-                class xyPad
-              }
               Fl_Box {} {
-                label Attack
-                xywh {1441 877 130 20} color 37 labelcolor 133
+                label Envelop
+                xywh {1427 159 63 25} labelfont 1 labelcolor 133
               }
-              Fl_Box {} {
-                label {D
-e
-c
-a
-y}
-                xywh {1421 747 20 130} color 37 labelcolor 133
-              }
-            }
-            Fl_Group {} {open
-              xywh {1575 746 151 151} color 7
-            } {
-              Fl_Box mch_env1sr {
-                label env1sr
-                xywh {1595 747 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                code0 {mch_env1sr->configOSC("SCSon", "56416");}
-                class xyPad
-              }
-              Fl_Box {} {
-                label Sustain
-                xywh {1595 876 130 20} color 37 labelcolor 133
-              }
-              Fl_Box {} {
-                label {R
+              Fl_Group {} {open
+                xywh {1430 183 311 171}
+              } {
+                Fl_Group {} {
+                  label 1 open
+                  xywh {1454 183 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
+                } {
+                  Fl_Box {} {
+                    label Times
+                    xywh {1455 184 130 15} box FLAT_BOX color 0 labelcolor 93
+                  }
+                  Fl_Box {} {
+                    label Levels
+                    xywh {1610 184 130 15} box FLAT_BOX color 0 labelcolor 133
+                  }
+                }
+                Fl_Group {} {open
+                  xywh {1434 202 151 151} color 7
+                } {
+                  Fl_Box mch_env2timesar {
+                    label env2timesar1xy
+                    xywh {1455 203 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env2timesar->configOSC("SCSon", "56416");}
+                    class xyPad
+                  }
+                  Fl_Box {} {
+                    label Attack
+                    xywh {1455 332 130 20} color 37 labelcolor 133
+                  }
+                  Fl_Box {} {
+                    label {R
 e
 l
 e
 a
 s
 e}
-                xywh {1575 747 20 130} color 37 labelcolor 133
+                    xywh {1435 203 20 130} color 37 labelcolor 133
+                  }
+                }
+                Fl_Group {} {open
+                  xywh {1589 202 151 151} color 7
+                } {
+                  Fl_Box mch_env2levelsar1 {
+                    label env2levels1ar
+                    xywh {1610 203 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env2levelsar1->configOSC("SCSon", "56416");}
+                    class xyPad
+                  }
+                  Fl_Box {} {
+                    label Attack
+                    xywh {1610 332 130 20} color 37 labelcolor 133
+                  }
+                  Fl_Box {} {
+                    label {R
+e
+l
+e
+a
+s
+e}
+                    xywh {1590 203 20 130} color 37 labelcolor 133
+                  }
+                }
               }
-            }
-            Fl_Box {} {
-              label Envelop
-              xywh {1414 722 63 25} labelfont 1 labelcolor 133
-            }
-            Fl_Group {} {open
-              xywh {1730 746 151 151} color 7
-            } {
-              Fl_Box mch_env1hd {
-                label env1hdxy
-                xywh {1751 747 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                code0 {mch_env1hd->configOSC("SCSon", "56416");}
-                class xyPad
+              Fl_Value_Slider mch_env2tscale {
+                label env2tscalexy
+                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+                xywh {1813 344 50 349} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 0.1 maximum 10 step 0.001 textcolor 133
+                code0 {mch_env2tscale->configOSC("SCSon","56416");}
+                class OSCValueSlider
               }
-              Fl_Box {} {
-                label Hold
-                xywh {1751 877 130 20} color 37 labelcolor 133
+              Fl_Group {} {open
+                xywh {1430 355 311 171}
+              } {
+                Fl_Group {} {
+                  label 2 open
+                  xywh {1454 355 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
+                } {
+                  Fl_Box {} {
+                    label Times
+                    xywh {1455 356 130 15} box FLAT_BOX color 0 labelcolor 93
+                  }
+                  Fl_Box {} {
+                    label Levels
+                    xywh {1610 356 130 15} box FLAT_BOX color 0 labelcolor 133
+                  }
+                }
+                Fl_Group {} {open
+                  xywh {1434 374 151 151} color 7
+                } {
+                  Fl_Box mch_env2timesar2 {
+                    label env2timesar2xy
+                    xywh {1455 375 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env2timesar2->configOSC("SCSon", "56416");}
+                    class xyPad
+                  }
+                  Fl_Box {} {
+                    label Attack
+                    xywh {1455 504 130 20} color 37 labelcolor 133
+                  }
+                  Fl_Box {} {
+                    label {R
+e
+l
+e
+a
+s
+e}
+                    xywh {1435 375 20 130} color 37 labelcolor 133
+                  }
+                }
+                Fl_Group {} {open
+                  xywh {1589 374 151 151} color 7
+                } {
+                  Fl_Box mch_env2levelsar2 {
+                    label env2levelsar2xy
+                    xywh {1610 375 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env2levelsar2->configOSC("SCSon", "56416");}
+                    class xyPad
+                  }
+                  Fl_Box {} {
+                    label Attack
+                    xywh {1610 504 130 20} color 37 labelcolor 133
+                  }
+                  Fl_Box {} {
+                    label {R
+e
+l
+e
+a
+s
+e}
+                    xywh {1590 375 20 130} color 37 labelcolor 133
+                  }
+                }
               }
-              Fl_Box {} {
-                label {D
+              Fl_Group {} {open
+                xywh {1430 527 311 171}
+              } {
+                Fl_Group {} {
+                  label 3 open
+                  xywh {1454 527 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
+                } {
+                  Fl_Box {} {
+                    label Times
+                    xywh {1455 528 130 15} box FLAT_BOX color 0 labelcolor 93
+                  }
+                  Fl_Box {} {
+                    label Levels
+                    xywh {1610 528 130 15} box FLAT_BOX color 0 labelcolor 133
+                  }
+                }
+                Fl_Group {} {open
+                  xywh {1434 546 151 151} color 7
+                } {
+                  Fl_Box mch_env2timesar3 {
+                    label env2timesar3xy
+                    xywh {1455 547 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env2timesar3->configOSC("SCSon", "56416");}
+                    class xyPad
+                  }
+                  Fl_Box {} {
+                    label Attack
+                    xywh {1455 676 130 20} color 37 labelcolor 133
+                  }
+                  Fl_Box {} {
+                    label {R
+e
+l
+e
+a
+s
+e}
+                    xywh {1435 547 20 130} color 37 labelcolor 133
+                  }
+                }
+                Fl_Group {} {open
+                  xywh {1589 546 151 151} color 7
+                } {
+                  Fl_Box mch_env2levelsar3 {
+                    label env2levelsar3xy
+                    xywh {1610 547 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                    code0 {mch_env2levelsar3->configOSC("SCSon", "56416");}
+                    class xyPad
+                  }
+                  Fl_Box {} {
+                    label Attack
+                    xywh {1610 676 130 20} color 37 labelcolor 133
+                  }
+                  Fl_Box {} {
+                    label {R
+e
+l
+e
+a
+s
+e}
+                    xywh {1590 547 20 130} color 37 labelcolor 133
+                  }
+                }
+              }
+              Fl_Group {} {open
+                xywh {1749 183 151 151} color 7
+              } {
+                Fl_Box mch_env2sd {
+                  label env2sdxy
+                  xywh {1770 184 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  code0 {mch_env2sd->configOSC("SCSon", "56416");}
+                  class xyPad
+                }
+                Fl_Box {} {
+                  label Sustain
+                  xywh {1770 313 130 20} color 37 labelcolor 133
+                }
+                Fl_Box {} {
+                  label {D
 e
 l
 a
 y}
-                xywh {1731 747 20 130} color 37 labelcolor 133
+                  xywh {1750 184 20 130} color 37 labelcolor 133
+                }
               }
             }
-            Fl_Value_Slider mch_env1tscale {
-              label env1tscalexy
-              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-              xywh {1420 905 461 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 0.1 maximum 10 step 0.001 textcolor 133
-              code0 {mch_env1tscale->configOSC("SCSon","56416");}
-              class OSCValueSlider
+            Fl_Group {} {open
+              xywh {1495 720 335 350} box BORDER_FRAME color 38
+            } {
+              Fl_Box {} {
+                label Noise
+                xywh {1510 720 43 25} color 38 labelfont 1 labelcolor 133
+              }
+              Fl_Group {} {open
+                xywh {1500 745 321 321} color 7
+              } {
+                Fl_Box mch_noise {
+                  label noisexy
+                  xywh {1520 746 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  code0 {mch_noise->configOSC("SCSon", "56416");}
+                  class xyPad
+                }
+                Fl_Box {} {
+                  label Ratio
+                  xywh {1520 1044 300 20} color 37 labelcolor 133
+                }
+                Fl_Box {} {
+                  label {L
+e
+v
+e
+l}
+                  xywh {1500 746 20 300} color 37 labelcolor 133
+                }
+              }
             }
           }
         }
         Fl_Tile MXLeadTile {
-          label MLd open
-          xywh {0 50 1920 1055} color 33 selection_color 33 labelsize 40 labelcolor 65
+          label MLd
+          xywh {0 50 1920 1055} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
         } {
-          Fl_Group MXLeadGroup {open selected
+          Fl_Group MXLeadGroup {open
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
             Fl_Button {} {
@@ -6067,11 +5972,11 @@ e}
                   }
                 }
               }
-              Fl_Value_Slider mld_env2tscale {
+              Fl_Value_Slider mld_env1tscale {
                 label env1tscalexy
                 callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
                 xywh {928 713 50 349} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 0.1 maximum 10 step 0.001 textcolor 133
-                code0 {mld_env2tscale->configOSC("SCSon","56416");}
+                code0 {mld_env1tscale->configOSC("SCSon","56416");}
                 class OSCValueSlider
               }
               Fl_Group {} {open
@@ -6492,10 +6397,10 @@ l}
           }
         }
         Fl_Tile MXCtLeadTile {
-          label MCd open
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
+          label MCd
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
         } {
-          Fl_Group MXCtLeadGroup {open
+          Fl_Group MXCtLeadGroup {selected
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
             Fl_Button {} {
@@ -6513,20 +6418,20 @@ l}
               class OSCButton
             }
             Fl_Group {} {open
-              xywh {1038 210 358 720} box BORDER_FRAME color 38
+              xywh {1093 210 358 720} box BORDER_FRAME color 38
             } {
               Fl_Group {} {open
-                xywh {1053 234 320 323} color 7
+                xywh {1108 234 320 323} color 7
               } {
                 Fl_Box mcd_vcffreq {
                   label vcffreqxy
-                  xywh {1073 236 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {1128 236 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mcd_vcffreq->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label Frequency
-                  xywh {1073 535 300 20} color 37 labelcolor 133
+                  xywh {1128 535 300 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {E
@@ -6535,33 +6440,33 @@ p
 
 F
 M}
-                  xywh {1053 235 20 300} color 37 labelcolor 133
+                  xywh {1108 235 20 300} color 37 labelcolor 133
                 }
               }
               Fl_Group {} {open
-                xywh {1053 606 321 321} color 7
+                xywh {1108 606 321 321} color 7
               } {
                 Fl_Box mcd_vcfreso {
                   label vcfresoxy
-                  xywh {1073 607 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  xywh {1128 607 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
                   code0 {mcd_vcfreso->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
                   label Resonance
-                  xywh {1073 905 300 20} color 37 labelcolor 133
+                  xywh {1128 905 300 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {G
 a
 i
 n}
-                  xywh {1053 607 20 300} color 37 labelcolor 133
+                  xywh {1108 607 20 300} color 37 labelcolor 133
                 }
               }
               Fl_Box {} {
                 label VCF
-                xywh {1043 210 41 25} labelfont 1 labelcolor 133
+                xywh {1098 210 41 25} labelfont 1 labelcolor 133
               }
             }
             Fl_Group {} {
@@ -7661,319 +7566,33 @@ M}
               }
             }
             Fl_Group {} {open
-              xywh {1407 160 490 550} box BORDER_FRAME color 38
+              xywh {1510 381 358 358} box BORDER_FRAME color 38
             } {
-              Fl_Box {} {
-                label Envelop
-                xywh {1413 160 63 25} labelfont 1 labelcolor 133
-              }
               Fl_Group {} {open
-                xywh {1416 184 311 171}
+                xywh {1525 405 320 323} color 7
               } {
-                Fl_Group {} {
-                  label 1 open
-                  xywh {1440 184 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
-                } {
-                  Fl_Box {} {
-                    label Times
-                    xywh {1441 185 130 15} box FLAT_BOX color 0 labelcolor 93
-                  }
-                  Fl_Box {} {
-                    label Levels
-                    xywh {1596 185 130 15} box FLAT_BOX color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {1420 203 151 151} color 7
-                } {
-                  Fl_Box mcd_env2timesar {
-                    label env2timesar1xy
-                    xywh {1441 204 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mcd_env2timesar->configOSC("SCSon", "56416");}
-                    class xyPad
-                  }
-                  Fl_Box {} {
-                    label Attack
-                    xywh {1441 333 130 20} color 37 labelcolor 133
-                  }
-                  Fl_Box {} {
-                    label {R
-e
-l
-e
-a
-s
-e}
-                    xywh {1421 204 20 130} color 37 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {1575 203 151 151} color 7
-                } {
-                  Fl_Box mcd_env2levelsar1 {
-                    label env2levels1ar
-                    xywh {1596 204 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mcd_env2levelsar1->configOSC("SCSon", "56416");}
-                    class xyPad
-                  }
-                  Fl_Box {} {
-                    label Attack
-                    xywh {1596 333 130 20} color 37 labelcolor 133
-                  }
-                  Fl_Box {} {
-                    label {R
-e
-l
-e
-a
-s
-e}
-                    xywh {1576 204 20 130} color 37 labelcolor 133
-                  }
-                }
-              }
-              Fl_Value_Slider mcd_env2tscale {
-                label env2tscalexy
-                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-                xywh {1799 345 50 349} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 0.1 maximum 10 step 0.001 textcolor 133
-                code0 {mcd_env2tscale->configOSC("SCSon","56416");}
-                class OSCValueSlider
-              }
-              Fl_Group {} {open
-                xywh {1416 356 311 171}
-              } {
-                Fl_Group {} {
-                  label 2 open
-                  xywh {1440 356 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
-                } {
-                  Fl_Box {} {
-                    label Times
-                    xywh {1441 357 130 15} box FLAT_BOX color 0 labelcolor 93
-                  }
-                  Fl_Box {} {
-                    label Levels
-                    xywh {1596 357 130 15} box FLAT_BOX color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {1420 375 151 151} color 7
-                } {
-                  Fl_Box mcd_env2timesar2 {
-                    label env2timesar2xy
-                    xywh {1441 376 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mcd_env2timesar2->configOSC("SCSon", "56416");}
-                    class xyPad
-                  }
-                  Fl_Box {} {
-                    label Attack
-                    xywh {1441 505 130 20} color 37 labelcolor 133
-                  }
-                  Fl_Box {} {
-                    label {R
-e
-l
-e
-a
-s
-e}
-                    xywh {1421 376 20 130} color 37 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {1575 375 151 151} color 7
-                } {
-                  Fl_Box mcd_env2levelsar2 {
-                    label env2levelsar2xy
-                    xywh {1596 376 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mcd_env2levelsar2->configOSC("SCSon", "56416");}
-                    class xyPad
-                  }
-                  Fl_Box {} {
-                    label Attack
-                    xywh {1596 505 130 20} color 37 labelcolor 133
-                  }
-                  Fl_Box {} {
-                    label {R
-e
-l
-e
-a
-s
-e}
-                    xywh {1576 376 20 130} color 37 labelcolor 133
-                  }
-                }
-              }
-              Fl_Group {} {open
-                xywh {1416 528 311 171}
-              } {
-                Fl_Group {} {
-                  label 3 open
-                  xywh {1440 528 287 17} box FLAT_BOX color 133 labelfont 1 labelcolor 38 align 0
-                } {
-                  Fl_Box {} {
-                    label Times
-                    xywh {1441 529 130 15} box FLAT_BOX color 0 labelcolor 93
-                  }
-                  Fl_Box {} {
-                    label Levels
-                    xywh {1596 529 130 15} box FLAT_BOX color 0 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {1420 547 151 151} color 7
-                } {
-                  Fl_Box mcd_env2timesar3 {
-                    label env2timesar3xy
-                    xywh {1441 548 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mcd_env2timesar3->configOSC("SCSon", "56416");}
-                    class xyPad
-                  }
-                  Fl_Box {} {
-                    label Attack
-                    xywh {1441 677 130 20} color 37 labelcolor 133
-                  }
-                  Fl_Box {} {
-                    label {R
-e
-l
-e
-a
-s
-e}
-                    xywh {1421 548 20 130} color 37 labelcolor 133
-                  }
-                }
-                Fl_Group {} {open
-                  xywh {1575 547 151 151} color 7
-                } {
-                  Fl_Box mcd_env2levelsar3 {
-                    label env2levelsar3xy
-                    xywh {1596 548 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                    code0 {mcd_env2levelsar3->configOSC("SCSon", "56416");}
-                    class xyPad
-                  }
-                  Fl_Box {} {
-                    label Attack
-                    xywh {1596 677 130 20} color 37 labelcolor 133
-                  }
-                  Fl_Box {} {
-                    label {R
-e
-l
-e
-a
-s
-e}
-                    xywh {1576 548 20 130} color 37 labelcolor 133
-                  }
-                }
-              }
-              Fl_Group {} {open
-                xywh {1735 184 151 151} color 7
-              } {
-                Fl_Box mcd_env2sd {
-                  label env2sdxy
-                  xywh {1756 185 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                  code0 {mcd_env2sd->configOSC("SCSon", "56416");}
+                Fl_Box mcd_slew {
+                  label slewxy
+                  xywh {1545 407 300 300} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  code0 {mcd_slew->configOSC("SCSon", "56416");}
                   class xyPad
                 }
                 Fl_Box {} {
-                  label Sustain
-                  xywh {1756 314 130 20} color 37 labelcolor 133
+                  label Up
+                  xywh {1545 706 300 20} color 37 labelcolor 133
                 }
                 Fl_Box {} {
                   label {D
-e
-l
-a
-y}
-                  xywh {1736 185 20 130} color 37 labelcolor 133
+o
+w
+n}
+                  xywh {1525 406 20 300} color 37 labelcolor 133
                 }
               }
-            }
-          }
-          Fl_Group {} {open
-            xywh {1407 722 490 250} box BORDER_FRAME color 38
-          } {
-            Fl_Group {} {open
-              xywh {1420 746 151 151} color 7
-            } {
-              Fl_Box mcd_env1ad {
-                label env1adxy
-                xywh {1441 747 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                code0 {mcd_env1ad->configOSC("SCSon", "56416");}
-                class xyPad
-              }
               Fl_Box {} {
-                label Attack
-                xywh {1441 877 130 20} color 37 labelcolor 133
+                label Slew
+                xywh {1515 381 41 25} labelfont 1 labelcolor 133
               }
-              Fl_Box {} {
-                label {D
-e
-c
-a
-y}
-                xywh {1421 747 20 130} color 37 labelcolor 133
-              }
-            }
-            Fl_Group {} {open
-              xywh {1575 746 151 151} color 7
-            } {
-              Fl_Box mcd_env1sr {
-                label env1sr
-                xywh {1595 747 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                code0 {mcd_env1sr->configOSC("SCSon", "56416");}
-                class xyPad
-              }
-              Fl_Box {} {
-                label Sustain
-                xywh {1595 876 130 20} color 37 labelcolor 133
-              }
-              Fl_Box {} {
-                label {R
-e
-l
-e
-a
-s
-e}
-                xywh {1575 747 20 130} color 37 labelcolor 133
-              }
-            }
-            Fl_Box {} {
-              label Envelop
-              xywh {1414 722 63 25} labelfont 1 labelcolor 133
-            }
-            Fl_Group {} {open
-              xywh {1730 746 151 151} color 7
-            } {
-              Fl_Box mcd_env1hd {
-                label env1hdxy
-                xywh {1751 747 130 130} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
-                code0 {mcd_env1hd->configOSC("SCSon", "56416");}
-                class xyPad
-              }
-              Fl_Box {} {
-                label Hold
-                xywh {1751 877 130 20} color 37 labelcolor 133
-              }
-              Fl_Box {} {
-                label {D
-e
-l
-a
-y}
-                xywh {1731 747 20 130} color 37 labelcolor 133
-              }
-            }
-            Fl_Value_Slider mcd_env1tscale {
-              label env1tscalexy
-              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
-              xywh {1420 905 461 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 0.1 maximum 10 step 0.001 textcolor 133
-              code0 {mcd_env1tscale->configOSC("SCSon","56416");}
-              class OSCValueSlider
             }
           }
         }
