@@ -2201,7 +2201,7 @@ n}
                 xywh {1185 90 41 25} labelfont 1 labelcolor 133
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {40 78 495 474} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -2475,7 +2475,7 @@ M}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {550 78 495 474} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -2749,7 +2749,7 @@ M}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {40 568 495 474} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -3017,13 +3017,13 @@ M}
               }
               Fl_Value_Slider mb_vco3level {
                 label vco3level
-                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");} selected
+                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
                 xywh {480 590 45 430} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 2 maximum 0 step 0.001 textcolor 133
                 code0 {mb_vco3level->configOSC("SCSon","56416");}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {550 568 495 474} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -3296,6 +3296,89 @@ M}
                 code0 {mb_vco4level->configOSC("SCSon","56416");}
                 class OSCValueSlider
               }
+            }
+          }
+          Fl_Group {} {open
+            xywh {1180 330 600 300} box BORDER_FRAME color 38
+          } {
+            Fl_Group {} {
+              xywh {1195 354 178 181} color 7
+            } {
+              Fl_Box mb_env1ad {
+                label env1adxy
+                xywh {1216 355 156 156} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                code0 {mb_env1ad->configOSC("SCSon", "56416");}
+                class xyPad
+              }
+              Fl_Box {} {
+                label Attack
+                xywh {1216 513 156 20} color 37 labelcolor 133
+              }
+              Fl_Box {} {
+                label {D
+e
+c
+a
+y}
+                xywh {1196 355 20 156} color 37 labelcolor 133
+              }
+            }
+            Fl_Group {} {open
+              xywh {1389 354 179 181} color 7
+            } {
+              Fl_Box mb_env1sr {
+                label env1sr
+                xywh {1409 355 156 156} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                code0 {mb_env1sr->configOSC("SCSon", "56416");}
+                class xyPad
+              }
+              Fl_Box {} {
+                label Sustain
+                xywh {1409 513 156 20} color 37 labelcolor 133
+              }
+              Fl_Box {} {
+                label {R
+e
+l
+e
+a
+s
+e}
+                xywh {1389 355 20 156} color 37 labelcolor 133
+              }
+            }
+            Fl_Box {} {
+              label Envelop
+              xywh {1186 330 63 25} labelfont 1 labelcolor 133
+            }
+            Fl_Group {} {
+              xywh {1580 354 178 181} color 7
+            } {
+              Fl_Box mb_env1hd {
+                label env1hdxy
+                xywh {1601 355 156 156} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                code0 {mb_env1hd->configOSC("SCSon", "56416");}
+                class xyPad
+              }
+              Fl_Box {} {
+                label Hold
+                xywh {1601 513 156 20} color 37 labelcolor 133
+              }
+              Fl_Box {} {
+                label {D
+e
+l
+a
+y}
+                xywh {1581 355 20 156} color 37 labelcolor 133
+              }
+            }
+            Fl_Value_Slider mb_env1tscale {
+              label env1tscalexy
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");} selected
+              xywh {1200 560 560 50} type {Horz Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 0.1 maximum 10 step 0.001 textcolor 133
+              code0 {mb_env1tscale->configOSC("SCSon","56416");}
+              class OSCValueSlider
             }
           }
         }
