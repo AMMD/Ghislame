@@ -266,6 +266,7 @@ public:
       oldypos = (int)(height * father->v_());
     }
     Fl_Box::draw();
+    cursor->redraw();
   }
 
 
@@ -297,16 +298,9 @@ public:
 	vy = argv[1]->f;
 	oldxpos = (int) (width * vx);
 	oldypos = (int) (height * vy);
-	std::cout << "vx : " << vx << " / vy : " << vy << " / oldxpos : " << oldxpos << " / oldypos : " << oldypos << " / width : "<< width << " / height : "<< height << std::endl;
-	moveCursor((Fl_Box *)(this->parent()->child(2)), oldxpos, oldypos);
-	std::cout << "Le curseur a bougé" << std::endl;
-	this->parent()->damage(1);
-	this->parent()->redraw();
-	//	this->parent()->redraw();
-	//	this->redraw();
-	//	this->parent()->child(2)->redraw();
-	Fl::flush();
-	std::cout << "Flush" << std::endl;
+	//	std::cout << "vx : " << vx << " / vy : " << vy << " / oldxpos : " << oldxpos << " / oldypos : " << oldypos << " / width : "<< width << " / height : "<< height << std::endl;
+	moveCursor(xpos+oldxpos, ypos+height-oldypos);
+	//	std::cout << "Le curseur a bougé" << std::endl;
   };
 
 	double vx_(){ return vx; };
@@ -328,11 +322,11 @@ public:
 
 
 
-    void moveCursor(Fl_Box* c, int x, int y) {
+    void moveCursor(int x, int y) {
       	float scale_x, scale_y;
 	float coef_x, coef_y;
-	int l = c->w();
-	int h = c->h();
+	int l = cursor->w();
+	int h = cursor->h();
 
 	// échelle
 	coef_x = 1.0*l/width;
@@ -346,9 +340,10 @@ public:
 		scale_y = ypos;
 
 	// déplacement curseur
-	c->hide();
-	c->position((int)scale_x, (int)scale_y);
-	c->show();
+	cursor->hide();
+	cursor->position((int)scale_x, (int)scale_y);
+	cursor->damage(1);
+	cursor->show();
     }
 
   void sendOSC(){
@@ -403,7 +398,7 @@ public:
 
 		int u;
 		if(newx != oldxpos) {
-			moveCursor(cursor, Fl::event_x(),ypos+h-oldypos);
+			moveCursor(Fl::event_x(),ypos+h-oldypos);
 			oldxpos = newx;
 			v_compute();
 
@@ -422,7 +417,7 @@ public:
 			}
 		}
 		if(newy != oldypos) {
-			moveCursor(cursor, oldxpos+x, Fl::event_y());
+			moveCursor(oldxpos+x, Fl::event_y());
 			oldypos = newy;
 			v_compute();
 
@@ -449,7 +444,7 @@ public:
 		newy = y+h-Fl::event_y();
 
 		if(newx != oldxpos && newx >= 0 && newx < w){
-			moveCursor(cursor, Fl::event_x(), y+h-oldypos);
+			moveCursor(Fl::event_x(), y+h-oldypos);
 			oldxpos = newx;
 			v_compute();
 
@@ -470,7 +465,7 @@ public:
 			}
 		}
 		if(newy != oldypos && newy >= 0 && newy < h){
-			moveCursor(cursor, oldxpos+x, Fl::event_y());
+			moveCursor(oldxpos+x, Fl::event_y());
 			oldypos = newy;
 			v_compute();
 
