@@ -52,8 +52,8 @@ Function {} {open
     xywh {0 0 1920 1080} type Double color 33 selection_color 37 labelcolor 22 resizable
     class OSCWindow modal noborder size_range {1920 1080 1920 1080} visible
   } {
-    Fl_Scroll {} {open selected
-      xywh {0 0 1920 1080} type BOTH_ALWAYS color 0 labelsize 30
+    Fl_Scroll {} {open
+      xywh {0 0 1926 1080} type BOTH_ALWAYS color 0 labelsize 30
     } {
       Fl_Tabs tabGen {open
         xywh {0 0 1926 1075} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
@@ -1490,7 +1490,7 @@ Function {} {open
               }
             }
             Fl_Group {} {open
-              xywh {750 63 824 764}
+              xywh {750 63 868 877}
             } {
               Fl_Box {} {
                 label {FX 3 Delays}
@@ -1531,10 +1531,6 @@ Function {} {open
                   label {Band 1}
                   xywh {968 364 90 26} labelcolor 7
                 }
-                Fl_Box cursorBand1 {
-                  label cursor
-                  xywh {955 510 10 10} box DIAMOND_UP_BOX color 33 labeltype NO_LABEL
-                }
               }
               Fl_Group {} {open
                 xywh {1093 364 156 182} box FLAT_BOX color 136
@@ -1548,10 +1544,6 @@ Function {} {open
                 Fl_Box {} {
                   label {Band 2}
                   xywh {1123 364 90 26} labelcolor 7
-                }
-                Fl_Box cursorBand2 {
-                  label cursor
-                  xywh {1129 520 10 10} box DIAMOND_UP_BOX color 33 labeltype NO_LABEL
                 }
               }
               Fl_Group {} {open
@@ -1567,10 +1559,6 @@ Function {} {open
                   label {Band 3}
                   xywh {968 709 90 26} labelcolor 7
                 }
-                Fl_Box cursorBand3 {
-                  label cursor
-                  xywh {975 629 10 10} box DIAMOND_UP_BOX color 33 labeltype NO_LABEL
-                }
               }
               Fl_Group {} {open
                 xywh {1093 549 156 186} box FLAT_BOX color 7 labelcolor 32
@@ -1584,10 +1572,6 @@ Function {} {open
                 Fl_Box {} {
                   label {Band 4}
                   xywh {1123 709 90 26}
-                }
-                Fl_Box cursorBand4 {
-                  label cursor
-                  xywh {1128 660 10 10} box DIAMOND_UP_BOX color 33 labeltype NO_LABEL
                 }
               }
               Fl_Group {} {open
@@ -1603,10 +1587,6 @@ Function {} {open
                   label Speeds
                   xywh {1324 452 90 26} labelcolor 7
                 }
-                Fl_Box cursorSpeeds {
-                  label cursor
-                  xywh {1306 595 10 10} box DIAMOND_UP_BOX color 33 labeltype NO_LABEL
-                }
               }
               Fl_Box {} {
                 label Level
@@ -1618,6 +1598,10 @@ Function {} {open
                 xywh {1495 145 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
                 code0 {fx_fx3fader->configOSC("SCSon","56416");}
                 class OSCValueSlider
+              }
+              Fl_Button {} {
+                label REFRESH selected
+                xywh {1490 677 83 58} color 3 labelfont 1
               }
             }
           }
