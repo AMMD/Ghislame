@@ -54,7 +54,7 @@ public:
       wid = wid->parent();
     }
     strcat(inpath, ((Fl_Widget *)this)->label());
-    lo_server_thread_add_method(((OSCWindow *)wid)->st, inpath, "iff", lihgt_xypad_handler_wrapper, this);
+    lo_server_thread_add_method(((OSCWindow *)wid)->st, inpath, "iff", light_xypad_handler_wrapper, this);
   };
 
   int light_xypad_handler(const char *path, const char *types, lo_arg **argv, int argc, void *data){
@@ -62,16 +62,16 @@ public:
 //	vx = argv[0]->f;
 //	vy = argv[0]->f;
 	t = argv[0]->i;
-	this->child(1)->value(t);
+	((Fl_Slider *)(this->child(1)))->value(t);
 	s = argv[1]->f;
 	v = argv[2]->f;
 
 	
 
-	this->child(0)->oldxpos = (int) (width * s);
-	this->child(0)->oldypos = (int) (height * v);
+	//	((xyPad *) (this->child(0)))->oldxpos = (int) (width * s);
+	//	((xyPad *)(this->child(0)))->oldypos = (int) (height * v);
 	this->child(0)->damage(1);
-	moveCursor((Fl_Box *)(this->child(2)), oldxpos, oldypos);
+	//	moveCursor((Fl_Box *)(this->child(2)), oldxpos, oldypos);
 	this->redraw();
 	Fl::flush();
   };
@@ -249,6 +249,18 @@ public:
 	add_method();
     }
 
+  void draw() {
+    // cas light_xyPad
+    Fl_Widget * papa = this->parent();
+    if( dynamic_cast< light_xyPad* >(papa) ){
+      light_xyPad * father = (light_xyPad *)papa;
+      oldxpos = (int)(width * father->s_());
+      oldypos = (int)(height * father->v_());
+    }
+    Fl_Box::draw();
+  }
+
+
   void add_method(){
     char inpath[1024], tmpath[1024];
     
@@ -274,11 +286,11 @@ public:
   int xypad_handler(const char *path, const char *types, lo_arg **argv, int argc, void *data){
 //	((xyPad *)this)->value(argv[0]->i);
 	vx = argv[0]->f;
-	vy = argv[0]->f;
+	vy = argv[1]->f;
 	oldxpos = (int) (width * vx);
 	oldypos = (int) (height * vy);
-	moveCursor((Fl_Box *)(this->parent()->child(2)), oldxpos, oldypos);
-	this->redraw();
+	moveCursor((Fl_Group *)this->parent()->child(2)), oldxpos, oldypos);
+	//	this->parent()->child(2)->redraw();
 	Fl::flush();
   };
 
@@ -319,11 +331,9 @@ public:
 		scale_y = ypos;
 
 	// déplacement curseur
-//	c->hide();
+	c->hide();
 	c->position((int)scale_x, (int)scale_y);
-//	c->show();
-	c->damage(1);
-	c->redraw();
+	c->show();
     }
 
   void sendOSC(){

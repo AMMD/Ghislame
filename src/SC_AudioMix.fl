@@ -1,23 +1,26 @@
 # data file for the Fltk User Interface Designer (fluid)
-version 1.0110 
+version 1.0300 
 header_name {.h} 
 code_name {.cxx}
-decl {\#include <stdio.h>} {} 
+decl {\#include <stdio.h>} {private local
+} 
 
-decl {\#include <stdlib.h>} {} 
+decl {\#include <stdlib.h>} {private local
+} 
 
-decl {\#include <string.h>} {} 
+decl {\#include <string.h>} {private local
+} 
 
-decl {//\#include "OSCserver.hpp"} {selected public global
+decl {//\#include "OSCserver.hpp"} {public global
 } 
 
 decl {\#include "OSCoutputs.hpp"} {public global
 } 
 
-decl {\#include "xyPad.hpp"} {public global
+decl {\#include "OSCWindow.hpp"} {selected public global
 } 
 
-decl {\#include "OSCWindow.hpp"} {public global
+decl {\#include "xyPad.hpp"} {public global
 } 
 
 decl {//\#include "OSCWidget.hpp"} {public global
@@ -38,7 +41,8 @@ decl {\#include "OSCDial.hpp"} {public global
 decl {\#include "OSCRoller.hpp"} {public global
 } 
 
-decl {using namespace std;} {} 
+decl {using namespace std;} {private local
+} 
 
 Function {} {open
 } {
