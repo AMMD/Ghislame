@@ -6398,9 +6398,9 @@ l}
         }
         Fl_Tile MXCtLeadTile {
           label MCd
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
         } {
-          Fl_Group MXCtLeadGroup {selected
+          Fl_Group MXCtLeadGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
             Fl_Button {} {
@@ -7593,6 +7593,31 @@ n}
                 label Slew
                 xywh {1515 381 41 25} labelfont 1 labelcolor 133
               }
+            }
+          }
+        }
+        Fl_Tile SooperLooperTile {
+          label SL open
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
+        } {
+          Fl_Group SLGroup {open
+            xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
+          } {
+            Fl_Box {} {
+              label Bass
+              xywh {25 75 25 25} labelcolor 133
+            }
+            Fl_Box {} {
+              label Vocals
+              xywh {35 85 25 25} labelcolor 133
+            }
+            Fl_Box {} {
+              label Guitar
+              xywh {45 95 25 25} labelcolor 133
+            }
+            Fl_Box {} {
+              label Drums selected
+              xywh {55 105 25 25} labelcolor 133
             }
           }
         }
