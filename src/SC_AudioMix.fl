@@ -26,7 +26,7 @@ decl {\#include "xyPad.hpp"} {public global
 decl {//\#include "OSCWidget.hpp"} {public global
 } 
 
-decl {\#include "OSCFlOutput.hpp"} {selected public global
+decl {\#include "OSCFlOutput.hpp"} {public global
 } 
 
 decl {\#include "OSCSlider.hpp"} {public global
@@ -8167,8 +8167,8 @@ n}
       xywh {10 55 508 40}
     } {
       Fl_Output t_name {
-        label Tune
-        xywh {10 55 200 35} box NO_BOX color 38 labeltype NO_LABEL labelfont 1 labelcolor 38 align 17 textfont 14 textsize 20 textcolor 1
+        label Tune selected
+        xywh {10 55 200 35} box FLAT_BOX color 0 labeltype NO_LABEL labelfont 1 labelcolor 38 align 17 textfont 14 textsize 20 textcolor 1
         code0 {t_name->value("YourSoul");}
         class OSCFlOutput
       }
