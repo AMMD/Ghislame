@@ -3,6 +3,7 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
+#include <FL/Fl_Button.H>
 #include <FL/Fl_Slider.H>
 #include <FL/fl_draw.H>
 #include <malloc.h>
@@ -55,8 +56,11 @@ public:
   OSCoutput *osco_(){ return osco; };
 
   int button_handler(const char *path, const char *types, lo_arg **argv, int argc, void *data){
-	((Fl_Button *)this)->value(argv[0]->i);
-	Fl::flush();
+    if(((Fl_Button *)this)->type() != 2 && argv[0]->i)
+      ((Fl_Button *)this)->setonly();
+    else
+      ((Fl_Button *)this)->value(argv[0]->i);      
+    Fl::flush();
   };
 
   void configOSC(const char* h, const char* p){

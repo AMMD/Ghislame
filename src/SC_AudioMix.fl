@@ -2129,8 +2129,8 @@ Function {} {open
           }
         }
         Fl_Tile MXBassTile {
-          label MBs open
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
+          label MBs
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
         } {
           Fl_Group MXBassGroup {open
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
@@ -2147,7 +2147,7 @@ Function {} {open
             }
             Fl_Button mb_Reload {
               label RELOAD
-              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")} selected
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
               xywh {1638 60 80 60} box THIN_UP_BOX color 0 labelfont 1 labelcolor 133
               class OSCButton
             }
@@ -2444,7 +2444,7 @@ M}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {
+            Fl_Group {} {open
               xywh {533 78 495 474} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -2466,117 +2466,89 @@ M}
                   class OSCValueSlider
                 }
               }
-              Fl_Group {} {
+              Fl_Group {} {open
                 xywh {551 172 404 55}
               } {
                 Fl_Box {} {
                   label Octave
                   xywh {551 190 56 35} labelcolor 133 align 5
                 }
-                Fl_Group {} {open
-                  xywh {551 190 56 35}
-                } {
-                  Fl_Button mb_vco2oct0 {
-                    label vco2oct0
-                    callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-                    xywh {551 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mb_vco2oct0->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 1
-                    xywh {551 190 56 35} color 0 labelcolor 133
-                  }
+                Fl_Button mb_vco2oct0 {
+                  label vco2oct0
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {551 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                  code0 {mb_vco2oct0->configOSC("SCSon","56416");}
+                  class OSCButton
                 }
-                Fl_Group {} {open
-                  xywh {609 190 56 35}
-                } {
-                  Fl_Button mb_vco2oct1 {
-                    label vco2oct1
-                    callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-                    xywh {609 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 42 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mb_vco2oct1->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 2
-                    xywh {609 190 56 35} color 0 labelcolor 133
-                  }
+                Fl_Box {} {
+                  label 1
+                  xywh {551 190 56 35} color 0 labelcolor 133
                 }
-                Fl_Group {} {open
-                  xywh {667 190 56 35}
-                } {
-                  Fl_Button mb_vco2oct2 {
-                    label vco2oct2
-                    callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-                    xywh {667 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 43 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mb_vco2oct2->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 3
-                    xywh {667 190 56 35} color 0 labelcolor 133
-                  }
+                Fl_Button mb_vco2oct1 {
+                  label vco2oct1
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {609 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 42 selection_color 1 labeltype NO_LABEL labelsize 11
+                  code0 {mb_vco2oct1->configOSC("SCSon","56416");}
+                  class OSCButton
                 }
-                Fl_Group {} {open
-                  xywh {725 190 56 35}
-                } {
-                  Fl_Button mb_vco2oct3 {
-                    label vco2oct3
-                    callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-                    xywh {725 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 45 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mb_vco2oct3->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 4
-                    xywh {725 190 56 35} color 0 labelcolor 133
-                  }
+                Fl_Box {} {
+                  label 2
+                  xywh {609 190 56 35} color 0 labelcolor 133
                 }
-                Fl_Group {} {open
-                  xywh {783 190 56 35}
-                } {
-                  Fl_Button mb_vco2oct4 {
-                    label vco2oct4
-                    callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-                    xywh {783 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 47 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mb_vco2oct4->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 5
-                    xywh {783 190 56 35} color 0 labelcolor 133
-                  }
+                Fl_Button mb_vco2oct2 {
+                  label vco2oct2
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {667 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 43 selection_color 1 labeltype NO_LABEL labelsize 11
+                  code0 {mb_vco2oct2->configOSC("SCSon","56416");}
+                  class OSCButton
                 }
-                Fl_Group {} {open
-                  xywh {841 190 56 35}
-                } {
-                  Fl_Button mb_vco2oct5 {
-                    label vco2oct5
-                    callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-                    xywh {841 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mb_vco2oct5->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 6
-                    xywh {841 190 56 35} color 0 labelcolor 133
-                  }
+                Fl_Box {} {
+                  label 3
+                  xywh {667 190 56 35} color 0 labelcolor 133
                 }
-                Fl_Group {} {open
-                  xywh {899 190 56 35}
-                } {
-                  Fl_Button mb_vco2oct6 {
-                    label vco2oct6
-                    callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-                    xywh {899 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 51 selection_color 1 labeltype NO_LABEL labelsize 11
-                    code0 {mb_vco2oct6->configOSC("SCSon","56416");}
-                    class OSCButton
-                  }
-                  Fl_Box {} {
-                    label 7
-                    xywh {899 190 56 35} color 0 labelcolor 133
-                  }
+                Fl_Button mb_vco2oct3 {
+                  label vco2oct3
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {725 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 45 selection_color 1 labeltype NO_LABEL labelsize 11
+                  code0 {mb_vco2oct3->configOSC("SCSon","56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label 4
+                  xywh {725 190 56 35} color 0 labelcolor 133
+                }
+                Fl_Button mb_vco2oct4 {
+                  label vco2oct4
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {783 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 47 selection_color 1 labeltype NO_LABEL labelsize 11
+                  code0 {mb_vco2oct4->configOSC("SCSon","56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label 5
+                  xywh {783 190 56 35} color 0 labelcolor 133
+                }
+                Fl_Button mb_vco2oct5 {
+                  label vco2oct5
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {841 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME selection_color 1 labeltype NO_LABEL labelsize 11
+                  code0 {mb_vco2oct5->configOSC("SCSon","56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label 6
+                  xywh {841 190 56 35} color 0 labelcolor 133
+                }
+                Fl_Button mb_vco2oct6 {
+                  label vco2oct6
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {899 190 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 51 selection_color 1 labeltype NO_LABEL labelsize 11
+                  code0 {mb_vco2oct6->configOSC("SCSon","56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label 7
+                  xywh {899 190 56 35} color 0 labelcolor 133
                 }
               }
               Fl_Group {} {
@@ -3513,10 +3485,10 @@ y}
           }
         }
         Fl_Tile MXChordsTile {
-          label MCh
+          label MCh open
           xywh {0 50 1920 1055} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
         } {
-          Fl_Group MXChordsGroup {
+          Fl_Group MXChordsGroup {open
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
             Fl_Button {} {
@@ -3828,7 +3800,7 @@ M}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {
+            Fl_Group {} {open
               xywh {533 53 495 474} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -3850,7 +3822,7 @@ M}
                   class OSCValueSlider
                 }
               }
-              Fl_Group {} {
+              Fl_Group {} {open
                 xywh {551 147 404 55}
               } {
                 Fl_Box {} {
@@ -3860,7 +3832,7 @@ M}
                 Fl_Button mch_vco2oct0 {
                   label vco2oct0
                   callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
-                  xywh {551 165 56 35} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
+                  xywh {551 165 56 35} type Radio box BORDER_FRAME down_box BORDER_FRAME color 41 selection_color 1 labeltype NO_LABEL labelsize 11
                   code0 {mch_vco2oct0->configOSC("SCSon","56416");}
                   class OSCButton
                 }
@@ -7176,14 +7148,244 @@ n}
         }
         Fl_Tile SooperLooperTile {
           label SL open
-          xywh {0 50 1930 1035} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
+          xywh {0 50 1930 1035} color 33 selection_color 33 labelsize 40 labelcolor 65
         } {
           Fl_Group SLGroup {open
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Box {} {
-              label Bass
-              xywh {25 75 25 25} labelcolor 133
+            Fl_Group {} {open
+              xywh {125 95 540 295} box BORDER_FRAME color 38
+            } {
+              Fl_Box {} {
+                label Bass
+                xywh {135 95 38 25} labelfont 1 labelcolor 133
+              }
+              Fl_Group {} {open
+                xywh {150 120 105 60}
+              } {
+                Fl_Button sl_bassrecord {
+                  label bassrecord
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {150 120 105 60} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassrecord->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Button sl_bassrecordwait {
+                  label wait_record
+                  xywh {151 121 103 30} type Radio box NO_BOX color 0 selection_color 0
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label Record
+                  xywh {150 120 105 60} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {150 190 105 60}
+              } {
+                Fl_Button sl_bassoverdub {
+                  label bassoverdub
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {150 190 105 60} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassoverdub->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label Overdub
+                  xywh {150 190 105 60} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {261 120 105 60}
+              } {
+                Fl_Button sl_basspause {
+                  label basspause
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")} selected
+                  xywh {261 120 105 60} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_basspause->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label Pause
+                  xywh {261 120 105 60} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {261 190 105 60}
+              } {
+                Fl_Button sl_bassmultiply {
+                  label bassmultiply
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {261 190 105 60} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassmultiply->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label Multiply
+                  xywh {261 190 105 60} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {375 210 70 40}
+              } {
+                Fl_Button sl_bassmute {
+                  label bassmute
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {375 210 70 40} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassmute->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label Mute
+                  xywh {375 210 70 40} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {375 120 70 40}
+              } {
+                Fl_Button sl_bassundo {
+                  label bassundo
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {375 120 70 40} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassundo->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label Undo
+                  xywh {375 120 70 40} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {375 165 70 40}
+              } {
+                Fl_Button sl_bassredo {
+                  label bassredo
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {375 165 70 40} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassredo->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label Redo
+                  xywh {375 165 70 40} labelcolor 133
+                }
+              }
+              Fl_Value_Slider sl_basswet {
+                label basswet
+                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","")}
+                xywh {150 285 350 30} type {Horz Fill} box FLAT_BOX color 38 selection_color 93 labelsize 11 labelcolor 93 align 9 textcolor 93
+                code0 {sl_basswet->configOSC("SCSon", "56416");}
+                class OSCValueSlider
+              }
+              Fl_Value_Slider sl_bassdry {
+                label bassdry
+                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","")}
+                xywh {150 340 350 30} type {Horz Fill} box FLAT_BOX color 38 selection_color 93 labelsize 11 labelcolor 93 align 5 textcolor 93
+                code0 {sl_bassdry->configOSC("SCSon", "56416");}
+                class OSCValueSlider
+              }
+              Fl_Group {} {open
+                xywh {469 120 40 40}
+              } {
+                Fl_Button sl_bassxdemi {
+                  label bassxdemi
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {469 120 40 40} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassxdemi->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label {x1/2}
+                  xywh {469 120 40 40} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {469 165 40 40}
+              } {
+                Fl_Button sl_bassx1 {
+                  label bassx1
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {469 165 40 40} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassx1->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label x1
+                  xywh {469 165 40 40} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {469 209 40 40}
+              } {
+                Fl_Button sl_bassx2 {
+                  label bassx2
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {469 209 40 40} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassx2->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label x2
+                  xywh {469 209 40 40} labelcolor 133
+                }
+              }
+              Fl_Value_Slider sl_bassrate {
+                label bassrate
+                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","")}
+                xywh {525 120 40 250} type {Vert Fill} box FLAT_BOX color 38 selection_color 93 labelsize 11 labelcolor 93 align 1 textcolor 93
+                code0 {sl_bassrate->configOSC("SCSon", "56416");}
+                class OSCValueSlider
+              }
+              Fl_Group {} {open
+                xywh {580 120 70 40}
+              } {
+                Fl_Button sl_bassplaysync {
+                  label bassplaysync
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {580 120 70 40} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_bassplaysync->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label {play sync}
+                  xywh {580 120 70 40} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {580 165 70 40}
+              } {
+                Fl_Button sl_basssync {
+                  label basssync
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {580 165 70 40} type Toggle box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_basssync->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label sync
+                  xywh {580 165 70 40} labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {580 210 70 160}
+              } {
+                Fl_Button sl_basstrig {
+                  label basstrig
+                  callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                  xywh {580 210 70 160} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL
+                  code0 {sl_basstrig->configOSC("SCSon", "56416");}
+                  class OSCButton
+                }
+                Fl_Button sl_basstrigwait {
+                  label wait_trig
+                  xywh {581 216 68 30} type Radio box NO_BOX color 0 selection_color 0
+                  class OSCButton
+                }
+                Fl_Box {} {
+                  label Trig
+                  xywh {580 210 70 160} labelcolor 133
+                }
+              }
             }
             Fl_Box {} {
               label Vocals
@@ -7196,26 +7398,6 @@ n}
             Fl_Box {} {
               label Drums
               xywh {55 105 25 25} labelcolor 133
-            }
-            Fl_Group {} {open
-              xywh {290 200 160 80}
-            } {
-              Fl_Button {} {
-                label button
-                xywh {305 200 70 20} type Radio
-              }
-              Fl_Button {} {
-                label button
-                xywh {290 225 70 20} type Radio
-              }
-              Fl_Button {} {
-                label button
-                xywh {380 235 70 20} type Radio
-              }
-              Fl_Button {} {
-                label button
-                xywh {310 260 70 20} type Radio
-              }
             }
           }
         }
