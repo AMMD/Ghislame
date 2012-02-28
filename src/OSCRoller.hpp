@@ -58,6 +58,13 @@ public:
 
 
   OSCoutput *osco_(){ return osco; };
+  void configOSC(const char* h, const char* p){
+    host = h;
+    port = p;
+    delete osco;
+    osco = new OSCoutput(host, port);
+  };
+
 };
 
 static int roller_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data){

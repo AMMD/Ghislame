@@ -76,6 +76,13 @@ public:
 	Fl::flush();
   };
 
+  void configOSC(const char* h, const char* p){
+    host = h;
+    udp_port = p;
+    delete osco;
+    osco = new OSCoutput(host, udp_port);
+  };
+
 
   lo_address osco_(){ return osco; };
 
@@ -214,6 +221,11 @@ public:
   };
 
 };
+
+static int light_xypad_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data){
+	((light_xyPad *)user_data)->light_xypad_handler(path, types, argv, argc, data);
+}
+
 
 static int xypad_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data);
 
