@@ -8835,11 +8835,12 @@ k}
           }
         }
         Fl_Tile LAOTile {
-          label { QLC }
-          xywh {0 50 1926 1063} color 33 selection_color 133 labelsize 40 labelcolor 65
+          label QLC
+          xywh {0 50 1926 1063} color 33 selection_color 133 labelsize 40 labelcolor 65 hide
+          class OSCTile
         } {
           Fl_Group groupepage2 {
-            label groupepage2 selected
+            label groupepage2
             xywh {0 90 1920 980} box FLAT_BOX color 33 labelcolor 33 align 16
           } {
             Fl_Group groupeVST1 {
@@ -10488,6 +10489,1082 @@ on}
             Fl_Button {} {
               label Refresh
               xywh {903 990 68 55} box THIN_UP_BOX down_box DOWN_BOX color 38 selection_color 133 labelfont 1 labelcolor 133 align 16 when 1
+            }
+          }
+        }
+        Fl_Tile VAOTile {
+          label LiV open
+          xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65 resizable
+          class OSCTile
+        } {
+          Fl_Group groupepage1 {
+            label groupepage1 open selected
+            xywh {5 87 1907 969} labelcolor 33 align 0 resizable
+          } {
+            Fl_Dial dial1 {
+              label Dial1
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {5 87 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein1
+              xywh {37 181 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            }
+            Fl_Dial dial1bis {
+              label Dial1bis
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {5 215 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein1bis
+              xywh {37 309 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            }
+            Fl_Dial dial1ter {
+              label Dial1ter
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {5 344 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein1ter
+              xywh {37 438 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            }
+            Fl_Value_Slider fader1 {
+              label Fader1
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {17 487 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+              class OSCValueSlider
+            }
+            Fl_Button button1 {
+              label Button1
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {17 921 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Dial dial2 {
+              label Dial2
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {125 87 95 95} type Fill box OFLAT_BOX color 37 selection_color 229 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein2
+              xywh {157 181 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 229
+            }
+            Fl_Dial dial2bis {
+              label Dial2bis
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {125 215 95 95} type Fill box OFLAT_BOX color 37 selection_color 229 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein2bis
+              xywh {157 309 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 229
+            }
+            Fl_Dial dial2ter {
+              label Dial2ter
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {125 344 95 95} type Fill box OFLAT_BOX color 37 selection_color 229 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein2ter
+              xywh {157 438 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 229
+            }
+            Fl_Value_Slider fader2 {
+              label Fader2
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {137 487 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 229 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 229
+              class OSCValueSlider
+            }
+            Fl_Button button2 {
+              label Button2
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {137 921 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 229 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Dial dial3 {
+              label Dial3
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {245 87 95 95} type Fill box OFLAT_BOX color 37 selection_color 126 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein3
+              xywh {277 181 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 126
+            }
+            Fl_Dial dial3bis {
+              label Dial3bis
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {245 215 95 95} type Fill box OFLAT_BOX color 37 selection_color 126 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein3bis
+              xywh {277 309 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 126
+            }
+            Fl_Dial dial3ter {
+              label Dial3ter
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {245 344 95 95} type Fill box OFLAT_BOX color 37 selection_color 126 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein3ter
+              xywh {277 438 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 126
+            }
+            Fl_Value_Slider fader3 {
+              label Fader3
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {257 487 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 126 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 126
+              class OSCValueSlider
+            }
+            Fl_Button button3 {
+              label Button3
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {257 921 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 126 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Dial dial4 {
+              label Dial4
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {364 87 95 95} type Fill box OFLAT_BOX color 37 selection_color 244 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein4
+              xywh {396 181 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 244
+            }
+            Fl_Dial dial4bis {
+              label Dial4bis
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {364 215 95 95} type Fill box OFLAT_BOX color 37 selection_color 244 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein4bis
+              xywh {396 309 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 244
+            }
+            Fl_Dial dial4ter {
+              label Dial4ter
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {364 344 95 95} type Fill box OFLAT_BOX color 37 selection_color 244 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein4ter
+              xywh {396 438 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 244
+            }
+            Fl_Value_Slider fader4 {
+              label Fader4
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {376 487 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 244 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 244
+              class OSCValueSlider
+            }
+            Fl_Button button4 {
+              label Button4
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {376 921 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 244 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button5four {
+              label Button5four
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1463 281 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 244 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button5one {
+              label Button5one
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1463 95 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button5two {
+              label Button5two
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1463 157 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 229 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button5three {
+              label Button5three
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1463 218 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 126 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Dial dial5ter {
+              label Dial5ter
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {1451 344 95 95} type Fill box OFLAT_BOX color 37 selection_color 133 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein5ter
+              xywh {1483 438 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 133
+            }
+            Fl_Value_Slider fader5 {
+              label Fader5
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {1463 487 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 133 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 133
+              class OSCValueSlider
+            }
+            Fl_Button button5 {
+              label Button5
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1463 921 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button6one {
+              label Button6one
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1584 95 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button6two {
+              label Button6two
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1584 157 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 229 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button6three {
+              label Button6three
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1584 218 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 126 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button6four {
+              label Button6four
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1584 281 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 244 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Dial dial6ter {
+              label Dial6ter
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {1572 344 95 95} type Fill box OFLAT_BOX color 37 selection_color 229 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein6ter
+              xywh {1604 438 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 229
+            }
+            Fl_Value_Slider fader6 {
+              label Fader6
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {1584 487 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 229 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 229
+              class OSCValueSlider
+            }
+            Fl_Button button6 {
+              label Button6
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1584 921 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 229 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button7one {
+              label Button7one
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1704 95 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button7two {
+              label Button7two
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1704 157 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 229 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button7three {
+              label Button7three
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1704 218 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 126 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button7four {
+              label Button7four
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1704 281 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 244 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Dial dial7ter {
+              label Dial7ter
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {1692 344 95 95} type Fill box OFLAT_BOX color 37 selection_color 126 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein7ter
+              xywh {1724 438 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 126
+            }
+            Fl_Value_Slider fader7 {
+              label Fader7
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {1704 487 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 126 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 126
+              class OSCValueSlider
+            }
+            Fl_Button button7 {
+              label Button7
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1704 921 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 126 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button8four {
+              label Button8four
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1823 281 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 244 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button8two {
+              label Button8two
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1823 155 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 229 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button8three {
+              label Button8three
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1824 218 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 126 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button button8one {
+              label Button8one
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1823 95 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Dial dial8ter {
+              label Dial8ter
+              callback {f_cb((Fl_Widget *)o, DIAL_INT,"","")}
+              xywh {1811 344 95 95} type Fill box OFLAT_BOX color 37 selection_color 244 labeltype NO_LABEL align 0
+              class OSCDial
+            }
+            Fl_Value_Input {} {
+              label valuein8ter
+              xywh {1843 438 30 24} box OVAL_BOX color 37 selection_color 30 labelcolor 22 align 0 textcolor 244
+            }
+            Fl_Value_Slider fader8 {
+              label Fader8
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {1823 487 70 413} type {Vert Fill} box FLAT_BOX color 38 selection_color 244 labeltype NO_LABEL align 0 minimum 1 maximum 0 textcolor 244
+              class OSCValueSlider
+            }
+            Fl_Button button8 {
+              label Button8
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1823 921 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 244 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Slider faderhoriz1 {
+              label faderhoriz1
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {519 95 400 45} type Horizontal box FLAT_BOX color 37 selection_color 212 labeltype NO_LABEL align 0
+              class OSCSlider
+            }
+            Fl_Slider faderhoriz2 {
+              label faderhoriz2
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {996 95 400 45} type Horizontal box FLAT_BOX color 37 selection_color 212 labeltype NO_LABEL align 0
+              class OSCSlider
+            }
+            Fl_Slider faderhoriz3 {
+              label faderhoriz3
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {519 157 400 45} type Horizontal box FLAT_BOX color 37 selection_color 212 labeltype NO_LABEL align 0
+              class OSCSlider
+            }
+            Fl_Slider faderhoriz4 {
+              label faderhoriz4
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {996 157 400 45} type Horizontal box FLAT_BOX color 37 selection_color 212 labeltype NO_LABEL align 0
+              class OSCSlider
+            }
+            Fl_Slider faderhoriz5 {
+              label faderhoriz5
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {519 218 400 45} type Horizontal box FLAT_BOX color 37 selection_color 212 labeltype NO_LABEL align 0
+              class OSCSlider
+            }
+            Fl_Slider faderhoriz6 {
+              label faderhoriz6
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {996 218 400 45} type Horizontal box FLAT_BOX color 37 selection_color 212 labeltype NO_LABEL align 0
+              class OSCSlider
+            }
+            Fl_Slider faderhoriz7 {
+              label faderhoriz7
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {520 281 400 45} type Horizontal box FLAT_BOX color 37 selection_color 212 labeltype NO_LABEL align 0
+              class OSCSlider
+            }
+            Fl_Slider faderhoriz8 {
+              label faderhoriz8
+              callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","");}
+              xywh {997 281 400 45} type Horizontal box FLAT_BOX color 37 selection_color 212 labeltype NO_LABEL align 0
+              class OSCSlider
+            }
+            Fl_Group buttongroup {
+              label {Button-Group} open
+              xywh {554 350 811 619} labeltype NO_LABEL align 0
+            } {
+              Fl_Button button1vid {
+                label button1vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button2vid {
+                label button2vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button3vid {
+                label button3vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button4vid {
+                label button4vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button5vid {
+                label button5vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button6vid {
+                label button6vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button7vid {
+                label button7vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button8vid {
+                label button8vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button9vid {
+                label button9vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button10vid {
+                label button10vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 350 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button11vid {
+                label button11vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 411 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button12vid {
+                label button12vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 411 80 60} type Toggle box GTK_DOWN_BOX down_box BORDER_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 64
+                class OSCButton
+              }
+              Fl_Button button13vid {
+                label button13vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 411 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 64
+                class OSCButton
+              }
+              Fl_Button button14vid {
+                label button14vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 411 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 64
+                class OSCButton
+              }
+              Fl_Button button15vid {
+                label button15vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 411 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 64
+                class OSCButton
+              }
+              Fl_Button button16vid {
+                label button16vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 411 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 64
+                class OSCButton
+              }
+              Fl_Button button17vid {
+                label button17vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 411 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 64
+                class OSCButton
+              }
+              Fl_Button button18vid {
+                label button18vid
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 411 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button19vid {
+                label Video19
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 411 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button20vid {
+                label Video20
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 411 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button21vid {
+                label Video21
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button22vid {
+                label Video22
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button23vid {
+                label Video23
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button24vid {
+                label Video24
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button25vid {
+                label Video25
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button26vid {
+                label Video26
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button27vid {
+                label Video27
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button28vid {
+                label Video28
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button29vid {
+                label Video29
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button30vid {
+                label Video30
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 472 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button31vid {
+                label Video31
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button32vid {
+                label Video32
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button33vid {
+                label Video33
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button34vid {
+                label Video34
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button35vid {
+                label Video35
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button36vid {
+                label Video36
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button37vid {
+                label Video37
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button38vid {
+                label Video38
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button39vid {
+                label Video39
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button40vid {
+                label Video40
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 533 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button41vid {
+                label Video41
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button42vid {
+                label Video42
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button43vid {
+                label Video43
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button44vid {
+                label Video44
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button45vid {
+                label Video45
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button46vid {
+                label Video46
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button47vid {
+                label Video47
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button48vid {
+                label Video48
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button49vid {
+                label Video49
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button50vid {
+                label Video50
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 594 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button51vid {
+                label Video51
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button52vid {
+                label Video52
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button53vid {
+                label Video53
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button54vid {
+                label Video54
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button55vid {
+                label Video55
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button56vid {
+                label Video56
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button57vid {
+                label Video57
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button58vid {
+                label Video58
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button59vid {
+                label Video59
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button60vid {
+                label Video60
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 655 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button61vid {
+                label Video61
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button62vid {
+                label Video62
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button63vid {
+                label Video63
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button64vid {
+                label Video64
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button65vid {
+                label Video65
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button66vid {
+                label Video66
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button67vid {
+                label Video67
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button68vid {
+                label Video68
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button69vid {
+                label Video69
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button70vid {
+                label Video70
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 716 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button71vid {
+                label Video71
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button72vid {
+                label Video72
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button73vid {
+                label Video73
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button74vid {
+                label Video74
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button75vid {
+                label Video75
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button76vid {
+                label Video76
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button77vid {
+                label Video77
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button78vid {
+                label Video78
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button79vid {
+                label Video79
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button80vid {
+                label Video80
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 777 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button81vid {
+                label Video81
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button82vid {
+                label Video82
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button83vid {
+                label Video83
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button84vid {
+                label Video84
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button85vid {
+                label Video85
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button86vid {
+                label Video86
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button87vid {
+                label Video87
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button88vid {
+                label Video88
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button89vid {
+                label Video89
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button90vid {
+                label Video90
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 838 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button91vid {
+                label Video11
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {555 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button92vid {
+                label Video92
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {635 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button93vid {
+                label Video93
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {715 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button94vid {
+                label Video94
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {795 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button95vid {
+                label Video95
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {875 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button96vid {
+                label Video96
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {955 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button97vid {
+                label Video97
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1035 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button98vid {
+                label Video98
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1115 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button99vid {
+                label Video99
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1195 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+              Fl_Button button100vid {
+                label Video100
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1275 899 80 60} type Toggle box GTK_DOWN_BOX down_box GTK_UP_BOX color 37 selection_color 133 labelsize 1 labelcolor 37 align 32
+                class OSCButton
+              }
+            }
+            Fl_Roller Roller1 {
+              label Roller1
+              callback {f_cb((Fl_Widget *)o, ROLLER_INT,"","")}
+              xywh {615 980 265 35} type Horizontal align 0 value 0.5
+              class OSCRoller
+            }
+            Fl_Roller Roller2 {
+              label Roller2
+              callback {f_cb((Fl_Widget *)o, ROLLER_INT,"","")}
+              xywh {1035 980 265 35} type Horizontal align 0 value 0.5
+              class OSCRoller
+            }
+            Fl_Button bottombutton1 {
+              label Button1
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {17 996 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 212 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button bottombutton2 {
+              label Button2
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {137 996 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 212 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button bottombutton3 {
+              label Button3
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {257 996 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 212 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button bottombutton4 {
+              label Button4
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {376 996 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 212 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button bottombutton5 {
+              label Button1
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1463 996 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 212 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button bottombutton6 {
+              label Button2
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1583 996 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 212 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button bottombutton7 {
+              label Button3
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1703 996 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 212 labeltype NO_LABEL when 1
+              class OSCButton
+            }
+            Fl_Button bottombutton8 {
+              label Button4
+              callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+              xywh {1822 996 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 212 labeltype NO_LABEL when 1
+              class OSCButton
             }
           }
         }
