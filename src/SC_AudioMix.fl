@@ -56,10 +56,10 @@ Function {} {open
     class OSCWindow modal noborder size_range {1920 1080 1920 1080} visible
   } {
     Fl_Scroll {} {open
-      xywh {0 0 1939 1105} type BOTH_ALWAYS color 0 labelsize 30
+      xywh {0 0 1940 1105} type BOTH_ALWAYS color 0 labelsize 30
     } {
       Fl_Tabs tabGen {open
-        xywh {0 0 1939 1105} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
+        xywh {0 0 1940 1105} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
       } {
         Fl_Tile MainGroupsTile {
           label Mix
@@ -7165,7 +7165,7 @@ n}
           }
         }
         Fl_Tile SooperLooperTile {
-          label SL open
+          label SL
           xywh {0 50 1930 1035} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
@@ -8380,22 +8380,22 @@ d}
                   xywh {585 176 20 150} color 37 labelcolor 133
                 }
               }
-              Fl_Value_Slider bfx_pitchfader {
-                label pitchfader
+              Fl_Value_Slider bfx_chorusfader {
+                label chorusfader
                 callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","")}
                 xywh {55 295 310 30} type {Horz Fill} box FLAT_BOX color 38 selection_color 93 labeltype NO_LABEL labelsize 11 labelcolor 93 align 10 textcolor 93
-                code0 {bfx_pitchfader->configOSC("SCSon", "56416");}
+                code0 {bfx_chorusfader->configOSC("SCSon", "56416");}
                 class OSCValueSlider
               }
               Fl_Box {} {
                 label Level
                 xywh {15 295 40 30} labelcolor 133
               }
-              Fl_Button bfx_pitchmute {
-                label pitchmute
+              Fl_Button bfx_chorusmute {
+                label chorusmute
                 callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
                 xywh {375 295 30 30} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
-                code0 {bfx_pitchmute->configOSC("SCSon","56416");}
+                code0 {bfx_chorusmute->configOSC("SCSon","56416");}
                 class OSCButton
               }
               Fl_Box {} {
@@ -8420,22 +8420,22 @@ d}
                 code0 {bfx_delayfeedback->configOSC("SCSon", "56416");}
                 class OSCValueSlider
               }
-              Fl_Value_Slider bfx_pitchfader {
+              Fl_Value_Slider bfx_delayfader {
                 label delayfader
                 callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","")}
                 xywh {200 585 310 30} type {Horz Fill} box FLAT_BOX color 38 selection_color 93 labeltype NO_LABEL labelsize 11 labelcolor 93 align 10 textcolor 93
-                code0 {bfx_pitchfader->configOSC("SCSon", "56416");}
+                code0 {bfx_delayfader->configOSC("SCSon", "56416");}
                 class OSCValueSlider
               }
               Fl_Box {} {
                 label Level
                 xywh {160 585 40 30} labelcolor 133
               }
-              Fl_Button bfx_pitchmute {
+              Fl_Button bfx_delaymute {
                 label delaymute
                 callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
                 xywh {520 585 30 30} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
-                code0 {bfx_pitchmute->configOSC("SCSon","56416");}
+                code0 {bfx_delaymute->configOSC("SCSon","56416");}
                 class OSCButton
               }
               Fl_Box {} {
@@ -8517,6 +8517,319 @@ h}
               Fl_Box {} {
                 label Reverb
                 xywh {735 475 61 25} labelfont 1 labelcolor 133
+              }
+            }
+          }
+        }
+        Fl_Tile VocalsFxTile {
+          label VFx open
+          xywh {0 50 1930 1040} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
+          class OSCTile
+        } {
+          Fl_Group VFXGroup {open
+            xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
+          } {
+            Fl_Group {} {open
+              xywh {125 545 440 140} box BORDER_FRAME color 38
+            } {
+              Fl_Value_Slider vfx_pitchright {
+                label pitchright
+                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","")}
+                xywh {170 629 350 30} type {Horz Fill} box FLAT_BOX color 38 selection_color 93 labelsize 11 labelcolor 93 align 10 minimum 0.25 maximum 2 step 0.001 value 1 textcolor 93
+                code0 {vfx_pitchright->configOSC("SCSon", "56416");}
+                class OSCValueSlider
+              }
+              Fl_Button vfx_8upright {
+                label 8upright
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {520 576 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_8upright->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Button vfx_5upright {
+                label 5upright
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {455 575 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_5upright->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Button vfx_4upright {
+                label 4upright
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {390 575 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_4upright->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Button vfx_uniright {
+                label uniright
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {325 575 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_uniright->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Button vfx_4dwright {
+                label 4dwright
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {260 575 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_4dwright->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Button vfx_5dwright {
+                label 5dwright
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {195 575 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_5dwright->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Button vfx_8dwright {
+                label 8dwright
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {130 575 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_8dwright->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Box {} {
+                label {PitchShifter Right}
+                xywh {130 547 137 25} labelfont 1 labelcolor 133
+              }
+              Fl_Box {} {
+                label 8up
+                xywh {520 576 40 40} labelcolor 133
+              }
+              Fl_Box {} {
+                label 5up
+                xywh {455 575 40 40} labelcolor 133
+              }
+              Fl_Box {} {
+                label 4up
+                xywh {390 575 40 40} labelcolor 133
+              }
+              Fl_Box {} {
+                label uni
+                xywh {325 575 40 40} labelcolor 133
+              }
+              Fl_Box {} {
+                label 4dw
+                xywh {260 575 40 40} labelcolor 133
+              }
+              Fl_Box {} {
+                label 5dw
+                xywh {195 575 40 40} labelcolor 133
+              }
+              Fl_Box {} {
+                label 8dw
+                xywh {130 575 40 40} labelcolor 133
+              }
+            }
+            Fl_Group {} {open
+              xywh {1245 385 400 250} box BORDER_FRAME color 38
+            } {
+              Fl_Group {} {open
+                xywh {1278 410 171 171} color 7
+              } {
+                Fl_Box vfx_scapetime {
+                  label scapetime
+                  xywh {1298 412 150 150} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  code0 {vfx_scapetime->configOSC("SCSon", "56416");}
+                  class xyPad
+                }
+                Fl_Box {} {
+                  label BPM
+                  xywh {1298 561 150 20} color 37 labelcolor 133
+                }
+                Fl_Box {} {
+                  label {D
+i
+v
+i
+d
+e
+r}
+                  xywh {1278 411 20 150} color 37 labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {1458 410 171 171} color 7
+              } {
+                Fl_Box vfx_scapecolor {
+                  label scapecolor
+                  xywh {1478 412 150 150} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  code0 {vfx_scapecolor->configOSC("SCSon", "56416");}
+                  class xyPad
+                }
+                Fl_Box {} {
+                  label Blend
+                  xywh {1478 561 150 20} color 37 labelcolor 133
+                }
+                Fl_Box {} {
+                  label {F
+e
+e
+d
+b
+a
+c
+k}
+                  xywh {1458 411 20 150} color 37 labelcolor 133
+                }
+              }
+              Fl_Value_Slider vfx_scapefader {
+                label scapefader
+                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","")}
+                xywh {1290 590 310 30} type {Horz Fill} box FLAT_BOX color 38 selection_color 93 labeltype NO_LABEL labelsize 11 labelcolor 93 align 10 textcolor 93
+                code0 {vfx_scapefader->configOSC("SCSon", "56416");}
+                class OSCValueSlider
+              }
+              Fl_Box {} {
+                label Level
+                xywh {1250 590 40 30} labelcolor 133
+              }
+              Fl_Button vfx_scapemute {
+                label scapemute
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {1610 590 30 30} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 133 labeltype NO_LABEL when 1
+                code0 {vfx_scapemute->configOSC("SCSon","56416");}
+                class OSCButton
+              }
+              Fl_Box {} {
+                label CScape
+                xywh {1250 390 61 25} labelfont 1 labelcolor 133
+              }
+            }
+            Fl_Group {} {open
+              xywh {125 340 440 140} box BORDER_FRAME color 38
+            } {
+              Fl_Value_Slider vfx_pitchleft {
+                label pitchleft
+                callback {f_cb((Fl_Widget *)o, SLIDER_INT,"","")}
+                xywh {170 424 350 30} type {Horz Fill} box FLAT_BOX color 38 selection_color 93 labelsize 11 labelcolor 93 align 10 minimum 0.25 maximum 2 step 0.001 value 1 textcolor 93
+                code0 {vfx_pitchleft->configOSC("SCSon", "56416");}
+                class OSCValueSlider
+              }
+              Fl_Button vfx_8upleft {
+                label 8upleft
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {520 371 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_8upleft->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Box {} {
+                label 8up
+                xywh {520 371 40 40} labelcolor 133
+              }
+              Fl_Button vfx_5upleft {
+                label 5upleft
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {455 370 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_5upleft->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Box {} {
+                label 5up
+                xywh {455 370 40 40} labelcolor 133
+              }
+              Fl_Button vfx_4upleft {
+                label 4upleft
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {390 370 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_4upleft->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Box {} {
+                label 4up
+                xywh {390 370 40 40} labelcolor 133
+              }
+              Fl_Button vfx_unileft {
+                label unileft
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {325 370 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_unileft->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Box {} {
+                label uni
+                xywh {325 370 40 40} labelcolor 133
+              }
+              Fl_Button vfx_4dwleft {
+                label 4dwleft
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {260 370 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_4dwleft->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Box {} {
+                label 4dw
+                xywh {260 370 40 40} labelcolor 133
+              }
+              Fl_Button vfx_5dwleft {
+                label 5dwleft
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {195 370 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_5dwleft->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Box {} {
+                label 5dw
+                xywh {195 370 40 40} labelcolor 133
+              }
+              Fl_Button vfx_8dwleft {
+                label 8dwleft
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                xywh {130 370 40 40} type Radio box BORDER_FRAME down_box BORDER_FRAME color 38 selection_color 1 labeltype NO_LABEL labelcolor 133
+                code0 {vfx_8dwleft->configOSC("SCSon", "56416");}
+                class OSCButton
+              }
+              Fl_Box {} {
+                label 8dw
+                xywh {130 370 40 40} labelcolor 133
+              }
+              Fl_Box {} {
+                label {PitchShifter Left}
+                xywh {130 342 130 25} labelfont 1 labelcolor 133
+              }
+            }
+            Fl_Group {} {open
+              xywh {715 415 400 200} box BORDER_FRAME color 38
+            } {
+              Fl_Group {} {open
+                xywh {748 440 171 171} color 7
+              } {
+                Fl_Box vfx_disintegratorleft {
+                  label disintegratorleftxy
+                  xywh {768 442 150 150} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  code0 {vfx_distinegratorleft->configOSC("SCSon", "56416");}
+                  class xyPad
+                }
+                Fl_Box {} {
+                  label Probability
+                  xywh {768 591 150 20} color 37 labelcolor 133
+                }
+                Fl_Box {} {
+                  label X
+                  xywh {748 441 20 150} color 37 labelcolor 133
+                }
+              }
+              Fl_Group {} {open
+                xywh {928 440 171 171} color 7
+              } {
+                Fl_Box vfx_disintegratorrightxy {
+                  label disintegratorrightxy
+                  xywh {948 442 150 150} box FLAT_BOX color 38 labelsize 1 labelcolor 33 align 17
+                  code0 {vfx_disintegratorrightxy->configOSC("SCSon", "56416");}
+                  class xyPad
+                }
+                Fl_Box {} {
+                  label Probability
+                  xywh {948 591 150 20} color 37 labelcolor 133
+                }
+                Fl_Box {} {
+                  label X
+                  xywh {928 441 20 150} color 37 labelcolor 133
+                }
+              }
+              Fl_Box {} {
+                label Disintigrator
+                xywh {720 420 96 25} labelfont 1 labelcolor 133
               }
             }
           }
