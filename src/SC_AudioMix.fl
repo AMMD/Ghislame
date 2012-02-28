@@ -8835,16 +8835,16 @@ k}
           }
         }
         Fl_Tile LAOTile {
-          label QLC
-          xywh {0 50 1920 1030} color 33 selection_color 133 labelsize 40 labelcolor 65 hide
+          label QLC open
+          xywh {0 50 1920 1030} color 33 selection_color 133 labelsize 40 labelcolor 65
           class OSCTile
         } {
           Fl_Group groupepage2 {
-            label groupepage2
+            label groupepage2 open
             xywh {0 90 1920 971} box FLAT_BOX color 33 labelcolor 33 align 16
           } {
             Fl_Group groupeVST1 {
-              label {Par 64 Orl}
+              label Par64Orl
               xywh {0 92 311 270} box BORDER_FRAME color 38 labelsize 10 labelcolor 133 align 34
               code0 {groupeVST1->configOSC("SCVideo", "56416");}
               class light_xyPad
@@ -8933,7 +8933,7 @@ k}
               }
             }
             Fl_Group groupeVST2 {
-              label {Par64 Yula}
+              label Par64Yula
               xywh {310 92 311 270} box BORDER_FRAME color 38 labelsize 10 labelcolor 133 align 34
               code0 {groupeVST2->configOSC("SCVideo", "56416");}
               class light_xyPad
@@ -9289,7 +9289,7 @@ k}
               }
             }
             Fl_Group groupeVST6 {
-              label BarLed
+              label BarLed open
               xywh {1550 92 364 270} box BORDER_FRAME color 38 labelsize 10 labelcolor 133 align 34
               code0 {groupeVST6->configOSC("SCVideo", "56416");}
               class light_xyPad
@@ -9377,9 +9377,8 @@ k}
                 class OSCButton
               }
               Fl_Button ql_button11vst6 {
-                label {RGB
-on}
-                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                label RGB
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")} selected
                 xywh {1861 96 48 50} type Toggle box FLAT_BOX down_box DOWN_BOX value 1 color 38 selection_color 133 labelsize 10 labelcolor 133 align 128 when 1
                 code0 {ql_button11vst6->configOSC("SCVideo", "56416");}
                 class OSCButton
@@ -10707,11 +10706,11 @@ on}
         }
         Fl_Tile VAOTile {
           label LiV open
-          xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65 resizable
+          xywh {0 50 1920 1024} color 33 selection_color 33 labelsize 40 labelcolor 65 hide resizable
           class OSCTile
         } {
           Fl_Group groupepage1 {
-            label groupepage1 selected
+            label groupepage1
             xywh {5 95 1907 965} labelcolor 33 align 0 resizable
           } {
             Fl_Dial li_dial1 {

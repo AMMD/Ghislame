@@ -79,8 +79,8 @@ public:
   void configOSC(const char* h, const char* p){
     host = h;
     udp_port = p;
-    delete osco;
-    osco = new OSCoutput(host, udp_port);
+    //    delete osco;
+    osco = lo_address_new(host, udp_port);
   };
 
 
@@ -206,7 +206,6 @@ public:
       }
       wid = wid->parent();
     }
-
 
     strcat(path, "light_xyPad");
     lo_send(osco, path, "sfff", this->label(), rgb[0], rgb[1], rgb[2]);
