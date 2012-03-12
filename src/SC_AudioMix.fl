@@ -11,6 +11,9 @@ decl {\#include <stdlib.h>} {private local
 decl {\#include <string.h>} {private local
 } 
 
+decl {\#include <stack>} {private local
+} 
+
 decl {//\#include "OSCserver.hpp"} {public global
 } 
 
@@ -52,7 +55,7 @@ Function {} {open
   code {//OSCserver *st = new OSCserver();} {}
   Fl_Window mainWindow {
     label SC_AudioMix open
-    xywh {0 0 1920 1080} type Double color 33 selection_color 37 labelcolor 22 resizable
+    xywh {0 27 1920 1080} type Double color 33 selection_color 37 labelcolor 22 resizable
     class OSCWindow modal noborder size_range {1920 1080 1920 1080} visible
   } {
     Fl_Scroll {} {open
@@ -6094,8 +6097,8 @@ l}
           }
         }
         Fl_Tile MXCtLeadTile {
-          label MCd
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
+          label MCd open
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
           class OSCTile
         } {
           Fl_Group MXCtLeadGroup {open
@@ -6103,6 +6106,7 @@ l}
           } {
             Fl_Button {} {
               label REFRESH
+              callback {fuck_cb((Fl_Widget *)o)}
               xywh {1818 60 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133
             }
             Fl_Button mcd_Panic {
@@ -8836,7 +8840,7 @@ k}
         }
         Fl_Tile LAOTile {
           label QLC open
-          xywh {0 50 1920 1030} color 33 selection_color 133 labelsize 40 labelcolor 65
+          xywh {0 50 1920 1030} color 33 selection_color 133 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
           Fl_Group groupepage2 {
@@ -9378,7 +9382,7 @@ k}
               }
               Fl_Button ql_button11vst6 {
                 label RGB
-                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")} selected
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
                 xywh {1861 96 48 50} type Toggle box FLAT_BOX down_box DOWN_BOX value 1 color 38 selection_color 133 labelsize 10 labelcolor 133 align 128 when 1
                 code0 {ql_button11vst6->configOSC("SCVideo", "56416");}
                 class OSCButton
@@ -11961,8 +11965,7 @@ k}
   }
 } 
 
-Function {f_cb(Fl_Widget* o, int wType, const char* h, const char* p)} {open
-} {
+Function {f_cb(Fl_Widget* o, int wType, const char* h, const char* p)} {} {
   code {Fl_Widget* widget=(Fl_Widget *)o;
 
 o->redraw();
@@ -12020,8 +12023,7 @@ switch(wType){
 }*/} {}
 } 
 
-Function {fTeinte_cb(Fl_Widget* o)} {open
-} {
+Function {fTeinte_cb(Fl_Widget* o)} {} {
   code {Fl_Widget *widget = (Fl_Widget*)o;
 Fl_Widget *xy = widget->parent()->child(0);
 Fl_Widget *cur = widget->parent()->child(2);
@@ -12045,4 +12047,83 @@ if( dynamic_cast<light_xyPad *>(papa) ) {
 }
 
 // fprintf(stderr,"depuis le callback: padlabel : %s, r: %f, v: %f, b: %f\\n", xy->label(), revebe[0], revebe[1], revebe[2]);} {}
+} 
+
+Function {recurseChildren(Fl_Group * const group)} {open
+} {
+  code {std::stack<Fl_Group*> gstack;
+  gstack.push(group);
+
+std::cout << "Dans le stack" << std::endl;
+ 
+  while (! gstack.empty())
+  {
+    std::cout << "tant que le stack !" << std::endl;
+    Fl_Group * const group = gstack.top();
+    gstack.pop();
+    for (int index(0) ; index < group->children() ; ++index)
+    {
+      Fl_Widget * const wid = group->child(index);
+      std::cout << "stack :: " << ((Fl_Widget*)wid)->label() << std::endl;
+      if (dynamic_cast<Fl_Group*>(wid))
+      {
+        gstack.push((Fl_Group*)wid);
+      }
+    }
+  }
+
+
+/*
+switch(wType){
+	case SLIDER_INT:
+		lo_send(t, path, "f", ((Fl_Slider *)widget)->value());
+	break;
+	case BUTTON_INT:
+		lo_send(t, path, "i", ((Fl_Button *)widget)->value());
+	break;
+	case DIAL_INT:
+		lo_send(t, path, "f", ((Fl_Dial *)widget)->value());
+	break;
+	case ROLLER_INT:
+		lo_send(t, path, "f", ((Fl_Roller *)widget)->value());
+	break;
+}*/} {selected
+  }
+} 
+
+Function {fuck_cb(Fl_Widget* o)} {open
+} {
+  code {Fl_Widget* widget=(Fl_Widget *)o;
+
+std::cout << "Callback" << std::endl;
+
+
+Fl_Widget* wid=(Fl_Widget *)widget;
+while(wid->parent()){
+	wid = wid->parent();
+}
+
+
+
+int i;
+for(i=0; i < ((Fl_Window*)wid)->children(); i++){
+	recurseChildren((Fl_Group *)(((Fl_Window*)wid)->child(i)));
+}
+
+
+/*
+switch(wType){
+	case SLIDER_INT:
+		lo_send(t, path, "f", ((Fl_Slider *)widget)->value());
+	break;
+	case BUTTON_INT:
+		lo_send(t, path, "i", ((Fl_Button *)widget)->value());
+	break;
+	case DIAL_INT:
+		lo_send(t, path, "f", ((Fl_Dial *)widget)->value());
+	break;
+	case ROLLER_INT:
+		lo_send(t, path, "f", ((Fl_Roller *)widget)->value());
+	break;
+}*/} {}
 } 
