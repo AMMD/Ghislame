@@ -55,7 +55,7 @@ Function {} {open
   code {//OSCserver *st = new OSCserver();} {}
   Fl_Window mainWindow {
     label SC_AudioMix open
-    xywh {0 27 1920 1080} type Double color 33 selection_color 37 labelcolor 22 resizable
+    xywh {0 0 1920 1080} type Double color 33 selection_color 37 labelcolor 22 resizable
     class OSCWindow modal noborder size_range {1920 1080 1920 1080} visible
   } {
     Fl_Scroll {} {open
@@ -3503,7 +3503,7 @@ y}
           }
         }
         Fl_Tile MXChordsTile {
-          label MCh
+          label MCh open
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
@@ -6107,7 +6107,7 @@ l}
             Fl_Button {} {
               label REFRESH
               callback {fuck_cb((Fl_Widget *)o)}
-              xywh {1818 60 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133
+              xywh {1818 60 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
             }
             Fl_Button mcd_Panic {
               label PANIC
@@ -11965,7 +11965,8 @@ k}
   }
 } 
 
-Function {f_cb(Fl_Widget* o, int wType, const char* h, const char* p)} {} {
+Function {f_cb(Fl_Widget* o, int wType, const char* h, const char* p)} {open
+} {
   code {Fl_Widget* widget=(Fl_Widget *)o;
 
 o->redraw();
@@ -12051,7 +12052,18 @@ if( dynamic_cast<light_xyPad *>(papa) ) {
 
 Function {recurseChildren(Fl_Group * const group)} {open
 } {
-  code {std::stack<Fl_Group*> gstack;
+  code {Fl_Widget * bebe;
+for(int i=0; i < group->children(); i++){
+	bebe = (Fl_Widget *)group->child(i);
+	if(bebe->label()){
+		std::cout << "Child n° " << i << ": " << bebe->label() << std::endl;
+	}
+	if(dynamic_cast< Fl_Group* >(bebe)){
+		recurseChildren((Fl_Group *)bebe);
+	}
+}
+
+/*std::stack<Fl_Group*> gstack;
   gstack.push(group);
 
 std::cout << "Dans le stack" << std::endl;
@@ -12063,15 +12075,18 @@ std::cout << "Dans le stack" << std::endl;
     gstack.pop();
     for (int index(0) ; index < group->children() ; ++index)
     {
+      std::cout << group->children() << "enfants à scanner" << std::endl;
       Fl_Widget * const wid = group->child(index);
-      std::cout << "stack :: " << ((Fl_Widget*)wid)->label() << std::endl;
-      if (dynamic_cast<Fl_Group*>(wid))
+      std::cout << "stack " << index << " :: " << wid->label() << std::endl;
+/*      if (((Fl_Group *)wid)->children()) //(dynamic_cast< FL::Group* >(group->child(index)))
       {
-        gstack.push((Fl_Group*)wid);
-      }
-    }
+      	std::cout << "Je suis un groupe : " << ((Fl_Group *)wid)->children() << "enfants" << std::endl;
+//        gstack.push((Fl_Group*)wid);
+      }*/
+/*    }
+    
   }
-
+*/
 
 /*
 switch(wType){
@@ -12095,10 +12110,27 @@ Function {fuck_cb(Fl_Widget* o)} {open
 } {
   code {Fl_Widget* widget=(Fl_Widget *)o;
 
-std::cout << "Callback" << std::endl;
+std::cout << "Callback" << widget->label() << std::endl;
 
+recurseChildren((Fl_Group *)(widget->parent()));
 
-Fl_Widget* wid=(Fl_Widget *)widget;
+/*
+Fl_Group *wid;
+Fl_Widget *widchild;
+if(widget->parent()){
+	wid = (Fl_Group *)widget->parent();
+//	std::cout << "Parent : " << ((Fl_Widget *)wid)->label() << std::endl;
+	std::cout << "Nombre d'enfants : " << wid->children() << std::endl;
+	for(int i = 0; i < ((Fl_Group *)wid)->children(); i++){
+		widchild = ((Fl_Group *)wid)->child(i);
+		std::cout << ((Fl_Widget *)widchild)->label() << std::endl;	
+	}	
+}
+std::cout << "Fini le callback" << std::endl;
+
+free wid; free widchild;
+*/
+/*Fl_Widget* wid=(Fl_Widget *)widget;
 while(wid->parent()){
 	wid = wid->parent();
 }
@@ -12108,7 +12140,7 @@ while(wid->parent()){
 int i;
 for(i=0; i < ((Fl_Window*)wid)->children(); i++){
 	recurseChildren((Fl_Group *)(((Fl_Window*)wid)->child(i)));
-}
+}*/
 
 
 /*
