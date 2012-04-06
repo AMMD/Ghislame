@@ -14,10 +14,10 @@ decl {\#include <string.h>} {private local
 decl {\#include <iostream>} {private local
 } 
 
-decl {\#include <stack>} {private local
+decl {\#include <fstream>} {private local
 } 
 
-decl {//\#include "OSCserver.hpp"} {public global
+decl {\#include <sys/stat.h>} {selected private local
 } 
 
 decl {\#include "OSCoutputs.hpp"} {public global
@@ -428,7 +428,7 @@ Function {} {open
               }
               Fl_Button mg_mainmixmute {
                 label mainmixmute
-                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")} selected
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
                 xywh {1500 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 128 labeltype NO_LABEL when 1
                 code0 {mg_mainmixmute->configOSC("SCSon","56416");}
                 class OSCButton
@@ -438,9 +438,14 @@ Function {} {open
                 xywh {1500 700 70 50} labelcolor 7 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1830 140 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
           Fl_Button {} {
-            label REFRESH
+            label PSAVE
             callback {fuck_cb((Fl_Widget *)o)}
             xywh {1828 70 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
           }
@@ -12063,37 +12068,39 @@ if( dynamic_cast<light_xyPad *>(papa) ) {
 // fprintf(stderr,"depuis le callback: padlabel : %s, r: %f, v: %f, b: %f\\n", xy->label(), revebe[0], revebe[1], revebe[2]);} {}
 } 
 
-Function {recurseChildren(Fl_Group * const group)} {open
+Function {recurseChildren(Fl_Group * const group, std::ofstream& fichier)} {open
 } {
   code {Fl_Widget * bebe;
-std::cout << group->children() << " enfants à scanner" << std::endl;
+Fl_Widget * papa = group;
+// std::cout << group->children() << " enfants à scanner" << std::endl;
+
+
 for(int i=0; i < group->children(); i++){
 	bebe = (Fl_Widget *)group->child(i);
 	if(bebe->label()){
 //		std::cout << "Child n° " << i << ": " << bebe->label();
 		if(dynamic_cast< OSCValueSlider* >(bebe)){
-			std::cout << "Child n° " << i << ": " << bebe->label() << " - VS osc.udp://" << ((OSCValueSlider *)bebe)->_host() << ":" << ((OSCValueSlider *)bebe)->_port() << " " << ((Fl_Value_Slider *)bebe)->value();
+			fichier << "send_osc osc.udp://" << ((OSCValueSlider *)bebe)->_host() << ":" << ((OSCValueSlider *)bebe)->_port() << " $prepath$slider " << bebe->label() << " " << ((Fl_Value_Slider *)bebe)->value() << std::endl;
 		}
 		if(dynamic_cast< OSCButton* >(bebe)){
-			std::cout << "Child n° " << i << ": " << bebe->label() << " - B osc.udp://" << ((OSCButton *)bebe)->_host() << ":" << ((OSCButton *)bebe)->_port() << " " << (int)(((Fl_Button *)bebe)->value());
+			fichier << "send_osc osc.udp://" << ((OSCButton *)bebe)->_host() << ":" << ((OSCButton *)bebe)->_port() << " $prepath$button " << bebe->label() << " " << (int)(((Fl_Button *)bebe)->value()) << std::endl;
 		}
 		if(dynamic_cast< OSCDial* >(bebe)){
-			std::cout << "Child n° " << i << ": " << bebe->label() << " - D osc.udp://" << ((OSCDial *)bebe)->_host() << ":" << ((OSCDial *)bebe)->_port() << " " << ((Fl_Dial *)bebe)->value();
+			fichier << "send_osc osc.udp://" << ((OSCDial *)bebe)->_host() << ":" << ((OSCDial *)bebe)->_port() << " $prepath$dial " << bebe->label() << " " << ((Fl_Dial *)bebe)->value() << std::endl;
 		}
 		if(dynamic_cast< OSCSlider* >(bebe)){
-			std::cout << "Child n° " << i << ": " << bebe->label() << " - S osc.udp://" << ((OSCSlider *)bebe)->_host() << ":" << ((OSCSlider *)bebe)->_port() << " " << ((Fl_Slider *)bebe)->value();
+			std::cout << "send_osc osc.udp://" << ((OSCSlider *)bebe)->_host() << ":" << ((OSCSlider *)bebe)->_port() << " $prepath$slider " << bebe->label() << " " << ((Fl_Slider *)bebe)->value() << std::endl;
 		}
 		if(dynamic_cast< xyPad* >(bebe)){
-			std::cout << "Child n° " << i << ": " << bebe->label() << " - xy osc.udp://" << ((xyPad *)bebe)->_host() << ":" << ((xyPad *)bebe)->_port() << " " << ((xyPad *)bebe)->vx_() << " " << ((xyPad *)bebe)->vy_();
+			std::cout << "send_osc osc.udp://" << ((xyPad *)bebe)->_host() << ":" << ((xyPad *)bebe)->_port() << " $prepath$xypad " << bebe->label() << " " << ((xyPad *)bebe)->vx_() << " " << ((xyPad *)bebe)->vy_() << std::endl;
 		}
 		if(dynamic_cast< light_xyPad* >(bebe)){
-			std::cout << "Child n° " << i << ": " << bebe->label() << " - l_xy osc.udp://" << ((light_xyPad *)bebe)->_host() << ":" << ((light_xyPad *)bebe)->_port() << " " << ((light_xyPad *)bebe)->t_() << " " << ((light_xyPad *)bebe)->s_() << " " << ((light_xyPad *)bebe)->v_();
-		}
-		
-		std::cout << std::endl;
+			std::cout <<  "send_osc osc.udp://" << ((light_xyPad *)bebe)->_host() << ":" << ((light_xyPad *)bebe)->_port() << " $prepath$light_xypad " << bebe->label() << " " << ((light_xyPad *)bebe)->t_() << " " << ((light_xyPad *)bebe)->s_() << " " << ((light_xyPad *)bebe)->v_() << std::endl;
+		}		
+//		std::cout << std::endl;
 	}
 	if(dynamic_cast< Fl_Group* >(bebe)){
-		recurseChildren((Fl_Group *)bebe);
+		recurseChildren((Fl_Group *)bebe, fichier);
 	}
 }
 
@@ -12143,9 +12150,54 @@ Function {fuck_cb(Fl_Widget* o)} {open
 } {
   code {Fl_Widget* widget=(Fl_Widget *)o;
 
-std::cout << "Callback" << widget->label() << std::endl;
+//std::cout << "Callback" << widget->label() << std::endl;
+char path[1024], tmpath[1024], oscpath[1024], osctmpath[1024];
 
-recurseChildren((Fl_Group *)(widget->parent()));
+strcpy(path,".");
+strcpy(tmpath,".");
+strcpy(oscpath, "/");    
+strcpy(osctmpath, "/");    
+
+Fl_Widget* wid=(Fl_Widget *)widget;
+while(wid->parent()){
+   if(wid->parent()->label()){
+	strcat(tmpath, wid->parent()->label());
+	strcat(tmpath,path);
+	strcpy(path,tmpath);
+	strcpy(tmpath,".");
+	
+	strcat(osctmpath, wid->parent()->label());
+	strcat(osctmpath,oscpath);
+	strcpy(oscpath,osctmpath);
+	strcpy(osctmpath,"/");
+   }
+   wid = wid->parent();
+}
+
+strcat(path, "gosc");
+
+std::ofstream fichier(path, ios::out | ios::trunc);
+
+
+
+if(fichier){
+	fichier << "\#!/bin/bash" << std::endl;
+	fichier << "prepath=" << oscpath << std::endl;
+	fichier << "slider=\\"slider\\"" << std::endl;	
+	fichier << "button=\\"button\\"" << std::endl;	
+	fichier << "dial=\\"dial\\"" << std::endl;	
+	fichier << "xypad=\\"xypad\\"" << std::endl;	
+	fichier << "light_xypad=\\"light_xypad\\"" << std::endl;	
+	
+	recurseChildren((Fl_Group *)(widget->parent()), fichier);
+
+	fichier.close();
+	chmod(path,0755);
+}
+else{
+	std::cerr << "Cannot open file" << std::endl;
+}
+
 
 /*
 Fl_Group *wid;
@@ -12191,4 +12243,33 @@ switch(wType){
 		lo_send(t, path, "f", ((Fl_Roller *)widget)->value());
 	break;
 }*/} {}
+} 
+
+Function {luck_cb(Fl_Widget* o)} {open
+} {
+  code {Fl_Widget* widget=(Fl_Widget *)o;
+
+//std::cout << "Callback" << widget->label() << std::endl;
+char path[1024], tmpath[1024];
+
+strcpy(path,".");
+strcpy(tmpath,".");
+    
+
+Fl_Widget* wid=(Fl_Widget *)widget;
+while(wid->parent()){
+   if(wid->parent()->label()){
+	strcat(tmpath, wid->parent()->label());
+	strcat(tmpath,path);
+	strcpy(path,tmpath);
+	strcpy(tmpath,".");
+   }
+   wid = wid->parent();
+}
+
+strcat(path, "gosc");
+strcpy(tmpath, "./");
+strcat(tmpath,path);
+
+system(tmpath);} {}
 } 
