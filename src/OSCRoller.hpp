@@ -65,7 +65,12 @@ public:
     osco = new OSCoutput(host, port);
   };
 
+  const char* _host(){ return host; };
+  const char* _port(){ return port; };
+
 };
+
+
 
 static int roller_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data){
 	((OSCRoller *)user_data)->roller_handler(path, types, argv, argc, data);

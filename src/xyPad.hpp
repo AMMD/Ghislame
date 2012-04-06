@@ -35,6 +35,9 @@ public:
     add_method();
   }
 
+  const char* _host(){ return host; };
+  const char* _port(){ return udp_port; };
+
   void add_method(){
     char inpath[1024], tmpath[1024];
     
@@ -280,6 +283,9 @@ public:
     cursor->redraw();
   }
 
+
+  const char* _host(){ return host; };
+  const char* _port(){ return port; };
 
   void add_method(){
     char inpath[1024], tmpath[1024];

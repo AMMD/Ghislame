@@ -4,6 +4,7 @@
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Button.H>
+#include <FL/Fl_Toggle_Button.H>
 #include <FL/Fl_Slider.H>
 #include <FL/fl_draw.H>
 #include <malloc.h>
@@ -69,7 +70,11 @@ public:
     delete osco;
     osco = new OSCoutput(host, port);
   };
+  const char* _host(){ return host; };
+  const char* _port(){ return port; };
 };
+
+
 
 static int button_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data){
 	((OSCButton *)user_data)->button_handler(path, types, argv, argc, data);

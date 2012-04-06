@@ -11,6 +11,9 @@ decl {\#include <stdlib.h>} {private local
 decl {\#include <string.h>} {private local
 } 
 
+decl {\#include <iostream>} {private local
+} 
+
 decl {\#include <stack>} {private local
 } 
 
@@ -65,14 +68,14 @@ Function {} {open
         xywh {0 0 1920 1080} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
       } {
         Fl_Tile MainGroupsTile {
-          label Mix
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
+          label Mix open
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
           class OSCTile
         } {
           Fl_Group MainGroupsGroup {open
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {
+            Fl_Group {} {open
               xywh {5 96 95 679}
             } {
               Fl_Dial mg_drumspan {
@@ -402,7 +405,7 @@ Function {} {open
                 xywh {1210 725 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {
+            Fl_Group {} {open
               xywh {1452 71 163 679}
             } {
               Fl_Dial mg_mainmixpan {
@@ -424,8 +427,8 @@ Function {} {open
                 class OSCValueSlider
               }
               Fl_Button mg_mainmixmute {
-                label drumsmute
-                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")}
+                label mainmixmute
+                callback {f_cb((Fl_Widget *)o, BUTTON_INT,"","")} selected
                 xywh {1500 648 70 50} type Toggle box FLAT_BOX down_box DOWN_BOX color 38 selection_color 128 labeltype NO_LABEL when 1
                 code0 {mg_mainmixmute->configOSC("SCSon","56416");}
                 class OSCButton
@@ -435,6 +438,11 @@ Function {} {open
                 xywh {1500 700 70 50} labelcolor 7 align 17
               }
             }
+          }
+          Fl_Button {} {
+            label REFRESH
+            callback {fuck_cb((Fl_Widget *)o)}
+            xywh {1828 70 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
           }
         }
         Fl_Tile OrganicDrumsTile {
@@ -8527,7 +8535,7 @@ h}
         }
         Fl_Tile VocalsFxTile {
           label VFx open
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
           Fl_Group VFXGroup {open
@@ -8625,7 +8633,7 @@ h}
                 xywh {130 575 40 40} labelcolor 133
               }
             }
-            Fl_Group {} {
+            Fl_Group {} {open
               xywh {1245 385 400 250} box BORDER_FRAME color 38
             } {
               Fl_Group {} {
@@ -8838,7 +8846,7 @@ k}
             }
             Fl_Button {} {
               label REFRESH
-              callback {fuck_cb((Fl_Widget *)o)} selected
+              callback {fuck_cb((Fl_Widget *)o)}
               xywh {1828 70 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
             }
           }
@@ -12061,25 +12069,25 @@ Function {recurseChildren(Fl_Group * const group)} {open
 std::cout << group->children() << " enfants à scanner" << std::endl;
 for(int i=0; i < group->children(); i++){
 	bebe = (Fl_Widget *)group->child(i);
-	if(bebe->label() && !dynamic_cast< Fl_Box* >(bebe)){
-		std::cout << "Child n° " << i << ": " << bebe->label();
+	if(bebe->label()){
+//		std::cout << "Child n° " << i << ": " << bebe->label();
 		if(dynamic_cast< OSCValueSlider* >(bebe)){
-			std::cout << " - VS Value: " << ((Fl_Value_Slider *)bebe)->value();
+			std::cout << "Child n° " << i << ": " << bebe->label() << " - VS osc.udp://" << ((OSCValueSlider *)bebe)->_host() << ":" << ((OSCValueSlider *)bebe)->_port() << " " << ((Fl_Value_Slider *)bebe)->value();
 		}
 		if(dynamic_cast< OSCButton* >(bebe)){
-			std::cout << " - B Value: " << ((Fl_Button *)bebe)->value();
+			std::cout << "Child n° " << i << ": " << bebe->label() << " - B osc.udp://" << ((OSCButton *)bebe)->_host() << ":" << ((OSCButton *)bebe)->_port() << " " << (int)(((Fl_Button *)bebe)->value());
 		}
 		if(dynamic_cast< OSCDial* >(bebe)){
-			std::cout << " - Value: " << ((Fl_Dial *)bebe)->value();
+			std::cout << "Child n° " << i << ": " << bebe->label() << " - D osc.udp://" << ((OSCDial *)bebe)->_host() << ":" << ((OSCDial *)bebe)->_port() << " " << ((Fl_Dial *)bebe)->value();
 		}
 		if(dynamic_cast< OSCSlider* >(bebe)){
-			std::cout << " - S Value: " << ((Fl_Slider *)bebe)->value();
+			std::cout << "Child n° " << i << ": " << bebe->label() << " - S osc.udp://" << ((OSCSlider *)bebe)->_host() << ":" << ((OSCSlider *)bebe)->_port() << " " << ((Fl_Slider *)bebe)->value();
 		}
 		if(dynamic_cast< xyPad* >(bebe)){
-			std::cout << " - xy Value: " << ((xyPad *)bebe)->vx_() << " " << ((xyPad *)bebe)->vy_();
+			std::cout << "Child n° " << i << ": " << bebe->label() << " - xy osc.udp://" << ((xyPad *)bebe)->_host() << ":" << ((xyPad *)bebe)->_port() << " " << ((xyPad *)bebe)->vx_() << " " << ((xyPad *)bebe)->vy_();
 		}
 		if(dynamic_cast< light_xyPad* >(bebe)){
-			std::cout << " - l_xy Value: " << ((light_xyPad *)bebe)->t_() << " " << ((light_xyPad *)bebe)->s_() << " " << ((light_xyPad *)bebe)->v_();
+			std::cout << "Child n° " << i << ": " << bebe->label() << " - l_xy osc.udp://" << ((light_xyPad *)bebe)->_host() << ":" << ((light_xyPad *)bebe)->_port() << " " << ((light_xyPad *)bebe)->t_() << " " << ((light_xyPad *)bebe)->s_() << " " << ((light_xyPad *)bebe)->v_();
 		}
 		
 		std::cout << std::endl;

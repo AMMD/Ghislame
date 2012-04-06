@@ -64,7 +64,13 @@ public:
     delete osco;
     osco = new OSCoutput(host, port);
   };
+
+  const char* _host(){ return host; };
+  const char* _port(){ return port; };
+
 };
+
+
 
 static int dial_handler_wrapper(const char *path, const char *types, lo_arg **argv, int argc, void *data, void *user_data){
 	((OSCDial *)user_data)->dial_handler(path, types, argv, argc, data);

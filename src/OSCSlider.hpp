@@ -52,6 +52,9 @@ public:
   };
 
 
+const char* _host(){ return host; };
+const char* _port(){ return port; };
+
   int slider_handler(const char *path, const char *types, lo_arg **argv, int argc, void *data){
 	((Fl_Slider *)this)->value(argv[0]->i);
 	Fl::flush();

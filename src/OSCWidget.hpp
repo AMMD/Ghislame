@@ -25,4 +25,10 @@ public:
   ~OSCWidget(){};
 
   OSCoutput *osco_(){ return osco; };
+
+  const char* _host(){ return host; };
+  const char* _port(){ return port; };
+
 };
+
+
