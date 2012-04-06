@@ -6098,7 +6098,7 @@ l}
         }
         Fl_Tile MXCtLeadTile {
           label MCd open
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
           Fl_Group MXCtLeadGroup {open
@@ -6903,7 +6903,7 @@ M}
                 label {VCO 4}
                 xywh {538 583 54 25} labelfont 1 labelcolor 133
               }
-              Fl_Group {} {
+              Fl_Group {} {open
                 xywh {550 622 406 50}
               } {
                 Fl_Box {} {
@@ -7137,7 +7137,7 @@ M}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {1510 381 358 358} box BORDER_FRAME color 38
             } {
               Fl_Group {} {open
@@ -8526,8 +8526,8 @@ h}
           }
         }
         Fl_Tile VocalsFxTile {
-          label VFx
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
+          label VFx open
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
           class OSCTile
         } {
           Fl_Group VFXGroup {open
@@ -8835,6 +8835,11 @@ k}
                 label Disintigrator
                 xywh {720 420 96 25} labelfont 1 labelcolor 133
               }
+            }
+            Fl_Button {} {
+              label REFRESH
+              callback {fuck_cb((Fl_Widget *)o)} selected
+              xywh {1828 70 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
             }
           }
         }
@@ -12053,10 +12058,31 @@ if( dynamic_cast<light_xyPad *>(papa) ) {
 Function {recurseChildren(Fl_Group * const group)} {open
 } {
   code {Fl_Widget * bebe;
+std::cout << group->children() << " enfants à scanner" << std::endl;
 for(int i=0; i < group->children(); i++){
 	bebe = (Fl_Widget *)group->child(i);
-	if(bebe->label()){
-		std::cout << "Child n° " << i << ": " << bebe->label() << std::endl;
+	if(bebe->label() && !dynamic_cast< Fl_Box* >(bebe)){
+		std::cout << "Child n° " << i << ": " << bebe->label();
+		if(dynamic_cast< OSCValueSlider* >(bebe)){
+			std::cout << " - VS Value: " << ((Fl_Value_Slider *)bebe)->value();
+		}
+		if(dynamic_cast< OSCButton* >(bebe)){
+			std::cout << " - B Value: " << ((Fl_Button *)bebe)->value();
+		}
+		if(dynamic_cast< OSCDial* >(bebe)){
+			std::cout << " - Value: " << ((Fl_Dial *)bebe)->value();
+		}
+		if(dynamic_cast< OSCSlider* >(bebe)){
+			std::cout << " - S Value: " << ((Fl_Slider *)bebe)->value();
+		}
+		if(dynamic_cast< xyPad* >(bebe)){
+			std::cout << " - xy Value: " << ((xyPad *)bebe)->vx_() << " " << ((xyPad *)bebe)->vy_();
+		}
+		if(dynamic_cast< light_xyPad* >(bebe)){
+			std::cout << " - l_xy Value: " << ((light_xyPad *)bebe)->t_() << " " << ((light_xyPad *)bebe)->s_() << " " << ((light_xyPad *)bebe)->v_();
+		}
+		
+		std::cout << std::endl;
 	}
 	if(dynamic_cast< Fl_Group* >(bebe)){
 		recurseChildren((Fl_Group *)bebe);
@@ -12102,8 +12128,7 @@ switch(wType){
 	case ROLLER_INT:
 		lo_send(t, path, "f", ((Fl_Roller *)widget)->value());
 	break;
-}*/} {selected
-  }
+}*/} {}
 } 
 
 Function {fuck_cb(Fl_Widget* o)} {open
