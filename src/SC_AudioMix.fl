@@ -17,7 +17,7 @@ decl {\#include <iostream>} {private local
 decl {\#include <fstream>} {private local
 } 
 
-decl {\#include <sys/stat.h>} {selected private local
+decl {\#include <sys/stat.h>} {private local
 } 
 
 decl {\#include "OSCoutputs.hpp"} {public global
@@ -68,14 +68,14 @@ Function {} {open
         xywh {0 0 1920 1080} box THIN_UP_FRAME color 33 selection_color 33 labeltype NO_LABEL labelsize 8 labelcolor 93 align 0 resizable
       } {
         Fl_Tile MainGroupsTile {
-          label Mix open
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
+          label Mix
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
-          Fl_Group MainGroupsGroup {open
+          Fl_Group MainGroupsGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 96 95 679}
             } {
               Fl_Dial mg_drumspan {
@@ -405,7 +405,7 @@ Function {} {open
                 xywh {1210 725 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {1452 71 163 679}
             } {
               Fl_Dial mg_mainmixpan {
@@ -441,24 +441,24 @@ Function {} {open
             Fl_Button {} {
               label PLOAD
               callback {luck_cb((Fl_Widget *)o)}
-              xywh {1830 140 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+              xywh {1835 145 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
             }
-          }
-          Fl_Button {} {
-            label PSAVE
-            callback {fuck_cb((Fl_Widget *)o)}
-            xywh {1828 70 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1833 75 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile OrganicDrumsTile {
-          label ODr
+          label ODr open
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
-          Fl_Group OrganicDrumsGroup {
+          Fl_Group OrganicDrumsGroup {open
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 71 95 679}
             } {
               Fl_Dial od_kick1pan {
@@ -491,7 +491,7 @@ Function {} {open
                 xywh {17 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {139 71 95 679}
             } {
               Fl_Dial od_kick2pan {
@@ -524,7 +524,7 @@ Function {} {open
                 xywh {151 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {274 71 95 679}
             } {
               Fl_Dial od_snaretpan {
@@ -557,7 +557,7 @@ Function {} {open
                 xywh {286 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {407 71 95 679}
             } {
               Fl_Dial od_snarebpan {
@@ -590,7 +590,7 @@ Function {} {open
                 xywh {419 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {544 71 95 679}
             } {
               Fl_Dial od_t1pan {
@@ -623,7 +623,7 @@ Function {} {open
                 xywh {556 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {674 71 95 679}
             } {
               Fl_Dial od_t2pan {
@@ -656,7 +656,7 @@ Function {} {open
                 xywh {686 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {803 71 95 679}
             } {
               Fl_Dial od_t3pan {
@@ -689,7 +689,7 @@ Function {} {open
                 xywh {815 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {940 71 95 679}
             } {
               Fl_Dial od_t4pan {
@@ -722,7 +722,7 @@ Function {} {open
                 xywh {952 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {1070 71 95 679}
             } {
               Fl_Dial od_ohpan {
@@ -755,7 +755,7 @@ Function {} {open
                 xywh {1082 700 70 50} selection_color 133 labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {1204 71 107 679}
             } {
               Fl_Dial od_tomspan {
@@ -788,6 +788,16 @@ Function {} {open
                 xywh {1216 700 70 50} selection_color 133 labelcolor 7 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1827 155 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1825 85 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile BassesTile {
@@ -798,7 +808,7 @@ Function {} {open
           Fl_Group BassesGroup {open
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 71 95 679}
             } {
               Fl_Dial b_basspan {
@@ -831,7 +841,7 @@ Function {} {open
                 xywh {17 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {139 71 95 679}
             } {
               Fl_Dial b_grotteriepan {
@@ -864,7 +874,7 @@ Function {} {open
                 xywh {151 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {274 71 95 679}
             } {
               Fl_Dial b_mxbasspan {
@@ -897,7 +907,7 @@ Function {} {open
                 xywh {286 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {407 71 95 679}
             } {
               Fl_Dial b_bassfxpan {
@@ -930,6 +940,16 @@ Function {} {open
                 xywh {419 700 70 50} labelcolor 7 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1792 165 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1790 95 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile SaxophonesTile {
@@ -940,7 +960,7 @@ Function {} {open
           Fl_Group SaxophonesGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 71 95 679}
             } {
               Fl_Dial s_saxpan {
@@ -973,7 +993,7 @@ Function {} {open
                 xywh {17 700 70 50} labelcolor 7 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {139 71 95 679}
             } {
               Fl_Dial s_saxfxpan {
@@ -1006,6 +1026,16 @@ Function {} {open
                 xywh {151 700 70 50} labelcolor 7 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1802 175 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1800 105 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile VocalsTile {
@@ -1016,7 +1046,7 @@ Function {} {open
           Fl_Group VocalsGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 71 95 679}
             } {
               Fl_Dial v_orlpan {
@@ -1049,7 +1079,7 @@ Function {} {open
                 xywh {17 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {139 71 95 679}
             } {
               Fl_Dial v_souvpan {
@@ -1082,7 +1112,7 @@ Function {} {open
                 xywh {151 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {268 71 95 679}
             } {
               Fl_Dial v_yulapan {
@@ -1115,7 +1145,7 @@ Function {} {open
                 xywh {280 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {397 71 95 679}
             } {
               Fl_Dial v_voixfxpan {
@@ -1148,6 +1178,16 @@ Function {} {open
                 xywh {409 700 70 50} labelcolor 93 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1812 185 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1810 115 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile MxSynthsTile {
@@ -1158,7 +1198,7 @@ Function {} {open
           Fl_Group MxSynthsGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 71 95 679}
             } {
               Fl_Dial ms_mxchordspan {
@@ -1191,7 +1231,7 @@ Function {} {open
                 xywh {17 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {139 71 95 679}
             } {
               Fl_Dial ms_mxleadpan {
@@ -1224,7 +1264,7 @@ Function {} {open
                 xywh {151 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {285 71 95 679}
             } {
               Fl_Dial ms_mxctleadpan {
@@ -1257,7 +1297,7 @@ Function {} {open
                 xywh {297 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {422 71 95 679}
             } {
               Fl_Dial ms_mxsamplespan {
@@ -1290,6 +1330,16 @@ Function {} {open
                 xywh {434 700 70 50} labelcolor 93 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1822 195 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1820 125 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile MxDrumsTile {
@@ -1297,10 +1347,10 @@ Function {} {open
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
-          Fl_Group MxDrumsGroup {open
+          Fl_Group MxDrumsGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 71 95 679} labelcolor 92 align 0
             } {
               Fl_Dial md_mxkickspan {
@@ -1333,7 +1383,7 @@ Function {} {open
                 xywh {17 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {139 71 95 679}
             } {
               Fl_Dial md_mxsnarespan {
@@ -1366,7 +1416,7 @@ Function {} {open
                 xywh {151 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {276 71 95 679}
             } {
               Fl_Dial md_mxcymbspan {
@@ -1399,7 +1449,7 @@ Function {} {open
                 xywh {288 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {414 71 95 679}
             } {
               Fl_Dial md_mxcontpan {
@@ -1432,6 +1482,16 @@ Function {} {open
                 xywh {426 700 70 50} labelcolor 93 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1832 205 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1830 135 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile FXsTile {
@@ -1442,7 +1502,7 @@ Function {} {open
           Fl_Group FXsGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {15 63 732 754}
             } {
               Fl_Box {} {
@@ -1516,7 +1576,7 @@ Function {} {open
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {750 63 868 877}
             } {
               Fl_Box {} {
@@ -1631,6 +1691,16 @@ Function {} {open
                 xywh {1490 677 83 58} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1812 215 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1810 145 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile MonYulaTile {
@@ -1638,10 +1708,10 @@ Function {} {open
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
-          Fl_Group MonYulaGroup {open
+          Fl_Group MonYulaGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 71 95 679} labelcolor 92 align 0
             } {
               Fl_Dial my_mainmixpan {
@@ -1674,7 +1744,7 @@ Function {} {open
                 xywh {17 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {139 71 95 679}
             } {
               Fl_Dial my_kick1pan {
@@ -1707,7 +1777,7 @@ Function {} {open
                 xywh {151 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {276 71 95 679}
             } {
               Fl_Dial my_droiturepan {
@@ -1740,7 +1810,7 @@ Function {} {open
                 xywh {288 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {417 70 95 680}
             } {
               Fl_Dial my_drumspan {
@@ -1773,6 +1843,16 @@ Function {} {open
                 xywh {431 700 70 50} labelcolor 93 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {677 150 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {675 80 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile MonORLTile {
@@ -1780,10 +1860,10 @@ Function {} {open
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
-          Fl_Group MonORLGroup {open
+          Fl_Group MonORLGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 71 95 679} labelcolor 92 align 0
             } {
               Fl_Dial mo_mainmixpan {
@@ -1816,7 +1896,7 @@ Function {} {open
                 xywh {17 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {139 71 95 679}
             } {
               Fl_Dial mo_basspan {
@@ -1849,7 +1929,7 @@ Function {} {open
                 xywh {151 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {276 71 95 679}
             } {
               Fl_Dial mo_guitarespan {
@@ -1882,7 +1962,7 @@ Function {} {open
                 xywh {288 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {412 71 95 679}
             } {
               Fl_Dial mo_voixpan {
@@ -1915,7 +1995,7 @@ Function {} {open
                 xywh {427 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {555 71 95 679}
             } {
               Fl_Dial mo_droiturepan {
@@ -1948,7 +2028,7 @@ Function {} {open
                 xywh {567 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {694 70 101 680}
             } {
               Fl_Dial mo_drumspan {
@@ -1981,6 +2061,16 @@ Function {} {open
                 xywh {711 700 70 50} labelcolor 93 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1752 155 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1750 85 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile MonSouvTile {
@@ -1991,7 +2081,7 @@ Function {} {open
           Fl_Group MonSouvGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {5 71 95 679} labelcolor 92 align 0
             } {
               Fl_Dial mj_mainmixpan {
@@ -2024,7 +2114,7 @@ Function {} {open
                 xywh {17 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {139 71 95 679}
             } {
               Fl_Dial mj_saxophonespan {
@@ -2057,7 +2147,7 @@ Function {} {open
                 xywh {151 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {276 71 95 679}
             } {
               Fl_Dial mj_voixpan {
@@ -2090,7 +2180,7 @@ Function {} {open
                 xywh {288 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {423 71 95 679}
             } {
               Fl_Dial mj_droiturepan {
@@ -2123,7 +2213,7 @@ Function {} {open
                 xywh {432 700 70 50} labelcolor 93 align 17
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {577 70 95 680}
             } {
               Fl_Dial mj_drumspan {
@@ -2156,6 +2246,16 @@ Function {} {open
                 xywh {584 700 70 50} labelcolor 93 align 17
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1762 150 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1760 80 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile MXBassTile {
@@ -2163,7 +2263,7 @@ Function {} {open
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
-          Fl_Group MXBassGroup {open
+          Fl_Group MXBassGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
             Fl_Button {} {
@@ -3198,7 +3298,7 @@ M}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {1407 160 490 550} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -3430,8 +3530,18 @@ y}
                 }
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1545 60 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1455 60 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
-          Fl_Group {} {open
+          Fl_Group {} {
             xywh {1407 722 490 250} box BORDER_FRAME color 38
           } {
             Fl_Group {} {open
@@ -3516,11 +3626,11 @@ y}
           }
         }
         Fl_Tile MXChordsTile {
-          label MCh open
+          label MCh
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
-          Fl_Group MXChordsGroup {open
+          Fl_Group MXChordsGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
             Fl_Button {} {
@@ -4318,7 +4428,7 @@ M}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {536 528 490 550} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -4550,7 +4660,7 @@ y}
                 }
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {1421 159 490 550} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -4812,6 +4922,16 @@ l}
                 }
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1550 75 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1460 75 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile MXLeadTile {
@@ -4819,7 +4939,7 @@ l}
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
-          Fl_Group MXLeadGroup {open
+          Fl_Group MXLeadGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
             Fl_Button {} {
@@ -5613,7 +5733,7 @@ M}
                 class OSCValueSlider
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {536 528 490 550} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -5845,7 +5965,7 @@ y}
                 }
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {1421 159 490 550} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -6107,14 +6227,24 @@ l}
                 }
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1550 75 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1460 75 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile MXCtLeadTile {
-          label MCd open
+          label MCd
           xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
           class OSCTile
         } {
-          Fl_Group MXCtLeadGroup {open
+          Fl_Group MXCtLeadGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
             Fl_Button {} {
@@ -7179,6 +7309,16 @@ n}
                 xywh {1515 381 41 25} labelfont 1 labelcolor 133
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1550 60 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1460 60 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile SooperLooperTile {
@@ -7189,7 +7329,7 @@ n}
           Fl_Group SLGroup {open
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {55 95 610 295} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -7430,7 +7570,7 @@ n}
                 }
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {56 405 610 295} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -7671,7 +7811,7 @@ n}
                 }
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {718 95 610 295} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -7912,7 +8052,7 @@ n}
                 }
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {719 405 610 295} box BORDER_FRAME color 38
             } {
               Fl_Box {} {
@@ -8160,6 +8300,16 @@ n}
               code0 {sl_bpm->configOSC("SCSon", "56416");}
               class OSCValueSlider
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1750 75 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1660 75 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile BassFxTile {
@@ -8170,7 +8320,7 @@ n}
           Fl_Group BFXGroup {
             xywh {0 50 1920 1030} labeltype NO_LABEL align 0 resizable
           } {
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {1255 145 533 720} box BORDER_FRAME color 38
             } {
               Fl_Group {} {open
@@ -8251,7 +8401,7 @@ n}
                 class OSCButton
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {135 765 440 195} box BORDER_FRAME color 38
             } {
               Fl_Value_Slider bfx_pitch {
@@ -8333,7 +8483,7 @@ n}
                 xywh {140 767 92 25} labelfont 1 labelcolor 133
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {10 150 750 200} box BORDER_FRAME color 38
             } {
               Fl_Value_Slider bfx_chorustime {
@@ -8420,7 +8570,7 @@ d}
                 xywh {15 155 61 25} labelfont 1 labelcolor 133
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {155 440 405 185} box BORDER_FRAME color 38
             } {
               Fl_Value_Slider bfx_delaytime {
@@ -8460,7 +8610,7 @@ d}
                 xywh {160 445 76 25} labelfont 1 labelcolor 133
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {730 470 400 250} box BORDER_FRAME color 38
             } {
               Fl_Group {} {open
@@ -8536,11 +8686,21 @@ h}
                 xywh {735 475 61 25} labelfont 1 labelcolor 133
               }
             }
+            Fl_Button {} {
+              label PLOAD
+              callback {luck_cb((Fl_Widget *)o)}
+              xywh {1775 65 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
+            Fl_Button {} {
+              label PSAVE
+              callback {fuck_cb((Fl_Widget *)o)}
+              xywh {1685 65 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+            }
           }
         }
         Fl_Tile VocalsFxTile {
           label VFx open
-          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65 hide
+          xywh {0 50 1920 1030} color 33 selection_color 33 labelsize 40 labelcolor 65
           class OSCTile
         } {
           Fl_Group VFXGroup {open
@@ -8638,7 +8798,7 @@ h}
                 xywh {130 575 40 40} labelcolor 133
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {1245 385 400 250} box BORDER_FRAME color 38
             } {
               Fl_Group {} {
@@ -8805,7 +8965,7 @@ k}
                 xywh {130 342 130 25} labelfont 1 labelcolor 133
               }
             }
-            Fl_Group {} {open
+            Fl_Group {} {
               xywh {715 415 400 200} box BORDER_FRAME color 38
             } {
               Fl_Group {} {open
@@ -8854,6 +9014,16 @@ k}
               callback {fuck_cb((Fl_Widget *)o)}
               xywh {1828 70 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
             }
+          }
+          Fl_Button {} {
+            label PLOAD
+            callback {luck_cb((Fl_Widget *)o)} selected
+            xywh {1740 70 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
+          }
+          Fl_Button {} {
+            label PSAVE
+            callback {fuck_cb((Fl_Widget *)o)} selected
+            xywh {1650 70 80 60} box THIN_UP_BOX down_box THIN_DOWN_BOX color 0 labelfont 1 labelcolor 133 when 6
           }
         }
         Fl_Tile LAOTile {
